@@ -1,0 +1,75 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+header,
+footer {
+    background-color: #005f73;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 0.5rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #0055aa;
+}
+
+main {
+    max-width: 900px;
+    margin: 2rem auto;
+    display: grid;
+    gap: 2rem;
+    padding: 0 1rem;
+}
+
+.card {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: black
+}
+
+.card img {
+    max-width: 20%;
+    height: auto;
+    margin-top: 1rem;
+    border-radius: 8px;
+}
+
+footer {
+    background: #005f73;
+    color: white;
+    padding: 20px;
+    display: grid;
+    align-items: center;
+}
+
+footer p {
+    font-size: 1.1rem;
+    margin: 10px;
+}
+
+
+
+/* The end
