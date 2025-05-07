@@ -4,51 +4,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WDD 131 – Dynamic Web Fundamentals - Tiago Borges </title>
     <meta name="description"
-        content="WDD 131 – Dynamic Web Fundamentals | Tiago Borges | Home page with HTML, CSS, and JavaScript basics.">
+        content="WDD 131 - Dynamic Web Fundamentals | Tiago  Borges | Projects, HTML, CSS, JavaScript.">
     <meta name="author" content="Tiago Borges">
-
-
+    <title>WDD 131 – Dynamic Web Fundamentals - Tiago Borges </title>
     <link rel="stylesheet" href="styles/base.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
     <script src="scripts/getdates.js" defer></script>
 </head>
 
 <body>
-    <header>
-        <h1>WDD 131: Dynamic Web Fundamentals</h1>
+    <header class="container">
+        <h1>WDD 131: Dynamic Web Fundamentals - <span>Tiago Borges</span></h1>
         <nav>
-            <a href="https://www.linkedin.com/in/tiago-neri-cfa-if-50935814b/">LinkedIn</a>
-            <a href="https://byupw.instructure.com/">Canvas</a>
-            <a href="https://www.churchofjesuschrist.org/study/scriptures/bofm/1-ne/3?lang=eng&id=p7#p7">Scripture</a>
-            <a href="#">Final Project</a>
+            <ul class="navigation">
+                <li><a href="https://www.linkedin.com/in/tiago-neri-cfa-if-50935814b/" title="LinkedIn">LinkedIn</a>
+                </li>
+                <li><a href="https://byupw.instructure.com/" title="Canvas">Canvas</a></li>
+                <li><a href="https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/1?lang=eng&id=20-21#p20"
+                        title="Scripture">Scripture</a></li>
+                <li><a href="" title="Final Project">Final Project</a></li>
+            </ul>
         </nav>
     </header>
+    <main class="main-section">
+        <section class="card1">
+            <div class="aboutme">
+                <h2>About Me</h2>
+            </div>
+            <div class="myself">
+                <p>Hello! I'm Tiago. With a background in Economics (BSc) and Finance (MBA), I'm currently
+                    transitioning
+                    into
+                    the tech industry through a Bachelor's degree in Software Development at BYU-Idaho. I’ve
+                    always
+                    enjoyed
+                    solving problems and analyzing systems, and now I’m excited to apply that mindset to web
+                    development and
+                    software design. This course is part of my journey to build strong technical skills, and I'm
+                    looking
+                    forward to creating modern, functional web applications that make a difference.</p> <img
+                    src="images/profile.jpeg" alt="My picture">
+            </div>
+            <div class="Btitle">
+                <h2>Brazil</h2>
+            </div>
+            <div class="brazil">
+                <div class="flag-block">
+                    <img src="images/brazil.webp" alt="Brazil">
+                    <h3> Brazil Flag</h3>
+                </div>
+                <p> Brazil is the largest country in South America and the fifth largest in the world by area and
+                    population. Known for its diverse culture, vibrant music, and natural beauty, Brazil is home to the
+                    Amazon Rainforest, the world's largest tropical rainforest, and iconic landmarks like Christ the
+                    Redeemer in Rio de Janeiro. The country has a mixed economy with strong agricultural, mining, and
+                    industrial sectors, and Portuguese is its official language.</p>
+            </div>
 
-    <main>
-        <section class="card">
-            <h2>About Me</h2>
-            <img src="images/profile.jpeg" alt="My  Photo">
-            <p>Hello! I'm Tiago. With a background in Economics (BSc) and Finance (MBA), I'm currently transitioning
-                into
-                the tech industry through a Bachelor's degree in Software Engineering at BYU-Idaho. I’ve always enjoyed
-                solving problems and analyzing systems, and now I’m excited to apply that mindset to web development and
-                software design. This course is part of my journey to build strong technical skills, and I'm looking
-                forward to creating modern, functional web applications that make a difference.</p>
+        </section>
+        <section class="card2">
+            <div class="webdev">
+                <h2>Web Dev Resources</h2>
+            </div>
+            <ul class="webdev-tools">
+                <li><a href="https://css-tricks.com/" title="CSS-Tricks">CSS-Tricks</a></li>
+
+                <li><a href="https://www.freecodecamp.org/" title="freeCodeCamp">FreeCodeCamp</a></li>
+
+                <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" title="HTML - MDN">HTML - MDN</a></li>
+
+                <li><a href="https://javascript.info/" title="JavaScript.info">JavaScript.info</a></li>
+
+                <li><a href="https://codepen.io/" title="CodePen">CodePen</a></li>
+
+                <li><a href="https://stackblitz.com/" title="StackBlitz">StackBlitz</a></li>
+            </ul>
+
         </section>
 
-        <section class="card">
-            <h2>My Goals</h2>
-            <img src="images/goals.jpg" alt="Goals Image">
-            <p>Describe your goals for the course or life.</p>
-        </section>
     </main>
-
     <footer>
-        <p>&copy; <span id="currentyear"></span> Tiago Borges | Paraná - Brazil </p>
+        <p>© <span id="currentyear"></span> Tiago Borges | Paraná , Brazil</p>
         <p id="lastModified"></p>
     </footer>
+
 </body>
 
 </html>
