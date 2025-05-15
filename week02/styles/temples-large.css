@@ -1,0 +1,15 @@
+@media (min-width: 768px) {
+    nav {
+        display: flex !important;
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+    #menu-button {
+        display: none;
+    }
+
+    .album {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+}
