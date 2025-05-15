@@ -59,7 +59,7 @@ main {
 
 }
 
-/* Album Grid */
+
 .album {
     display: grid;
     grid-template-columns: 1fr;
