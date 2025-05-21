@@ -138,23 +138,28 @@ footer {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 0.75rem;
+    gap: 1rem;
     align-items: center;
     text-align: center;
 }
 
+/* Footer links */
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
 .footer-links a {
     color: #ffffffcc;
-    margin: 0 0.75rem;
     text-decoration: none;
     font-weight: 500;
+    transition: color 0.3s;
 }
 
 .footer-links a:hover {
-    text-decoration: none;
     color: white;
-    padding: 0.75rem 1rem;
-    transition: background 0.1s;
 }
 
 /* Buttons (future use) */
@@ -239,9 +244,23 @@ a:focus {
         padding: 0.5rem;
     }
 
-    .footer-container {
-        flex-direction: row;
-        justify-content: space-between;
-        text-align: left;
+    footer-container {
+        padding: 1rem;
+        gap: 1rem;
+    }
+
+    .footer-info {
+        text-align: center;
+        line-height: 1.4;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .footer-links a {
+        font-size: 1rem;
     }
 }
