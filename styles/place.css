@@ -3,6 +3,7 @@
     --secondary-color: #ffffff;
     --accent-color: #f2b632;
     --text-color: #333;
+    font-family: 'Roboto', sans-serif;
     --bg-color: #f9f9f9;
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     --radius: 12px;
