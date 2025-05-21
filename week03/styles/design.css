@@ -1,0 +1,68 @@
+/* Universal Selector */
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+/* HTML Element Selectors */
+body {
+	font-family: Roboto, helvetica, sans-serif;
+	margin: 1rem;
+}
+
+header,
+main,
+footer {
+	max-width: 760px;
+	margin: 0 auto;
+}
+
+h1 {
+	border-bottom: 1px solid rgb(0 0 0 / 0.1);
+	margin: 1rem 0;
+}
+
+main {
+	display: grid;
+	grid-template-columns: 1fr 200px;
+	grid-gap: 1.5rem;
+}
+
+section {
+	padding: 1rem;
+}
+
+h2 {
+	color: navy;
+	grid-column: 1/3;
+}
+
+h3 {
+	margin-bottom: 0.5rem;
+}
+
+footer {
+	margin-top: 1rem;
+	border-top: 1px solid rgb(0 0 0 / 0.1);
+	padding: 0.5rem 0;
+	font-size: smaller;
+}
+
+/* Class Selectors */
+.banner {
+	border: 1px solid rgb(0 0 0 / 0.2);
+	padding: 1rem;
+	background-color: rgb(230 243 254 / 1);
+	font-weight: 700;
+	word-break: break-word;
+	text-align: center;
+}
+
+.callout {
+	border: 1px solid rgb(0 0 0 / 0.1);
+	color: #000;
+	background-color: #eee;
+	grid-column: 1/3;
+	padding: 1rem;
+}

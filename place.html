@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="WDD 131 - Dynamic Web Fundamentals | Tiago  Borges | Project week03.">
+    <meta name="author" content="Tiago Borges" />
+    <title>Welcome to Sunny Island</title>
+
+    <link rel="stylesheet" href="styles/place.css" />
+    <script src="scripts/place.js" defer></script>
+
+    <meta name="description"
+        content="WDD 131 - Dynamic Web Fundamentals | Tiago  Borges | Projects, HTML, CSS, JavaScript.">
+    <meta name="author" content="Tiago Borges">
+
+
+
+
+
+</head>
+
+<body>
+    <header>
+        <h1>Welcome to Sunny Island</h1>
+    </header>
+
+    <main>
+        <!-- Hero Section with Responsive Image xD -->
+        <section class="hero">
+            <picture>
+                <source srcset="images/andaland-large.webp" media="(min-width: 600px)" />
+                <img src="images/andaland-small.webp" alt="Andaland landscape" />
+            </picture>
+        </section>
+
+        <!-- Info Section!-->
+
+        <section class="info">
+            <h2>About Sunny Island</h2>
+            <p>Sunny Island is a hidden gem nestled in the heart of the tropics. Known for its pristine beaches,
+                crystal-clear waters, and lush landscapes, it offers a perfect escape from the hustle and bustle of
+                everyday life. The island boasts a rich cultural heritage, with vibrant festivals, traditional cuisine,
+                and friendly locals who are always eager to share their stories and customs. Whether you're looking for
+                adventure, relaxation, or a bit of both, Sunny Island is a paradise waiting to be explored.</p>
+        </section>
+
+        <!-- Weather -->
+        <section class="weather">
+            <h2>Weather <span class="icon">⛅</span></h2>
+            <p><strong>Temperature:</strong> <span id="temp">50</span> °F</p>
+            <p><strong>Wind Speed:</strong> <span id="speed">10</span> mph</p>
+            <p><strong>Wind Chill:</strong> <span id="chill">Calculating...</span></p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-info">
+                <p>&copy; <span id="year"></span> Tiago Neri | WDD 131 BYU-Idaho</p>
+                <p>Last Updated: <span id="lastModified"></span></p>
+            </div>
+            <div class="footer-links">
+                <a href="https://www.byui.edu/" target="_blank" rel="noopener noreferrer">BYU-Idaho</a>
+                <a href="https://github.com/thneri95" target="_blank" rel="noopener noreferrer"><i
+                        class="fab fa-github"></i> GitHub</a>
+                <a href="https://www.linkedin.com/in/tiago-neri-cfa-if-50935814b/" target="_blank"
+                    rel="noopener noreferrer">LinkedIn</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
+
+<!--
+
+
+About "Sunny Island project" 
+developed by Tiago Borges for the WDD 131 - Dynamic Web Fundamentals course at BYU-Idaho:
+
+This project  demonstrates a clean, responsive web page with modern CSS techniques...
+ I improved the page by adding smooth hover effects, enhancing typography, optimizing images for responsiveness
+and implementing accessibility features like focus styles. 
+These upgrades make the site more engaging, user-friendly and adaptable across devices!!!
+
+Highlights about improvements that I Made: 
+
+- Added smooth hover effects on sections for better interactivity
+
+- Enhanced typography for improved readability and visual hierarchy
+
+- Optimized images with object-fit for consistent responsive display
+
+- Implemented focus styles to improve accessibility and keyboard navigation
+
+- Created utility CSS classes for easier future layout adjustments
+
+- Applied mobile-specific tweaks for better usability on small screens
+
+
+
+-->

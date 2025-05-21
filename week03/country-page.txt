@@ -1,0 +1,72 @@
+Assignment Overview
+Objective: Design and develop a single webpage that showcases a country or place you live in, have visited, or wish to visit. This task emphasizes responsive design, semantic HTML, CSS styling, and basic JavaScript functionality.
+CliffsNotes
+
+Learning Outcomes:
+
+Develop responsive web pages using valid HTML and CSS.
+
+Demonstrate proficiency with JavaScript syntax.
+
+Utilize JavaScript to handle events and dynamically modify HTML.
+
+Exhibit effective teamwork traits, including clear communication and meeting deadlines.
+
+📁 File and Folder Setup
+Create HTML File: In your wdd131 local repository, add a new HTML file named place.html.
+
+Add CSS File(s): Place your CSS file(s) in the appropriate subfolder. You can organize media queries within a single CSS file or multiple files as preferred.
+
+Include JavaScript File: Add a JavaScript file in the relevant subfolder to handle dynamic functionalities.
+
+🧱 HTML Structure
+Standard Elements: Ensure your HTML includes the standard document structure with <head> and <body> elements.
+
+Linking Files: Link your CSS files within the <head> and reference your JavaScript file using the defer attribute to ensure it loads after the HTML content.
+
+Layout: Structure your page based on the provided wireframes, ensuring components and their positions match the design specifications.
+
+Responsive Images: Implement srcset for hero images to serve different images based on screen size, using either the <picture> element or the img tag with srcset.
+
+🎨 CSS Styling
+Design Principles: Apply good design practices, including alignment, color contrast, proximity, repetition, white space, and overall usability.
+
+Color Scheme: Choose colors that represent the selected country or place. For instance, use national flag colors to enhance thematic consistency.
+
+Typography: Select fonts that complement your design and ensure readability.
+
+Styling Requirements:
+
+Match layouts as shown in the wireframes.
+
+Implement media queries for responsiveness.
+
+Use global CSS variables for consistent styling.
+
+Apply a pseudo-element for the weather icon in the large view, positioned after the "Weather" heading.
+CliffsNotes
+
+🌐 Assets and Media
+Images: Utilize WebP format for hero images to optimize loading times.
+
+Weather Icons:
+
+In mobile view, use an SVG image for the weather icon, which can be sourced from sites like iconfinder.com.
+
+In wider views, display an emoticon or equivalent (e.g., ⛅) adjacent to the "Weather" heading.
+
+Image Sources: You may use personal images or select from free stock photos available on Pexels or Unsplash. Ensure compliance with licensing requirements and provide appropriate attributions if necessary.
+
+🧮 JavaScript Functionality
+Footer Information: Use JavaScript to dynamically display the current year and the date the document was last modified in the page footer.
+
+Wind Chill Calculation: Implement a function to calculate and display the wind chill factor in the "Weather" section.
+
+📌 Additional Tips
+Wireframe Tools: While wireframes are provided, consider creating your own using tools like Diagrams.net or Moqups for practice.
+
+Responsive Design: Test your webpage on various screen sizes to ensure responsiveness and usability across devices.
+
+Code Validation: Use HTML and CSS validators to check for errors and ensure your code adheres to best practices.
+
+Version Control: Regularly commit your changes using Git to track your progress and facilitate collaboration if working in a team.
