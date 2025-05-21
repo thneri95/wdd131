@@ -10,7 +10,6 @@
     <title>Welcome to Sunny Island</title>
     <link rel="stylesheet" href="styles/place.css" />
     <script src="scripts/place.js" defer></script>
-
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 
@@ -20,11 +19,11 @@
     </header>
 
     <main>
-        <!-- Hero Section with Responsive Image -->
+        <!-- Hero Section -->
         <section class="hero">
             <picture>
                 <source srcset="images/sunny-large.webp" media="(min-width: 600px)" type="image/webp" />
-                <img src="images/sunny-small.webp" alt="Andaland landscape" />
+                <img src="images/sunny-small.webp" alt="Sunny Island landscape" />
             </picture>
         </section>
 
@@ -34,13 +33,18 @@
             <p>Sunny Island is a hidden gem nestled in the heart of the tropics. Known for its pristine beaches,
                 crystal-clear waters, and lush landscapes, it offers a perfect escape from the hustle and bustle of
                 everyday life. The island boasts a rich cultural heritage, with vibrant festivals, traditional cuisine,
-                and friendly locals who are always eager to share their stories and customs. Whether you're looking for
-                adventure, relaxation, or a bit of both, Sunny Island is a paradise waiting to be explored!</p>
+                and friendly locals. Whether you're looking for adventure or relaxation, Sunny Island is a paradise
+                waiting to be explored!</p>
         </section>
 
         <!-- Weather Section -->
-        <section class="weather">
-            <h2>Weather <span class="icon">⛅</span></h2>
+        <section class="weather" aria-labelledby="weather-title">
+            <h2 id="weather-title">Weather</h2>
+
+            <!-- SVG icon only on mobile -->
+            <img src="icons/sun.svg.svg" alt="Sunny weather icon" class="icon mobile-icon" aria-hidden="true" />
+
+            <p>Sunny with light clouds</p>
             <p><strong>Temperature:</strong> <span id="temp">50</span> °F</p>
             <p><strong>Wind Speed:</strong> <span id="speed">10</span> mph</p>
             <p><strong>Wind Chill:</strong> <span id="chill">Calculating...</span></p>
@@ -68,32 +72,3 @@
 </body>
 
 </html>
-
-<!--
-
-
-About "Sunny Island project" 
-developed by Tiago Borges for the WDD 131 - Dynamic Web Fundamentals course at BYU-Idaho:
-
-This project  demonstrates a clean, responsive web page with modern CSS techniques...
- I improved the page by adding smooth hover effects, enhancing typography, optimizing images for responsiveness
-and implementing accessibility features like focus styles. 
-These upgrades make the site more engaging, user-friendly and adaptable across devices!!!
-
-Highlights about improvements that I Made: 
-
-- Added smooth hover effects on sections for better interactivity
-
-- Enhanced typography for improved readability and visual hierarchy
-
-- Optimized images with object-fit for consistent responsive display
-
-- Implemented focus styles to improve accessibility and keyboard navigation
-
-- Created utility CSS classes for easier future layout adjustments
-
-- Applied mobile-specific tweaks for better usability on small screens
-
-
-
--->

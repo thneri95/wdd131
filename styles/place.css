@@ -2,14 +2,11 @@
     --primary-color: #007acc;
     --secondary-color: #ffffff;
     --accent-color: #f2b632;
-    --text-color: #333;
+    --text-color: #black;
     --bg-color: #f9f9f9;
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     --radius: 12px;
-}
-
-html {
-    scroll-behavior: smooth;
+    font-family: 'Roboto', sans-serif;
 }
 
 * {
@@ -19,7 +16,7 @@ html {
 }
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
@@ -32,14 +29,13 @@ h2,
 h3 {
     font-weight: 600;
     line-height: 1.3;
-    margin-bottom: 1rem;
 }
 
 p {
     font-size: 1.05rem;
-    margin-bottom: 1rem;
 }
 
+/* Header */
 header {
     background: linear-gradient(to right, var(--primary-color), #005b99);
     color: var(--secondary-color);
@@ -53,6 +49,7 @@ header h1 {
     margin-bottom: 0.5rem;
 }
 
+/* Main Layout */
 main {
     max-width: 960px;
     margin: 2rem auto;
@@ -62,6 +59,7 @@ main {
     gap: 2rem;
 }
 
+/* Hero */
 .hero picture,
 .hero img {
     width: 100%;
@@ -76,26 +74,51 @@ main {
     height: auto;
 }
 
+/* Sections */
 section {
     background: var(--secondary-color);
     border-radius: var(--radius);
     padding: 1.5rem;
     box-shadow: var(--shadow);
-    transition: transform 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 section:hover {
     transform: translateY(-3px);
 }
 
+/* Info & Weather Titles */
 .info h2,
 .weather h2 {
     color: var(--primary-color);
+    margin-bottom: 1rem;
 }
 
-.weather .icon {
-    font-size: 1.5rem;
-    margin-left: 0.5rem;
+/* Weather Icon for Mobile */
+.icon.mobile-icon {
+    display: inline-block;
+    width: 32px;
+    height: auto;
+    margin-bottom: 0.5rem;
+}
+
+/* Emoji for Desktop */
+@media (min-width: 768px) {
+    .icon.mobile-icon {
+        display: none;
+    }
+
+    .weather h2::after {
+        content: " ⛅";
+        margin-left: 0.4rem;
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .weather h2::after {
+        content: "";
+    }
 }
 
 .weather p {
@@ -125,19 +148,16 @@ footer {
     margin: 0 0.75rem;
     text-decoration: none;
     font-weight: 500;
-    transition: all 0.3s ease;
 }
 
-.footer-links a:hover,
-.footer-links a:focus {
+.footer-links a:hover {
+    text-decoration: none;
     color: white;
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 0.5rem 1rem;
-    border-radius: var(--radius);
-    outline: none;
+    padding: 0.75rem 1rem;
+    transition: background 0.1s;
 }
 
-/* Buttons */
+/* Buttons (future use) */
 button {
     background-color: var(--accent-color);
     color: var(--text-color);
@@ -155,13 +175,14 @@ button:hover {
     background-color: #e6a821;
 }
 
+/* Focus styles for accessibility */
 button:focus,
 a:focus {
     outline: 2px dashed var(--accent-color);
     outline-offset: 4px;
 }
 
-/* Utility classes */
+/* Utilities */
 .mt-2 {
     margin-top: 2rem;
 }
@@ -199,10 +220,6 @@ a:focus {
     .hero {
         flex-basis: 100%;
     }
-
-    .weather h2::after {
-        content: " 🌦️";
-    }
 }
 
 @media (max-width: 600px) {
@@ -223,8 +240,8 @@ a:focus {
     }
 
     .footer-container {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
     }
 }
