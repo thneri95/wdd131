@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="WDD 131 - Dynamic Web Fundamentals | Tiago Borges | Project week03" />
     <meta name="author" content="Tiago Borges" />
+    <meta name="theme-color" content="#007acc" />
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet" />
     <title>Welcome to Sunny Island</title>
     <link rel="stylesheet" href="styles/place.css" />
@@ -23,33 +25,34 @@
         <section class="hero">
             <picture>
                 <source srcset="images/sunny-large.webp" media="(min-width: 600px)" type="image/webp" />
-                <img src="images/sunny-small.webp" alt="Sunny Island landscape" />
+                <img src="images/sunny-small.webp" alt="A tropical beach scene at Sunny Island" />
             </picture>
         </section>
 
         <!-- Info Section -->
         <section class="info">
             <h2>About Sunny Island</h2>
-            <p>Sunny Island is a hidden gem nestled in the heart of the tropics. Known for its pristine beaches,
+            <p>
+                Sunny Island is a hidden gem nestled in the heart of the tropics. Known for its pristine beaches,
                 crystal-clear waters, and lush landscapes, it offers a perfect escape from the hustle and bustle of
                 everyday life. The island boasts a rich cultural heritage, with vibrant festivals, traditional cuisine,
                 and friendly locals. Whether you're looking for adventure or relaxation, Sunny Island is a paradise
-                waiting to be explored!</p>
+                waiting to be explored!
+            </p>
         </section>
 
         <!-- Weather Section -->
         <section class="weather" aria-labelledby="weather-title">
             <h2 id="weather-title">Weather</h2>
-
             <!-- SVG icon only on mobile -->
-            <img src="icons/sun.svg.svg" alt="Sunny weather icon" class="icon mobile-icon" aria-hidden="true" />
-
+            <img src="icons/sun.svg" alt="" class="icon mobile-icon" role="presentation" />
             <p>Sunny with light clouds</p>
             <p><strong>Temperature:</strong> <span id="temp">50</span> °F</p>
             <p><strong>Wind Speed:</strong> <span id="speed">10</span> mph</p>
             <p><strong>Wind Chill:</strong> <span id="chill">Calculating...</span></p>
         </section>
     </main>
+
     <footer>
         <div class="footer-container">
             <div class="footer-info">
@@ -67,9 +70,6 @@
                 </a>
             </div>
         </div>
-    </footer>
-
-    </div>
     </footer>
 </body>
 

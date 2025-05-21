@@ -2,11 +2,11 @@
     --primary-color: #007acc;
     --secondary-color: #ffffff;
     --accent-color: #f2b632;
-    --text-color: #black;
+    --text-color: #000000;
     --bg-color: #f9f9f9;
     --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     --radius: 12px;
-    font-family: 'Roboto', sans-serif;
+    --font-family: 'Roboto', sans-serif;
 }
 
 * {
@@ -15,8 +15,12 @@
     padding: 0;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: var(--font-family);
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
@@ -84,7 +88,8 @@ section {
 }
 
 section:hover {
-    transform: translateY(-3px);
+    transform: translateY(-2px);
+    cursor: pointer;
 }
 
 /* Info & Weather Titles */
@@ -141,6 +146,7 @@ footer {
     gap: 1rem;
     align-items: center;
     text-align: center;
+    padding: 1rem;
 }
 
 /* Footer links */
@@ -165,7 +171,7 @@ footer {
 /* Buttons (future use) */
 button {
     background-color: var(--accent-color);
-    color: var(--text-color);
+    color: #000;
     border: none;
     padding: 0.6rem 1rem;
     border-radius: var(--radius);
@@ -244,8 +250,7 @@ a:focus {
         padding: 0.5rem;
     }
 
-    footer-container {
-        padding: 1rem;
+    .footer-container {
         gap: 1rem;
     }
 
