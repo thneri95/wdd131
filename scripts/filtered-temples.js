@@ -104,11 +104,11 @@ const temples = [
     },
 ]
 
-// Get the container where temple cards will be displayed:
+//  container where temple cards will be displayed:
 const albumSection = document.querySelector('.album');
 
 /**
- * Creates an HTML element for a single temple card.
+ * Creates an HTML element for a single temple card:
  * @param {object} temple - The temple object containing its data!
  * @returns {HTMLElement} The created temple card div element!
  */
@@ -126,17 +126,17 @@ function createTempleCard(temple) {
     dedicated.textContent = `Dedicated: ${temple.dedicated}`;
 
     const area = document.createElement('p');
-    // Format the area with local-specific thousands separator for better readability
+    // Format the area with local-specific thousands separator for better readability:
     area.textContent = `Area: ${temple.area.toLocaleString()} sq ft`;
 
     const img = document.createElement('img');
     img.src = temple.imageUrl;
-    img.alt = `${temple.templeName} Temple`; // More descriptive alt text for accessibility
+    img.alt = `${temple.templeName} Temple`; // More descriptive alt text for accessibility:
     img.loading = 'lazy'; // Enable native lazy loading for the image
     img.width = "400"; // Set intrinsic width for better layout stability
     img.height = "250"; // Set intrinsic height for better layout stability
 
-    // Add an error handler for images that fail to load
+    // Add an error handler for images that fail to load: 
     img.onerror = () => {
         console.error(`Failed to load image: ${temple.imageUrl}. Displaying fallback.`);
         img.src = `https://placehold.co/${img.width}x${img.height}/003366/FFFFFF?text=Image+Not+Found`;
@@ -154,16 +154,16 @@ function createTempleCard(temple) {
 }
 
 /**
- * Displays a given array of temples in the album section, clearing previous content.
- * Also manages the active class on navigation links.
- * @param {Array<object>} templesToDisplay - The array of temple objects to display.
- * @param {string} activeFilterId - The ID of the currently active filter link.
+ * Displays a given array of temples in the album section, clearing previous content...
+ * Also manages the active class on navigation links:
+ * @param {Array<object>} templesToDisplay - The array of temple objects to display
+ * @param {string} activeFilterId - The ID of the currently active filter link
  */
 function displayTemples(templesToDisplay, activeFilterId) {
-    // Clear any existing temple cards in the album section
+    // Clear any existing temple cards in the album section:
     albumSection.innerHTML = '';
 
-    // Loop through the array and create a card for each temple
+    // Loop through the array and create a card for each temple:
     templesToDisplay.forEach(temple => {
         const card = createTempleCard(temple);
         albumSection.appendChild(card);
@@ -186,8 +186,8 @@ function displayTemples(templesToDisplay, activeFilterId) {
 navMenu.addEventListener('click', (event) => {
     // Check if the clicked element is a navigation link (an 'a' tag)
     if (event.target.tagName === 'A') {
-        event.preventDefault(); // Prevent default link behavior (page reload)
-        const filterId = event.target.id; // Get the ID of the clicked link
+        event.preventDefault(); // it´s Prevent default link behavior (page reload)
+        const filterId = event.target.id; // Get the ID of the clicked link xD
 
         let filteredTemples = [];
 
