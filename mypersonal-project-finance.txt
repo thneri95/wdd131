@@ -1,0 +1,46 @@
+BYU-Idaho | BSc in Software Development
+Course: WDD 131 - Dynamic Web Fundamentals
+Week 04 - My Personal Project Roadmap
+Author: Tiago Borges
+
+
+
+
+"My Idea for a Finance Management Portal"
+
+Description:
+I plan to develop a comprehensive portal dedicated to personal finance management. This website will offer users practical tips, educational resources, and useful
+
+tools designed to help them budget effectively, save wisely, invest confidently, and strategically plan for their financial goals.
+
+
+
+
+1. Website Subject
+Personal Finance Tips and Education
+
+
+
+
+2. Planned Content of the Website
+The site will focus on personal finance education, featuring practical advice on budgeting, expense management, basic investing, goal-oriented 
+financial planning, and general strategies to improve visitors’ overall financial health.
+
+It will also include clear, easy-to-understand explanations
+ of complex financial concepts to empower users to make more informed decisions.
+
+
+
+
+3. Reason for Choosing This Subject
+With a degree in Economics, an MBA in Finance and over 10 years of experience as a bank manager and financial planner at some of Brazil’s largest banks,
+ I have supported thousands of individuals in understanding and managing their personal finances to achieve their goals. This expertise equips me to provide
+ valuable insights and tips that can genuinely transform the financial lives of my website visitors.
+
+
+
+
+3.1 What I Would Like to Do
+I intend to create some pages covering core finance topics such as budgeting, saving, investing and financial planning...
+
+Each page will deliver clear explanations and actionable tips to help users enhance their financial literacy and better manage their money.

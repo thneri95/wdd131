@@ -1,0 +1,72 @@
+/*
+ * This file contains styles specifically for larger screens (desktop).
+ * It complements 'filtered-temples.css' by overriding or adding styles
+ * when the viewport is 768px or wider... xD
+ */
+@media (min-width: 768px) {
+
+    /* Header adjustments for larger screens */
+    header {
+        padding: 1rem 3rem;
+        /* More padding for a spacious header */
+    }
+
+    /* Desktop Navigation styles */
+    nav {
+        display: flex !important;
+        /* Ensures navigation is always visible and flex on desktop */
+        flex-direction: row;
+        /* Horizontal navigation */
+        gap: 1.5rem;
+        /* Spacing between navigation links */
+        justify-content: center;
+        /* Center the navigation links */
+        background: none;
+        /* No background color needed for desktop nav */
+        margin-top: 0;
+        /* Remove top margin */
+        width: auto;
+        /* Allow nav to take its natural width */
+        border-radius: 0;
+        /* Remove border-radius from mobile nav */
+    }
+
+    nav a {
+        padding: 0.5rem 1rem;
+        /* Adjust padding for desktop links */
+        border-bottom: none;
+        /* No bottom border for desktop links */
+        border-radius: 5px;
+        /* Slight rounding for desktop links */
+    }
+
+    nav a:hover {
+        background-color: #005599;
+        /* Consistent hover effect with main CSS */
+    }
+
+    /* Hide the hamburger menu button on desktop */
+    #menu-button {
+        display: none;
+    }
+
+    /* Album Grid for Desktop */
+    .album {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        /* Adaptive grid with a minimum card width of 280px */
+        gap: 2rem;
+        /* Increased gap between cards for desktop */
+        padding: 0;
+        /* Remove extra padding from the grid itself */
+    }
+
+    /* Footer adjustments for desktop */
+    .footer-container {
+        flex-direction: row;
+        /* Horizontal layout for footer content */
+        justify-content: space-between;
+        /* Distribute items with space between them */
+        text-align: left;
+        /* Align footer text to the left */
+    }
+}

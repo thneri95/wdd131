@@ -1,0 +1,225 @@
+/* Base Reset and Font:  */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f6;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* My Header */
+header {
+    background-color: #003366;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+/* Menu Button (just for mobile) */
+#menu-button {
+    font-size: 1.5rem;
+    background: none;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#menu-button:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#menu-button:focus {
+    outline: 2px solid #ffffffaa;
+    outline-offset: 2px;
+}
+
+/* Navigation */
+/* By default, for mobile, the nav is hidden and toggled by JS : */
+nav {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #002244;
+    margin-top: 1rem;
+    border-radius: 0 0 8px 8px;
+    overflow: hidden;
+}
+
+/* Class added by JavaScript to show the navigation:  */
+nav.show {
+    display: flex;
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    padding: 0.75rem 1rem;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+nav a:last-child {
+    border-bottom: none;
+}
+
+nav a:hover,
+nav a.active {
+    background-color: #005599;
+    color: #fff;
+}
+
+/* Main Content Area:  */
+main {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+}
+
+main h2 {
+    text-align: center;
+    color: #003366;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+}
+
+/* Album Grid for Temple Cards:  */
+.album {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 0 1rem;
+}
+
+/* Temple Card Styling: */
+.temple-card {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.temple-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.temple-card h2 {
+    font-size: 1.5rem;
+    color: #003366;
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+}
+
+.temple-card p {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 0.5rem;
+}
+
+.temple-card img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 1rem;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+}
+
+/* My Footer */
+footer {
+    background-color: #003366;
+    color: white;
+    padding: 1.5rem 1rem;
+    font-size: 0.9rem;
+    margin-top: 2rem;
+}
+
+.footer-container {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    align-items: center;
+    text-align: center;
+}
+
+.footer-links a {
+    color: #ffffffcc;
+    margin: 0 0.75rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+/* Media Queries for Larger Screens*/
+@media (min-width: 768px) {
+    header {
+        padding: 1rem 3rem;
+    }
+
+    /* For Desktop Navigation */
+    nav {
+        display: flex !important;
+        flex-direction: row;
+        gap: 1.5rem;
+        justify-content: center;
+        background: none;
+        margin-top: 0;
+        width: auto;
+        border-radius: 0;
+    }
+
+    nav a {
+        padding: 0.5rem 1rem;
+        border-bottom: none;
+        border-radius: 5px;
+    }
+
+    nav a:hover {
+        background-color: #005599;
+    }
+
+    #menu-button {
+        display: none;
+    }
+
+    /* Album Grid for Desktop */
+    .album {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        padding: 0;
+    }
+
+    /* Footer for Desktop */
+    .footer-container {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+}
