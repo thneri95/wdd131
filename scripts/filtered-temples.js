@@ -1,19 +1,19 @@
-// Hamburger menu functionality
+// Hamburger menu:
 const menuButton = document.getElementById('menu-button');
 const navMenu = document.getElementById('nav-menu');
 
-// Toggle the 'show' class on the navigation menu when the button is clicked
+// Toggle the 'show' class on the navigation menu when the button is clicked:
 menuButton.addEventListener('click', () => {
     navMenu.classList.toggle('show');
 });
 
-// Footer date information
-// Set the current year for the copyright
+// Footer date information>>>> 
+// Set the current year for the copyright:
 document.getElementById("year").textContent = new Date().getFullYear();
-// Set the last modified date of the document
+// Set the last modified date of the document: 
 document.getElementById("lastModified").textContent = `Last Modified: ${document.lastModified}`;
 
-// Array of temple objects
+// Array of temple objects: Part 1
 const temples = [
     {
         templeName: "Aba Nigeria",
@@ -64,7 +64,7 @@ const temples = [
         area: 116642,
         imageUrl: "https://content.churchofjesuschrist.org/templesldsorg/bc/Temples/photo-galleries/mexico-city-mexico/400x250/mexico-city-temple-exterior-1518361-wallpaper.jpg"
     },
-    // Additional temple objects as required by the assignment
+    // Additional temple objects as required by the assignment:
     {
         templeName: "Salt Lake Temple",
         location: "Salt Lake City, Utah, United States",
@@ -85,16 +85,32 @@ const temples = [
         dedicated: "2019, April, 14",
         area: 12000,
         imageUrl: "https://churchofjesuschristtemples.org/assets/img/temples/kinshasa-democratic-republic-of-the-congo-temple/kinshasa-democratic-republic-of-the-congo-temple-3533-main.jpg"
-    }
-];
+    },
 
-// Get the container where temple cards will be displayed
+    {
+        templeName: "Tokyo Japan",
+        location: "Tokyo, Japan",
+        dedicated: "1980, October, 27",
+        area: 53995,
+        imageUrl: "https://churchofjesuschristtemples.org/assets/img/temples/tokyo-japan-temple/tokyo-japan-temple-26340-main.jpg"
+    },
+    {
+        templeName: "Sydney Australia",
+        location: "Sydney, New South Wales, Australia",
+        dedicated: "1984, September, 20",
+        area: 30000,
+        imageUrl: "https://churchofjesuschristtemples.org/assets/img/temples/sydney-australia-temple/sydney-australia-temple-58751.jpg"
+
+    },
+]
+
+// Get the container where temple cards will be displayed:
 const albumSection = document.querySelector('.album');
 
 /**
  * Creates an HTML element for a single temple card.
- * @param {object} temple - The temple object containing its data.
- * @returns {HTMLElement} The created temple card div element.
+ * @param {object} temple - The temple object containing its data!
+ * @returns {HTMLElement} The created temple card div element!
  */
 function createTempleCard(temple) {
     const templeCard = document.createElement('div');
@@ -127,7 +143,7 @@ function createTempleCard(temple) {
         img.alt = `Image not found for ${temple.templeName} Temple`;
     };
 
-    // Append all created elements to the temple card
+    // Append all created elements to the temple card : 
     templeCard.appendChild(name);
     templeCard.appendChild(location);
     templeCard.appendChild(dedicated);
@@ -206,7 +222,7 @@ navMenu.addEventListener('click', (event) => {
     }
 });
 
-// Initial display of all temples when the page loads
+// Initial display of all temples when the page loads:
 // This ensures the 'Home' filter is active and all temples are shown initially
 document.addEventListener('DOMContentLoaded', () => {
     displayTemples(temples, 'home');
