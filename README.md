@@ -48,7 +48,7 @@ Basic Layout for Home Page: https://thneri95.github.io/wdd131/week01/basic-layou
 My Home Page (Ready): https://thneri95.github.io/wdd131/
 
 Week 02
-Book of Mormon Projetc: https://thneri95.github.io/wdd131/week02/bom
+Book of Mormon Project: https://thneri95.github.io/wdd131/week02/bom
 
 Media Query Test: https://thneri95.github.io/wdd131/week02/media-query.html
 
