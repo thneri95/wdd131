@@ -15,10 +15,13 @@
     --background: #f9fafb;
     --white: #ffffff;
     --gray: #e5e7eb;
+    --gray-dark: #9ca3af;
+    /* cor cinza mais escura para textos secundários */
     --radius: 12px;
     --transition: all 0.3s ease;
     --error-color: #dc2626;
     --font-family: 'Roboto', sans-serif;
+    --focus-outline: 3px solid rgba(37, 99, 235, 0.5);
 }
 
 /* Base do corpo */
@@ -32,39 +35,50 @@ body {
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    font-size: 1rem;
+    /* base consistente */
 }
 
 /* Header */
 header {
     background-color: var(--text-color);
     color: var(--white);
-    padding: 2rem 1rem;
+    padding: 2.5rem 1rem;
+    /* um pouco mais de espaço */
     text-align: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    /* sombra mais suave e profunda */
+    user-select: none;
 }
 
 header h1 {
-    font-size: clamp(1.5rem, 2vw + 1rem, 2.5rem);
+    font-size: clamp(1.75rem, 2vw + 1rem, 2.75rem);
     font-weight: 700;
-    letter-spacing: 1px;
+    letter-spacing: 1.2px;
+    line-height: 1.2;
 }
 
 /* Main container */
 main {
     flex: 1;
-    max-width: 700px;
+    max-width: 720px;
     width: 90%;
-    margin: 2rem auto;
+    margin: 3rem auto;
+    /* margem superior maior */
     background-color: var(--white);
-    padding: 2.5rem;
+    padding: 3rem 2.5rem;
     border-radius: var(--radius);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08);
+    /* sombra mais leve e sutil */
     transition: var(--transition);
+    will-change: transform;
+    /* performance para possíveis animações */
 }
 
 /* Form groups */
 form .form-group {
-    margin-bottom: 1.8rem;
+    margin-bottom: 2rem;
+    /* espaçamento maior para respirar */
 }
 
 /* Labels e legendas */
@@ -72,9 +86,11 @@ label,
 legend {
     font-weight: 600;
     display: block;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.65rem;
     color: var(--text-color);
     user-select: none;
+    font-size: 1.05rem;
+    /* ligeiramente maior para melhor leitura */
 }
 
 /* Inputs, selects e textarea */
@@ -83,31 +99,39 @@ input[type="date"],
 input[type="text"],
 textarea {
     width: 100%;
-    padding: 0.75rem 1rem;
-    border: 1px solid var(--gray);
+    padding: 0.85rem 1.1rem;
+    /* mais espaçamento */
+    border: 1.5px solid var(--gray);
     border-radius: var(--radius);
     background-color: var(--white);
-    font-size: 1rem;
+    font-size: 1.05rem;
     transition: var(--transition);
     font-family: var(--font-family);
     color: var(--text-color);
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
+    /* leve profundidade */
+    caret-color: var(--primary-color);
 }
 
 /* Foco acessível e visível */
 select:focus,
 input:focus,
 textarea:focus {
-    outline: 3px solid transparent;
-    outline-offset: 2px;
+    outline: none;
+    /* remove outline padrão */
     border-color: var(--primary-color);
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
+    background-color: #fff;
+    /* reforça branco no foco */
+    transition: var(--transition);
 }
 
 /* Textarea com redimensionamento vertical */
 textarea {
     resize: vertical;
-    min-height: 120px;
-    line-height: 1.4;
+    min-height: 140px;
+    /* um pouco mais alto para conforto */
+    line-height: 1.5;
 }
 
 /* Contêiner para grupos de opções (radios, checkboxes) */
@@ -115,8 +139,8 @@ textarea {
 .features-options {
     display: flex;
     flex-wrap: wrap;
-    gap: 1rem;
-    margin-top: 0.5rem;
+    gap: 1.25rem;
+    margin-top: 0.75rem;
 }
 
 /* Labels customizados para radios e checkboxes */
@@ -125,12 +149,13 @@ textarea {
     display: flex;
     align-items: center;
     cursor: pointer;
-    padding: 0.4rem 0.7rem;
+    padding: 0.5rem 1rem;
     background-color: var(--gray);
-    border-radius: 8px;
+    border-radius: 10px;
     transition: var(--transition);
-    font-size: 1rem;
+    font-size: 1.05rem;
     user-select: none;
+    box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.04);
 }
 
 /* Oculta inputs originais */
@@ -147,22 +172,24 @@ textarea {
     background-color: var(--primary-color);
     color: var(--white);
     font-weight: 700;
+    box-shadow: 0 0 8px var(--primary-color);
 }
 
 /* Botão de envio */
 button[type="submit"] {
     width: 100%;
-    padding: 1rem;
+    padding: 1.15rem;
     background-color: var(--primary-color);
     color: var(--white);
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: 1.1rem;
+    font-weight: 700;
     border: none;
     border-radius: var(--radius);
     cursor: pointer;
     transition: var(--transition);
     user-select: none;
-    box-shadow: 0 4px 6px rgba(37, 99, 235, 0.4);
+    box-shadow: 0 6px 12px rgba(37, 99, 235, 0.45);
+    letter-spacing: 0.5px;
 }
 
 /* Hover e foco no botão */
@@ -170,15 +197,16 @@ button[type="submit"]:hover,
 button[type="submit"]:focus-visible {
     background-color: var(--primary-dark);
     outline: none;
-    box-shadow: 0 0 8px var(--primary-dark);
+    box-shadow: 0 0 14px var(--primary-dark);
 }
 
 /* Mensagens de erro */
 .error-message {
     color: var(--error-color);
-    font-size: 0.9rem;
-    margin-top: 0.3rem;
-    font-weight: 600;
+    font-size: 0.95rem;
+    margin-top: 0.4rem;
+    font-weight: 700;
+    letter-spacing: 0.3px;
 }
 
 /* Footer */
@@ -186,61 +214,64 @@ footer {
     background-color: var(--text-color);
     color: #d1d5db;
     text-align: center;
-    padding: 1.2rem 1rem;
-    font-size: 0.9rem;
+    padding: 1.5rem 1rem;
+    font-size: 0.95rem;
     margin-top: auto;
     user-select: none;
+    letter-spacing: 0.05em;
 }
 
+/* Container do footer para links */
 .footer-container {
-    margin-top: 1rem;
+    margin-top: 1.25rem;
 }
 
+/* Links do footer */
 .footer-links {
-    margin-top: 0.5rem;
+    margin-top: 0.7rem;
     display: flex;
     justify-content: center;
-    gap: 1rem;
+    gap: 1.25rem;
     flex-wrap: wrap;
 }
 
 .footer-links a {
     color: #60a5fa;
     text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
     transition: var(--transition);
     display: flex;
     align-items: center;
-    gap: 0.3rem;
+    gap: 0.4rem;
 }
 
 .footer-links a:hover,
 .footer-links a:focus-visible {
     text-decoration: underline;
     color: #93c5fd;
-    outline-offset: 2px;
+    outline-offset: 3px;
     outline: 2px solid transparent;
-    outline-radius: 4px;
+    outline-radius: 5px;
 }
 
 /* Melhoria para ícones FontAwesome */
 .footer-links i {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     vertical-align: middle;
 }
 
 /* Responsividade */
 @media (max-width: 480px) {
     main {
-        padding: 1.5rem 1rem;
+        padding: 2rem 1.5rem;
         width: 95%;
     }
 
     header h1 {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
     }
 
     .footer-links {
-        gap: 0.5rem;
+        gap: 0.75rem;
     }
 }
