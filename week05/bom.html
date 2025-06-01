@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="BYU-Idaho, WDD 131 - Dynamic Web Fundamentals">
+    <meta name="author" content="Tiago Borges">
+    <title>Book of Mormon - Top 10</title>
+    <link rel="stylesheet" href="styles/styles.css" />
+</head>
+
+<body>
+    <h1>📖 Book of Mormon - Top 10</h1>
+    <main>
+        <label for="favchap">Enter Book and Chapter: </label>
+        <input type="text" id="favchap" placeholder="Alma 5" />
+        <button>Add Chapter</button>
+        <ul id="list"></ul>
+    </main>
+
+    <script src="scripts/bom.js"></script>
+</body>
+
+</html>
+
+<!-- 
+ Improvements:
+
+ 1. Data Persistence with localStorage: Chapters now save and load automatically
+ between browser sessions using localStorage, ensuring user entries are kept
+
+ 2. Refactored Code for Readability: Centralized list display logic into a single
+`displayList` function, reducing code duplication
+
+ 3. Dynamic Delete Functionality: Implemented proper deletion of chapters from both
+ the displayed list and the stored data in localStorage
+
+ 
+ -->
