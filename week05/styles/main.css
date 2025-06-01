@@ -1,0 +1,246 @@
+/* Reset básico e box-sizing */
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Variáveis de tema para fácil manutenção */
+:root {
+    --primary-color: #2563eb;
+    --primary-dark: #1e40af;
+    --text-color: #1f2937;
+    --background: #f9fafb;
+    --white: #ffffff;
+    --gray: #e5e7eb;
+    --radius: 12px;
+    --transition: all 0.3s ease;
+    --error-color: #dc2626;
+    --font-family: 'Roboto', sans-serif;
+}
+
+/* Base do corpo */
+body {
+    font-family: var(--font-family);
+    background-color: var(--background);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+/* Header */
+header {
+    background-color: var(--text-color);
+    color: var(--white);
+    padding: 2rem 1rem;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+header h1 {
+    font-size: clamp(1.5rem, 2vw + 1rem, 2.5rem);
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+/* Main container */
+main {
+    flex: 1;
+    max-width: 700px;
+    width: 90%;
+    margin: 2rem auto;
+    background-color: var(--white);
+    padding: 2.5rem;
+    border-radius: var(--radius);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: var(--transition);
+}
+
+/* Form groups */
+form .form-group {
+    margin-bottom: 1.8rem;
+}
+
+/* Labels e legendas */
+label,
+legend {
+    font-weight: 600;
+    display: block;
+    margin-bottom: 0.5rem;
+    color: var(--text-color);
+    user-select: none;
+}
+
+/* Inputs, selects e textarea */
+select,
+input[type="date"],
+input[type="text"],
+textarea {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--gray);
+    border-radius: var(--radius);
+    background-color: var(--white);
+    font-size: 1rem;
+    transition: var(--transition);
+    font-family: var(--font-family);
+    color: var(--text-color);
+}
+
+/* Foco acessível e visível */
+select:focus,
+input:focus,
+textarea:focus {
+    outline: 3px solid transparent;
+    outline-offset: 2px;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
+}
+
+/* Textarea com redimensionamento vertical */
+textarea {
+    resize: vertical;
+    min-height: 120px;
+    line-height: 1.4;
+}
+
+/* Contêiner para grupos de opções (radios, checkboxes) */
+.rating-options,
+.features-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+/* Labels customizados para radios e checkboxes */
+.rating-options label,
+.features-options label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    padding: 0.4rem 0.7rem;
+    background-color: var(--gray);
+    border-radius: 8px;
+    transition: var(--transition);
+    font-size: 1rem;
+    user-select: none;
+}
+
+/* Oculta inputs originais */
+.rating-options input[type="radio"],
+.features-options input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Estado ativo dos inputs */
+.rating-options input[type="radio"]:checked+label,
+.features-options input[type="checkbox"]:checked+label {
+    background-color: var(--primary-color);
+    color: var(--white);
+    font-weight: 700;
+}
+
+/* Botão de envio */
+button[type="submit"] {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--primary-color);
+    color: var(--white);
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    transition: var(--transition);
+    user-select: none;
+    box-shadow: 0 4px 6px rgba(37, 99, 235, 0.4);
+}
+
+/* Hover e foco no botão */
+button[type="submit"]:hover,
+button[type="submit"]:focus-visible {
+    background-color: var(--primary-dark);
+    outline: none;
+    box-shadow: 0 0 8px var(--primary-dark);
+}
+
+/* Mensagens de erro */
+.error-message {
+    color: var(--error-color);
+    font-size: 0.9rem;
+    margin-top: 0.3rem;
+    font-weight: 600;
+}
+
+/* Footer */
+footer {
+    background-color: var(--text-color);
+    color: #d1d5db;
+    text-align: center;
+    padding: 1.2rem 1rem;
+    font-size: 0.9rem;
+    margin-top: auto;
+    user-select: none;
+}
+
+.footer-container {
+    margin-top: 1rem;
+}
+
+.footer-links {
+    margin-top: 0.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.footer-links a {
+    color: #60a5fa;
+    text-decoration: none;
+    font-weight: 500;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.footer-links a:hover,
+.footer-links a:focus-visible {
+    text-decoration: underline;
+    color: #93c5fd;
+    outline-offset: 2px;
+    outline: 2px solid transparent;
+    outline-radius: 4px;
+}
+
+/* Melhoria para ícones FontAwesome */
+.footer-links i {
+    font-size: 1.1rem;
+    vertical-align: middle;
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+    main {
+        padding: 1.5rem 1rem;
+        width: 95%;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    .footer-links {
+        gap: 0.5rem;
+    }
+}

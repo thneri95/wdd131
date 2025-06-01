@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Review Confirmation</title>
+    <link rel="stylesheet" href="styles/main.css" />
+
+    <!--  Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/kTc... (adicione o hash de integridade se quiser)" crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
+</head>
+
+<body class="review-page">
+    <header>
+        <h1>Your review was sent</h1>
+    </header>
+
+    <main>
+        <p>Your feedback is valuable to us. We appreciate your time!</p>
+        <p>
+            Total reviews submitted so far across your sessions:
+            <strong><span id="totalReviewsCount">0</span></strong>
+        </p>
+
+        <section id="submittedDetails" aria-live="polite">
+            <h2>Thanks for your review!</h2>
+            <p>It will appear at the product page soon.</p>
+        </section>
+
+        <p><a href="form.html">Back to Form</a></p>
+    </main>
+
+    <footer>
+        <p>
+            Total Reviews Submitted:
+            <strong><span id="reviewCounter">0</span></strong>
+        </p>
+        <div class="footer-container">
+            <div class="footer-info">
+                <p>
+                    &copy; <span id="year"></span> Tiago Borges | WDD 131 BYU-Idaho | <span id="lastModified"></span>
+                </p>
+            </div>
+            <nav class="footer-links" aria-label="Footer navigation">
+                <a href="https://www.byui.edu/" target="_blank" rel="noopener noreferrer">BYU-Idaho</a>
+                <a href="https://github.com/thneri95" target="_blank" rel="noopener noreferrer"
+                    aria-label="GitHub Profile"><i class="fab fa-github" aria-hidden="true"></i> GitHub</a>
+                <a href="https://www.linkedin.com/in/tiago-neri-cfa-if-50935814b/" target="_blank"
+                    rel="noopener noreferrer" aria-label="LinkedIn Profile"><i class="fab fa-linkedin"
+                        aria-hidden="true"></i> LinkedIn</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="scripts/review.js"></script>
+</body>
+
+</html>

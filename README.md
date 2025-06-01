@@ -63,6 +63,7 @@ Temple Album Update - Improved by JavaScript: https://thneri95.github.io/wdd131/
 Week 05 
 A simple page about my Website Plan - Final Project: https://thneri95.github.io/wdd131/week05/siteplan.html
 
+Update using JavaScript (localStorage) at my previous Page of Book of Mormom- https://thneri95.github.io/wdd131/week05/bom.html
 
 
 📧 Contact
