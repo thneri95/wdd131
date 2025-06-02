@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
             } else if (key === 'installDate') {
                 try {
                     const date = new Date(value);
-                    displayValue = date.toLocaleDateString('en-US'); // English date format
+                    displayValue = date.toLocaleDateString('en-US');
                 } catch { }
             }
 
