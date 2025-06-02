@@ -2,17 +2,18 @@
 <html lang="en">
 
 <head>
-
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="WDD 131 Dynamic Web Fundamentals | Product Review Form ">
-    <meta name="author" content="Tiago Borges">
+    <meta name="description" content="WDD 131 Dynamic Web Fundamentals | Product Review Form" />
+    <meta name="author" content="Tiago Borges" />
     <title>Product Review Form</title>
     <link rel="stylesheet" href="styles/main.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/k7ujTnHg4C+6Nq2P+GWBjqCEMgWfRa6RxN6mQ0xI1R6FzNz7OzSR9TmR3D5S6WhQ56EQX2YQ+4PZQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -20,19 +21,18 @@
         <h1>Product Review</h1>
     </header>
 
-    <main>
-        <form action="review.html" method="get" id="reviewForm">
+    <main id="main-content">
+        <form action="review.html" method="get" id="reviewForm" novalidate>
             <!-- Product Name -->
             <div class="form-group">
                 <label for="productName">Product Name:</label>
                 <select id="productName" name="productName" required>
                     <option value="" disabled selected>Select a Product</option>
-                    <!-- Options should be dynamically inserted with my JS -->
                 </select>
-                <span class="error-message" id="productNameError"></span>
+                <span class="error-message" id="productNameError" aria-live="polite"></span>
             </div>
 
-            <!-- Rating below -->
+            <!-- Overall Rating -->
             <div class="form-group">
                 <fieldset>
                     <legend>Overall Rating:</legend>
@@ -53,17 +53,17 @@
                         <label for="rating5">⭐⭐⭐⭐⭐</label>
                     </div>
                 </fieldset>
-                <span class="error-message" id="overallRatingError"></span>
+                <span class="error-message" id="overallRatingError" aria-live="polite"></span>
             </div>
 
-            <!-- For  Date -->
+            <!-- Installation Date -->
             <div class="form-group">
                 <label for="installDate">Date of Installation:</label>
                 <input type="date" id="installDate" name="installDate" required />
-                <span class="error-message" id="installDateError"></span>
+                <span class="error-message" id="installDateError" aria-live="polite"></span>
             </div>
 
-            <!-- Features -->
+            <!-- Useful Features -->
             <div class="form-group">
                 <fieldset>
                     <legend>Useful Features:</legend>
@@ -84,14 +84,14 @@
                         <label for="feature5">Value for Money</label>
                     </div>
                 </fieldset>
-                <span class="error-message" id="usefulFeaturesError"></span>
+                <span class="error-message" id="usefulFeaturesError" aria-live="polite"></span>
             </div>
 
-            <!--  Review -->
+            <!-- Written Review -->
             <div class="form-group">
                 <label for="reviewText">Your Written Review:</label>
                 <textarea id="reviewText" name="reviewText" rows="5" required></textarea>
-                <span class="error-message" id="reviewTextError"></span>
+                <span class="error-message" id="reviewTextError" aria-live="polite"></span>
             </div>
 
             <!-- User Name -->
@@ -100,11 +100,10 @@
                 <input type="text" id="userName" name="userName" />
             </div>
 
-            <!-- Send -->
+            <!-- Submit -->
             <button type="submit">Post Review</button>
         </form>
     </main>
-
 
     <footer role="contentinfo">
         <p>
@@ -115,8 +114,8 @@
         <div class="footer-container">
             <div class="footer-info">
                 <p>
-                    &copy; <time id="year" datetime="2025"></time> Tiago Borges | WDD 131 BYU-Idaho |
-                    <time id="lastModified" datetime=""></time>
+                    &copy; <time id="year" datetime="2025">2025</time> Tiago Borges | WDD 131 BYU-Idaho |
+                    <span id="lastModified"></span>
                 </p>
             </div>
 
@@ -134,7 +133,7 @@
         </div>
     </footer>
 
-    <script src="scripts/main.js"></script>
+    <script src="scripts/main.js" defer></script>
 </body>
 
 </html>
