@@ -1,7 +1,7 @@
-// scripts/main.js
+// my main.js
 
 document.addEventListener('DOMContentLoaded', () => {
-    // --- Product Data ---
+    // --- Products  ---
     const products = [
         { id: "fc-1888", name: "Flux capacitor", averagerating: 4.5 },
         { id: "fc-2050", name: "Power laces", averagerating: 4.7 },
@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
         { id: "jj-1969", name: "Warp equalizer", averagerating: 5.0 }
     ];
 
-    // --- DOM References ---
+    // --- DOM  ---
     const productSelect = document.getElementById('productName');
     const reviewCounterSpan = document.getElementById('reviewCounter');
     const reviewForm = document.querySelector('form');
