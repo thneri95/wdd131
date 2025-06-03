@@ -29,7 +29,7 @@
 
 /* Base do corpo */
 body {
-    font-family: var(--font-family);
+    font-family: 'Roboto', sans-serif;
     background-color: var(--background);
     color: var(--text-color);
     min-height: 100vh;
