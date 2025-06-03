@@ -9,17 +9,21 @@
 
 /* Variáveis de tema para fácil manutenção */
 :root {
-    --primary-color: #2563eb;
+    --primary-color: #1d4ed8;
+    /* Adjusted for better contrast */
     --primary-dark: #1e40af;
     --text-color: #1f2937;
-    --background: #f9fafb;
+    --background: #ffffff;
+    /* Changed to pure white for maximum contrast */
     --white: #ffffff;
-    --gray: #e5e7eb;
-    --gray-dark: #9ca3af;
-    /* cor cinza mais escura para textos secundários */
+    --gray: #d1d5db;
+    /* Lightened for better contrast */
+    --gray-dark: #6b7280;
+    /* Darkened for better contrast */
     --radius: 12px;
     --transition: all 0.3s ease;
-    --error-color: #dc2626;
+    --error-color: #b91c1c;
+    /* Darkened for better contrast */
     --font-family: 'Roboto', sans-serif;
     --focus-outline: 3px solid rgba(37, 99, 235, 0.5);
 }
@@ -36,7 +40,6 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: 1rem;
-    /* base consistente */
 }
 
 /* Header */
@@ -44,10 +47,8 @@ header {
     background-color: var(--text-color);
     color: var(--white);
     padding: 2.5rem 1rem;
-    /* um pouco mais de espaço */
     text-align: center;
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-    /* sombra mais suave e profunda */
     user-select: none;
 }
 
@@ -64,21 +65,17 @@ main {
     max-width: 720px;
     width: 90%;
     margin: 3rem auto;
-    /* margem superior maior */
     background-color: var(--white);
     padding: 3rem 2.5rem;
     border-radius: var(--radius);
     box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08);
-    /* sombra mais leve e sutil */
     transition: var(--transition);
     will-change: transform;
-    /* performance para possíveis animações */
 }
 
 /* Form groups */
 form .form-group {
     margin-bottom: 2rem;
-    /* espaçamento maior para respirar */
 }
 
 /* Labels e legendas */
@@ -90,7 +87,6 @@ legend {
     color: var(--text-color);
     user-select: none;
     font-size: 1.05rem;
-    /* ligeiramente maior para melhor leitura */
 }
 
 /* Inputs, selects e textarea */
@@ -100,8 +96,7 @@ input[type="text"],
 textarea {
     width: 100%;
     padding: 0.85rem 1.1rem;
-    /* mais espaçamento */
-    border: 1.5px solid var(--gray);
+    border: 1.5px solid var(--gray-dark);
     border-radius: var(--radius);
     background-color: var(--white);
     font-size: 1.05rem;
@@ -109,7 +104,6 @@ textarea {
     font-family: var(--font-family);
     color: var(--text-color);
     box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.06);
-    /* leve profundidade */
     caret-color: var(--primary-color);
 }
 
@@ -118,11 +112,9 @@ select:focus,
 input:focus,
 textarea:focus {
     outline: none;
-    /* remove outline padrão */
     border-color: var(--primary-color);
     box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.3);
     background-color: #fff;
-    /* reforça branco no foco */
     transition: var(--transition);
 }
 
@@ -130,7 +122,6 @@ textarea:focus {
 textarea {
     resize: vertical;
     min-height: 140px;
-    /* um pouco mais alto para conforto */
     line-height: 1.5;
 }
 
@@ -156,6 +147,7 @@ textarea {
     font-size: 1.05rem;
     user-select: none;
     box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.04);
+    color: var(--text-color);
 }
 
 /* Oculta inputs originais */
@@ -212,7 +204,8 @@ button[type="submit"]:focus-visible {
 /* Footer */
 footer {
     background-color: var(--text-color);
-    color: #d1d5db;
+    color: #f3f4f6;
+    /* Lightened for better contrast */
     text-align: center;
     padding: 1.5rem 1rem;
     font-size: 0.95rem;
@@ -236,7 +229,8 @@ footer {
 }
 
 .footer-links a {
-    color: #60a5fa;
+    color: #3b82f6;
+    /* Adjusted for better contrast */
     text-decoration: none;
     font-weight: 600;
     transition: var(--transition);
@@ -248,9 +242,11 @@ footer {
 .footer-links a:hover,
 .footer-links a:focus-visible {
     text-decoration: underline;
-    color: #93c5fd;
+    color: #60a5fa;
+    /* Adjusted for better contrast */
     outline-offset: 3px;
     outline: 2px solid transparent;
+    radius: 5px;
 }
 
 /* Melhoria para ícones FontAwesome */
