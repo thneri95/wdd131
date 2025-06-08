@@ -1,13 +1,13 @@
 /* ===== VARIÁVEIS ===== */
 :root {
     --color-bg: #fefefe;
-    --color-text: #222222;
-    --color-primary: #0056b3;
-    --color-primary-hover: #0056b3;
+    --color-text: #000000;
+    --color-primary: #0099ff;
+    --color-primary-hover: #0099ff;
     --color-header-bg-start: #1b2838;
     --color-header-bg-end: #2c3e50;
     --color-link: #1a1a1a;
-    --color-link-hover: var(--color-primary);
+    --color-link-hover: white;
     --color-nav-bg: #1b2838;
     --color-nav-link: #dcdcdc;
     --color-nav-link-active-bg: #0099ff;
@@ -31,6 +31,75 @@
     padding: 0;
     box-sizing: border-box;
 }
+
+.testimonials-section {
+    background-color: var(--color-bg-light);
+    padding: 3rem 1.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--color-text-dark);
+}
+
+.testimonials-section h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.testimonial-card {
+    background-color: var(--color-white);
+    padding: 1.8rem 2rem;
+    margin-bottom: 1.8rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    font-style: italic;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.testimonial-card:hover,
+.testimonial-card:focus-within {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+.testimonial-author {
+    margin-top: 1rem;
+    font-weight: 600;
+    font-style: normal;
+    color: var(--color-secondary);
+    text-align: right;
+    font-size: 1rem;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .testimonials-section {
+        padding: 2rem 1rem;
+    }
+
+    .testimonial-card {
+        padding: 1.4rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    .testimonials-section h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+
+
+
+
 
 html {
     scroll-behavior: smooth;
@@ -149,7 +218,7 @@ nav a.active {
 nav ul li a:hover,
 nav ul li a:focus-visible,
 nav ul li a.active {
-    background-color: var(--color-nav-link-active-bg);
+    background-color: var(--color-primary);
     transform: translateY(-3px);
     box-shadow: 0 4px 12px var(--shadow-button);
     outline: none;
@@ -243,10 +312,8 @@ section:focus-within {
     outline: none;
 }
 
-/* Para aplicar delay em cada section, você pode adicionar via JS ou manualmente assim:
-section:nth-child(1) { animation-delay: 0.1s; }
-section:nth-child(2) { animation-delay: 0.3s; }
-*/
+
+
 
 /* ===== FORM ===== */
 form {
