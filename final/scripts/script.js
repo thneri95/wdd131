@@ -17,7 +17,6 @@ document.addEventListener('DOMContentLoaded', () => {
         const hour = new Date().getHours();
         let name = localStorage.getItem("userName");
 
-        // Se não houver nome salvo, pegar do input (se preenchido)
         if (!name) {
             const nameInput = document.getElementById("name");
             if (nameInput && nameInput.value.trim() !== "") {
@@ -35,13 +34,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const welcomeEl = document.getElementById("welcomeMessage");
         if (welcomeEl) {
-            welcomeEl.textContent = `${greeting}, ${name}! Welcome back to Smart Finance.`;
-            greetUser();
-
+            welcomeEl.textContent = `${greeting}, ${name}! Welcome  to T2 Smart Finance!`;
         }
     }
-
-
+    greetUser();
 
     // Menu hamburger
     const hamburger = document.querySelector('.hamburger');
@@ -138,7 +134,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 message = 'You broke even this month 💡';
             }
 
-            message += ` Spending ${percentSpent.toFixed(2)}% of your income.`;
+            message += ` Spending ${percentSpent.toFixed(2)}% of your income!`;
 
             if (percentSpent > 40) {
                 message += ` Try to keep expenses under 40% ⚠️`;
@@ -210,6 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // Formulário de contato
     const contactForm = document.getElementById('contactForm');
     const formMessage = document.getElementById('formMessage');
 
@@ -217,37 +214,31 @@ document.addEventListener('DOMContentLoaded', () => {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
 
-            // Ajustar e conferir:"
             const name = contactForm.querySelector('input[name="fullname"]').value.trim();
             const email = contactForm.querySelector('input[name="email"]').value.trim();
             const message = contactForm.querySelector('textarea[name="message"]').value.trim();
 
-            // Validação simples para nome
             if (!name) {
-                formMessage.textContent = 'Please enter your name.';
+                formMessage.textContent = 'Please enter your name';
                 formMessage.style.color = '#d93025';
                 return;
             }
 
-            // Validação simples de email:
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             if (!email || !emailRegex.test(email)) {
-                formMessage.textContent = 'Please enter a valid email address.';
+                formMessage.textContent = 'Please enter a valid email address';
                 formMessage.style.color = '#d93025';
                 return;
             }
 
-            // Validação simples para mensagem:
             if (!message) {
-                formMessage.textContent = 'Please enter your message.';
+                formMessage.textContent = 'Please enter your message';
                 formMessage.style.color = '#d93025';
                 return;
             }
 
-            // Salvar nome para saudação futura:
             localStorage.setItem("userName", name);
 
-            // Salvar mensagem no localStorage:
             const messages = JSON.parse(localStorage.getItem('contactMessages')) || [];
             messages.push({ name, email, message, date: new Date().toISOString() });
             localStorage.setItem('contactMessages', JSON.stringify(messages));
@@ -257,6 +248,4 @@ document.addEventListener('DOMContentLoaded', () => {
             contactForm.reset();
         });
     }
-
-
 });

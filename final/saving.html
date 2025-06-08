@@ -52,7 +52,7 @@
       <h2 id="why-save-title">Why Save Money?</h2>
       <p>
         Saving money is essential to provide financial security and flexibility. It helps you handle unexpected
-        emergencies, avoid debt, and achieve your long-term goals, whether buying a home, education, or retirement.
+        emergencies, avoid debt, and achieve your long-term goals, whether buying a home, education, or retirement
       </p>
     </section>
 
@@ -60,11 +60,11 @@
       <h2 id="saving-strategies-title">Effective Saving Strategies</h2>
       <ul class="styled-list">
         <li><strong>Create an emergency fund:</strong> Aim for 3-6 months of living expenses in a liquid account.</li>
-        <li><strong>Automate your savings:</strong> Set up automatic transfers to your savings account every paycheck.
+        <li><strong>Automate your savings:</strong> Set up automatic transfers to your savings account every paycheck
         </li>
         <li><strong>Cut unnecessary expenses:</strong> Track spending and reduce avoidable costs like subscriptions or
-          dining out.</li>
-        <li><strong>Set specific goals:</strong> Define short- and long-term saving targets to stay motivated.</li>
+          dining out</li>
+        <li><strong>Set specific goals:</strong> Define short- and long-term saving targets to stay motivated</li>
       </ul>
     </section>
 
@@ -72,11 +72,11 @@
       <h2 id="understanding-investments-title">Understanding Investments</h2>
       <p>
         Investing allows you to grow your wealth over time by putting your money to work. While saving focuses on
-        safety, investing embraces some risk to earn higher returns.
+        safety, investing embraces some risk to earn higher returns
       </p>
       <p>
         Understanding key concepts such as risk tolerance, diversification, and time horizon is crucial before starting
-        to invest.
+        to invest
       </p>
     </section>
 
@@ -84,40 +84,65 @@
       <h2 id="types-investments-title">Types of Investments</h2>
       <ul class="styled-list">
         <li><strong>Stocks and ETFs:</strong> Ownership in companies with potential for high returns but also
-          volatility.</li>
-        <li><strong>Bonds:</strong> Debt investments offering regular interest payments and lower risk.</li>
-        <li><strong>Mutual Funds:</strong> Pooled investments managed by professionals.</li>
-        <li><strong>Real Estate:</strong> Property investments for rental income or capital appreciation.</li>
-        <li><strong>Retirement Accounts:</strong> Tax-advantaged savings for retirement like IRAs or 401(k)s.</li>
+          volatility</li>
+        <li><strong>Bonds:</strong> Debt investments offering regular interest payments and lower risk</li>
+        <li><strong>Mutual Funds:</strong> Pooled investments managed by professionals</li>
+        <li><strong>Real Estate:</strong> Property investments for rental income or capital appreciation</li>
+        <li><strong>Retirement Accounts:</strong> Tax-advantaged savings for retirement like IRAs or 401(k)s</li>
       </ul>
     </section>
 
     <section id="investment-tips-section" aria-labelledby="investment-tips-title">
       <h2 id="investment-tips-title">Investment Tips</h2>
       <ul class="styled-list">
-        <li>Diversify your portfolio to manage risk.</li>
-        <li>Invest for the long term, avoiding reactionary moves.</li>
-        <li>Review and rebalance investments periodically.</li>
-        <li>Consult with financial advisors if unsure.</li>
+        <li>Diversify your portfolio to manage risk</li>
+        <li>Invest for the long term, avoiding reactionary moves</li>
+        <li>Review and rebalance investments periodically</li>
+        <li>Consult with financial advisors if unsure</li>
       </ul>
     </section>
 
     <section id="calculator-section" aria-labelledby="calculator-title">
-      <h2 id="calculator-title">Saving Goal Calculator</h2>
+      <h2 id="calculator-title">Achieve Your Dreams: Saving Goal Calculator</h2>
+      <p class="calculator-description">
+        Plan your financial future with precision! Use our interactive Saving Goal Calculator to determine how long it
+        will take to reach your savings targets, considering your monthly contributions and potential interest earnings.
+        Whether it's a down payment, a dream vacation, or retirement, let's make your financial goals a reality.
+      </p>
       <form id="goalForm">
-        <label for="goalAmount">How much do you want to accumulate (USD)?</label>
-        <input type="number" id="goalAmount" step="0.01" min="0" placeholder="Ex: 10000.00" required />
+        <div class="form-group">
+          <label for="goalAmount">What is your total saving goal (in USD)?</label>
+          <input type="number" id="goalAmount" step="0.01" min="0" placeholder="Ex: 25000.00 for a new car" required
+            aria-describedby="goalAmount-help" />
+          <small id="goalAmount-help" class="form-text text-muted">Enter the total amount of money you aim to
+            accumulate</small>
+        </div>
 
-        <label for="monthlyContribution">How much can you save per month (USD)?</label>
-        <input type="number" id="monthlyContribution" step="0.01" min="0" placeholder="Ex: 500.00" required />
+        <div class="form-group">
+          <label for="monthlyContribution">How much can you consistently save each month (in USD)?</label>
+          <input type="number" id="monthlyContribution" step="0.01" min="0"
+            placeholder="Ex: 300.00 for consistent growth" required aria-describedby="monthlyContribution-help" />
+          <small id="monthlyContribution-help" class="form-text text-muted">Input your regular monthly contribution
+            towards your goal</small>
+        </div>
 
-        <label for="interestRate">Monthly interest rate (%):</label>
-        <input type="number" id="interestRate" step="0.01" min="0" placeholder="Ex: 1.5 per month" required />
+        <div class="form-group">
+          <label for="interestRate">What is the estimated monthly interest rate (% per month)?</label>
+          <input type="number" id="interestRate" step="0.01" min="0"
+            placeholder="Ex: 0.5 for a 6% annual rate (0.5% per month)" required aria-describedby="interestRate-help" />
+          <small id="interestRate-help" class="form-text text-muted">Enter the average monthly interest rate you expect
+            to earn on your savings</small>
+        </div>
 
-        <button type="submit">Calculate</button>
+        <button type="submit" class="calculate-button">Calculate Your Progress</button>
       </form>
 
-      <div id="result" aria-live="polite" style="margin-top: 1em; font-weight: bold;"></div>
+      <div id="result" aria-live="polite" style="margin-top: 1.5em; font-weight: bold; font-size: 1.1em;"></div>
+
+      <p class="calculator-note">
+        *Please note: This calculator provides an estimate. Actual results may vary based on market conditions, tax
+        implications, and exact interest compounding.
+      </p>
     </section>
   </main>
 
