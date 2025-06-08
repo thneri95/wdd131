@@ -210,19 +210,44 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Formulário de contato
     const contactForm = document.getElementById('contactForm');
     const formMessage = document.getElementById('formMessage');
 
     if (contactForm && formMessage) {
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            const name = contactForm.querySelector('input[name="name"]').value;
+
+            // Ajustar e conferir:"
+            const name = contactForm.querySelector('input[name="fullname"]').value.trim();
+            const email = contactForm.querySelector('input[name="email"]').value.trim();
+            const message = contactForm.querySelector('textarea[name="message"]').value.trim();
+
+            // Validação simples para nome
+            if (!name) {
+                formMessage.textContent = 'Please enter your name.';
+                formMessage.style.color = '#d93025';
+                return;
+            }
+
+            // Validação simples de email:
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!email || !emailRegex.test(email)) {
+                formMessage.textContent = 'Please enter a valid email address.';
+                formMessage.style.color = '#d93025';
+                return;
+            }
+
+            // Validação simples para mensagem:
+            if (!message) {
+                formMessage.textContent = 'Please enter your message.';
+                formMessage.style.color = '#d93025';
+                return;
+            }
+
+            // Salvar nome para saudação futura:
             localStorage.setItem("userName", name);
 
-            const email = contactForm.querySelector('input[name="email"]').value;
-            const message = contactForm.querySelector('textarea[name="message"]').value;
-
+            // Salvar mensagem no localStorage:
             const messages = JSON.parse(localStorage.getItem('contactMessages')) || [];
             messages.push({ name, email, message, date: new Date().toISOString() });
             localStorage.setItem('contactMessages', JSON.stringify(messages));
@@ -232,4 +257,6 @@ document.addEventListener('DOMContentLoaded', () => {
             contactForm.reset();
         });
     }
+
+
 });

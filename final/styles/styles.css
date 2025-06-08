@@ -1,4 +1,4 @@
-/* ===== VARIÁVEIS ===== */
+/* ===== root +  Variaveis ===== */
 :root {
     --color-bg: #fefefe;
     --color-text: #000000;
@@ -23,7 +23,7 @@
     --transition-easing: cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ===== RESET & BASE ===== */
+/* ===== base ===== */
 *,
 *::before,
 *::after {
@@ -129,7 +129,7 @@ body {
     -webkit-font-feature-settings: "liga" 1;
 }
 
-/* ===== LINKS ===== */
+/* ===== Links ===== */
 a {
     color: var(--color-link);
     text-decoration: none;
@@ -146,7 +146,7 @@ a:focus-visible {
     outline-offset: 4px;
 }
 
-/* ===== CONTAINER ===== */
+/* ===== Container ===== */
 .container {
     width: 90%;
     max-width: 1200px;
@@ -156,7 +156,7 @@ a:focus-visible {
     flex: 1 1 auto;
 }
 
-/* ===== HEADER ===== */
+/* ===== Header >  ===== */
 header {
     background: linear-gradient(90deg, var(--color-header-bg-start) 0%, var(--color-header-bg-end) 100%);
     color: var(--color-bg);
@@ -178,7 +178,7 @@ header h1 {
     line-height: 2;
 }
 
-/* ===== NAVIGATION ===== */
+/* ===== Para o Nav ===== */
 nav {
     background-color: var(--color-nav-bg);
     padding: 1rem 1.25rem;
@@ -232,13 +232,13 @@ nav ul li a.active {
     outline: none;
 }
 
-/* Melhor foco para navegação */
+/* Melhorar foco para navegação */
 nav ul li a:focus-visible {
     outline: 2px solid var(--color-primary);
     outline-offset: 4px;
 }
 
-/* ===== HAMBURGER ===== */
+/* ===== Menu Mobile - Hamburguer ===== */
 .hamburger {
     display: none;
     flex-direction: column;
@@ -270,7 +270,7 @@ nav ul li a:focus-visible {
     transform: rotate(-45deg) translate(6px, -6px);
 }
 
-/* ===== MAIN ===== */
+/* ===== Parte - Main ===== */
 main {
     padding: 2.2rem 0;
     flex: 1 1 auto;
@@ -297,7 +297,7 @@ main h2::after {
     border-radius: 3px;
 }
 
-/* ===== SECTIONS ===== */
+/* ===== Section  ===== */
 section {
     background-color: #fff;
     padding: 2rem;
@@ -323,7 +323,7 @@ section:focus-within {
 
 
 
-/* ===== FORM ===== */
+/* ===== Form ===== */
 form {
     display: flex;
     flex-direction: column;
@@ -360,7 +360,7 @@ textarea:focus {
     outline: none;
 }
 
-/* ===== BUTTONS ===== */
+/* ===== buttons ===== */
 button,
 input[type="submit"] {
     background-color: var(--color-primary);
@@ -390,7 +390,7 @@ input[type="submit"]:focus-visible {
     outline-offset: 4px;
 }
 
-/* ===== RESULT ===== */
+/* ===== Result  ===== */
 #result {
     margin-top: 1rem;
     font-weight: 600;
@@ -481,7 +481,7 @@ input[type="submit"]:focus-visible {
     }
 }
 
-/* ===== ANIMAÇÕES ===== */
+/* ===== Efeitos ===== */
 @keyframes fadeIn {
     from {
         opacity: 0;
