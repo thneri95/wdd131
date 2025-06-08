@@ -10,7 +10,7 @@
     --color-link-hover: white;
     --color-nav-bg: #1b2838;
     --color-nav-link: #dcdcdc;
-    --color-nav-link-active-bg: #0099ff;
+    --color-nav-link-active-bg: #fff;
     --color-nav-link-active-color: #fff;
     --color-footer-bg: #1b2838;
     --color-footer-text: #dcdcdc;
@@ -140,7 +140,7 @@ a {
 
 a:hover,
 a:focus-visible {
-    color: var(--color-nav-link-active-bg);
+    color: var(--color--link-active-bg);
     transform: scale(1.07);
     outline: 2px solid var(--color-primary);
     outline-offset: 4px;
