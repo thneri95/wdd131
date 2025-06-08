@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <meta name="description"
+        content="Discover effective budgeting and financial planning strategies to take control of your money, set goals, and build a secure financial future.
+        Learn to track income and expenses, set financial goals, and utilize helpful tools like our budget calculator" />
+    <meta name="author" content="Tiago Borges" />
+
+    <title>Budgeting & Planning | Smart Finance Portal</title>
+
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" as="style"
+        onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap">
+    </noscript>
+
+    <link rel="stylesheet" href="styles/styles.css" />
+
+
+</head>
+
+<body>
+    <header role="banner">
+        <div class="header-content">
+            <h1>Smart Finance - Budgeting and Planning</h1>
+
+            <nav class="main-nav" aria-label="Primary navigation">
+                <button class="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="primary-menu">
+                    <span class="sr-only"> Menu</span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <ul id="primary-menu" class="nav-menu">
+                    <li><a href="index.html" aria-current="page">Home</a></li>
+                    <li><a href="budgeting-planning.html">Budgeting &amp; Planning</a></li>
+                    <li><a href="saving.html">Saving &amp; Investing</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+        </nav>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section id="plan-future-section" aria-labelledby="plan-future-title">
+            <h2 id="plan-future-title">Plan for the Future</h2>
+            <p>
+                Effective financial planning sets you on the path to achieve your dreams while providing security and
+                peace of mind.
+                It involves understanding your current finances, setting clear goals, and creating actionable steps to
+                reach them.
+            </p>
+        </section>
+
+        <section id="planning-tips-section" aria-labelledby="planning-tips-title">
+            <h2 id="planning-tips-title">Key Planning Tips</h2>
+            <ul class="styled-list">
+                <li><strong>Define short and long-term goals:</strong> Prioritize your financial needs and aspirations
+                    for clarity.</li>
+                <li><strong>Build a retirement plan:</strong> Start early and contribute consistently to ensure a
+                    comfortable retirement.</li>
+                <li><strong>Review your financial plan annually:</strong> Life changes, so should your plan. Update it
+                    regularly.</li>
+                <li><strong>Create a debt repayment strategy:</strong> Manage and reduce debt to improve financial
+                    health.</li>
+                <li><strong>Consider insurance:</strong> Protect your income and assets from unexpected events</li>
+            </ul>
+        </section>
+
+        <section id="budgeting-planning-intro" aria-labelledby="budgeting-planning-title">
+            <h2 id="budgeting-planning-title">Budgeting and Planning</h2>
+            <p>
+                Budgeting is the foundation of successful financial planning. Track your income and expenses, identify
+                areas to save,
+                and allocate funds toward your goals. Combining budgeting with a solid plan ensures you stay on course.
+            </p>
+        </section>
+
+        <section id="tools-resources-section" aria-labelledby="tools-resources-title">
+            <h2 id="tools-resources-title">Tools and Resources</h2>
+            <p>
+                Utilize budgeting apps, financial calculators, and planners to monitor your progress. Many tools offer
+                reminders
+                and visualizations to help keep you motivated.
+            </p>
+            <ul class="styled-list">
+                <li>Financial planning apps (Ex: Mint, YNAB)</li>
+                <li>Retirement calculators</li>
+                <li>Debt payoff planners</li>
+                <li>Consultations with financial advisors</li>
+            </ul>
+        </section>
+
+        <section id="getting-started-section" aria-labelledby="getting-started-title">
+            <h2 id="getting-started-title">Getting Started with Financial Planning</h2>
+            <ol class="styled-list">
+                <li>Gather all financial documents (bank statements, bills, investments).</li>
+                <li>Assess your net worth and monthly cash flow.</li>
+                <li>Set SMART goals (Specific, Measurable, Achievable, Relevant, Time-bound).</li>
+                <li>Create a realistic budget and savings plan.</li>
+                <li>Review and adjust your plan regularly based on life changes.</li>
+            </ol>
+        </section>
+
+        <section id="budgeting-why-section" aria-labelledby="budgeting-why-title">
+            <h2 id="budgeting-why-title">Why Budgeting Matters</h2>
+            <p>Learn how to create a budget and stick to it, tracking income and expenses to reach financial stability.
+            </p>
+        </section>
+
+        <section id="budgeting-tips-section" aria-labelledby="budgeting-tips-title">
+            <h2 id="budgeting-tips-title">Tips for Smart Budgeting</h2>
+            <ul class="styled-list">
+                <li>Set realistic financial goals</li>
+                <li>Use the 50/30/20 rule</li>
+                <li>Track spending regularly</li>
+            </ul>
+        </section>
+
+        <section id="calculator-section" aria-labelledby="budget-calculator-title">
+            <h2 id="budget-calculator-title">Simple Budget Calculator</h2>
+            <p class="calculator-instructions">Enter amounts like 1000, 2000, 1234.56 or 1234,56 (don´t use symbol $
+                )</p>
+
+            <form id="budgetForm" novalidate>
+                <div class="form-group">
+                    <label for="income">Monthly Income:</label>
+                    <input type="text" id="income" name="income" placeholder="Ex: 2500.50 or 2500,50"
+                        aria-describedby="incomeHelp" aria-required="true" autocomplete="off" inputmode="decimal" />
+                    <span id="incomeError" class="error-message" aria-live="polite"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="expenses">Monthly Expenses:</label>
+                    <input type="text" id="expenses" name="expenses" placeholder="Ex: 1500.75 or 1500,75"
+                        aria-describedby="expensesHelp" aria-required="true" autocomplete="off" inputmode="decimal" />
+                    <span id="expensesError" class="error-message" aria-live="polite"></span>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Calculate</button>
+                    <button type="reset" class="btn-secondary">Clear</button>
+                </div>
+            </form>
+
+            <div id="result" class="budget-result" role="status" aria-live="polite" aria-atomic="true"></div>
+        </section>
+
+    </main>
+
+    <footer role="contentinfo" class="site-footer">
+        <p>&copy; <span id="year"></span> Tiago Neri | WDD 131 BYU-Idaho</p>
+        <p>Last Updated: <span id="lastModified"></span></p>
+
+        <nav class="footer-links" aria-label="Footer navigation">
+            <a href="https://www.byui.edu/" target="_blank" rel="noopener noreferrer">BYU-Idaho</a>
+            <a href="https://github.com/thneri95" target="_blank" rel="noopener noreferrer"
+                aria-label="Tiago's GitHub profile">
+                GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/tiago-neri-cfa-if-50935814b/" target="_blank" rel="noopener noreferrer"
+                aria-label="Tiago's LinkedIn profile">LinkedIn</a>
+        </nav>
+    </footer>
+
+    <script src="scripts/script.js" defer></script>
+</body>
+
+</html>
