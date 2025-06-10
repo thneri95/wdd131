@@ -262,7 +262,7 @@ header {
     /* Responsive padding */
     max-width: 1200px;
     margin-inline: auto;
-    box-sizing: var(--border-radius-large);
+
     position: relative;
     /* Needed for absolute positioning of nav for mobile */
 }
@@ -296,7 +296,7 @@ header h1 {
     line-height: 1;
     margin: 0;
     /* Ensure no default margin from h1 */
-    padding: 0;
+    padding: 5px;
     /* Ensure no default padding from h1 */
     text-align: center;
     /* Aligned left within flex container */
@@ -355,7 +355,6 @@ header h1 {
         transform var(--transition-fast) var(--transition-easing),
         box-shadow var(--transition-duration) var(--transition-easing);
     display: inline-block;
-    outline-offset: px;
     will-change: transform, background-color, box-shadow;
     background-color: transparent;
 }
@@ -451,7 +450,7 @@ header h1 {
     /* Custom outline for keyboard focus */
     outline-offset: 4px;
     /* Space between outline and button */
-    border-radius: var(--border-radius-medium);
+    border-radius: var(--border-radius-small);
     /* Matches other focus states */
 }
 
