@@ -1,12 +1,12 @@
 /*
     ----------------------------------------------------------------------
-    CSS Styles for Smart Finance Project
+    CSS Styles for T2 Smart Finance Project
     Author: Tiago Borges
     Date: June 10, 2025
     ----------------------------------------------------------------------
     This stylesheet defines the visual presentation of the Smart Finance website,
     including global styles, typography, layout, component styling,
-    and responsive adjustments.
+    and responsive adjustments, with a professional and robust header.
     ----------------------------------------------------------------------
 */
 
@@ -16,39 +16,28 @@
     ========================================
 */
 :root {
-    /* Colors */
     --color-bg: #fefefe;
     --color-text: #000000;
     --color-primary: #0099ff;
-    /* Main accent color */
     --color-primary-hover: #007acc;
-    /* Slightly darker primary for hover state */
     --color-secondary: #0066cc;
-    /* A complementary color, used in testimonials (e.g., for authors) */
 
     /* Header Colors */
     --color-header-bg-start: #1a2a3a;
-    /* Deeper dark blue */
     --color-header-bg-end: #34495e;
-    /* Slightly lighter blue-gray */
     --color-header-text: #ffffff;
-    /* Explicitly define header text color */
 
     /* Link Colors */
     --color-link: #1a1a1a;
     --color-link-hover: var(--color-primary);
-    /* Changed to use primary color on hover */
 
     /* Navigation Colors (Mobile) */
-    --color-nav-bg: rgba(27, 40, 56, 0.98);
-    /* Slightly less transparent for mobile nav */
+    --color-nav-bg: rgba(27, 40, 56, 0.95);
+    /* Slightly transparent dark background for mobile menu overlay */
     --color-nav-link: #dcdcdc;
     --color-nav-link-hover: var(--color-primary);
-    /* Explicitly define hover for nav links */
     --color-nav-link-active-bg: var(--color-primary);
-    /* Active background matches primary */
     --color-nav-link-active-color: #ffffff;
-    /* Active link text is white */
 
     /* Footer Colors */
     --color-footer-bg: #1b2838;
@@ -58,37 +47,26 @@
 
     /* Neutral & Utility Colors */
     --color-bg-light: #f9f9f9;
-    /* Added for testimonials background, form sections etc. */
     --color-text-dark: #333333;
-    /* Added for testimonials text, specific form text */
     --color-white: #ffffff;
-    /* Added for testimonial card background, buttons etc. */
     --color-green-light: #e8f5e9;
-    /* For tip highlights */
     --color-green-dark: #388e3c;
-    /* For tip highlights text */
     --color-green-darker: #1b5e20;
-    /* For tip highlights strong text */
     --color-red-error: #e74c3c;
-    /* For error messages */
     --color-gray-medium: #777;
-    /* For form help text */
     --color-gray-light: #ccc;
-    /* For default form borders */
     --color-gray-mid: #bbb;
-    /* For default form borders */
     --color-blue-dark: #004d99;
-    /* For darker secondary button hover */
 
     /* Shadows */
     --shadow-default: rgba(0, 0, 0, 0.18);
     --shadow-hover: rgba(0, 0, 0, 0.12);
-    /* This shadow is for general section hover */
     --shadow-button: rgba(0, 86, 179, 0.7);
     --shadow-button-hover: rgba(0, 64, 145, 0.85);
-    /* Stronger shadow for button hover */
-    --shadow-header: rgba(0, 0, 0, 0.2);
-    --shadow-nav-menu: rgba(0, 0, 0, 0.15);
+    --shadow-header: rgba(0, 0, 0, 0.25);
+    /* Stronger header shadow */
+    --shadow-nav-menu: rgba(0, 0, 0, 0.4);
+    /* Darker shadow for mobile menu overlay */
     --shadow-section: rgba(0, 0, 0, 0.08);
     --shadow-section-hover: rgba(0, 0, 0, 0.15);
     --shadow-feature-card: rgba(0, 0, 0, 0.05);
@@ -100,15 +78,11 @@
     --shadow-testimonial-hover: rgba(0, 0, 0, 0.15);
     --shadow-footer: rgba(0, 0, 0, 0.25);
     --shadow-active-link: rgba(0, 153, 255, 0.4);
-    /* Shadow for active navigation link */
 
     /* Transitions & Easing */
     --transition-duration: 0.3s;
-    /* Reduced for snappier transitions */
     --transition-easing: ease-in-out;
-    /* More common easing for general use */
     --transition-fast: 0.2s;
-    /* For quicker transform effects */
     --transition-slow: 0.35s;
     /* For hamburger and menu transitions */
 
@@ -118,7 +92,6 @@
     --border-radius-large: 0.5rem;
     --border-radius-xl: 0.75rem;
     --border-radius-xxl: 12px;
-    /* Used for newsletter, testimonials */
 }
 
 /*
@@ -148,7 +121,6 @@ html {
 
 body {
     font-family: 'Inter', 'Segoe UI', Tahoma, Verdana, sans-serif;
-    /* Prioritize Inter if loaded */
     background-color: var(--color-bg);
     color: var(--color-text);
     line-height: 1.7;
@@ -162,6 +134,8 @@ body {
     /* For sticky footer layout */
     -webkit-font-feature-settings: "liga" 1;
     /* Enable ligatures for better typography */
+    overflow-x: hidden;
+    /* Prevent horizontal scroll due to off-screen mobile menu */
 }
 
 /*
@@ -174,7 +148,6 @@ a {
     text-decoration: none;
     transition: color var(--transition-duration) var(--transition-easing),
         transform var(--transition-fast) var(--transition-easing);
-    /* Explicit transform transition */
     outline-offset: 2px;
     /* Space between outline and element border for accessibility */
     will-change: transform, color;
@@ -190,9 +163,7 @@ a:hover {
 /* Focus-visible for accessibility, shows outline only when navigating with keyboard */
 a:focus-visible {
     color: var(--color-link-hover);
-    /* Keep hover color on focus */
     transform: scale(1.03);
-    /* Keep scale effect on focus */
     outline: 2px solid var(--color-primary);
     outline-offset: 4px;
     /* Increased offset for better visibility */
@@ -220,133 +191,92 @@ a:focus-visible {
 
 /*
     ========================================
-    5. Header
+    5. Header (REVISED FOR PROFESSIONAL RESPONSIVENESS)
     ========================================
 */
 header {
     background: linear-gradient(90deg, var(--color-header-bg-start) 0%, var(--color-header-bg-end) 100%);
     color: var(--color-header-text);
     box-shadow: 0 8px 15px var(--shadow-header);
-    /* Consistent header shadow */
     position: sticky;
-    /* Corrected: Use 'sticky' for fixed-on-scroll behavior */
     top: 0;
-    /* Makes header sticky at the top */
     z-index: 20;
     /* Ensures header is above other content */
     user-select: none;
-    /* Prevent text selection in header */
-    will-change: transform, background-color, box-shadow;
-    /* Optimize for smooth transitions */
-    transition: background-color var(--transition-duration) var(--transition-easing),
-        box-shadow var(--transition-duration) var(--transition-easing);
-    padding-block: 0rem;
-    /* Reduced vertical padding for a leaner header */
     backdrop-filter: blur(8px);
-    /* Subtle blur effect */
     -webkit-backdrop-filter: blur(8px);
-    /* For Safari */
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
-    /* Slightly more visible border */
-    /* Removed animation: slideInDown for no top-to-bottom slide */
+    padding: 10px 5%;
+    /* Responsive padding */
 }
 
 .header-content {
     display: flex;
-    /* Corrected: Changed from 'grid' to 'flex' for flexible alignment */
     justify-content: space-between;
-    /* Space between logo/title and nav/hamburger */
+    /* Logo on left, Nav/Hamburger on right */
     align-items: center;
     /* Vertically center items */
-    padding: 20px 5%;
-    /* Responsive padding */
     max-width: 1200px;
     margin-inline: auto;
-
-    position: relative;
-    /* Needed for absolute positioning of nav for mobile */
+    width: 100%;
 }
 
 .header-logo-link {
     display: flex;
-    /* Allows H1 to be styled within the link */
     align-items: center;
     color: deepskyblue;
-    /* Ensure link color doesn't override h1 color */
-    /* Remove default link hover/focus-visible transform for logo to avoid distortion */
     transform: none;
+    /* No hover/focus transform for logo link */
     outline-offset: 0;
     outline: none;
+    flex-shrink: 0;
+    /* Prevent logo from shrinking on desktop */
 }
-
-.header-logo-link:hover,
-.header-logo-link:focus-visible {
-    transform: none;
-    outline: none;
-    color: deepskyblue;
-}
-
 
 header h1 {
     font-size: clamp(1.8rem, 3.5vw + 0.5rem, 3rem);
-    /* Larger title, responsive font size */
+    /* Responsive font size */
     letter-spacing: 2px;
-    /* More letter spacing for emphasis */
     font-weight: 1000;
-    line-height: 1;
+    line-height: 2;
     margin: 0;
-    /* Ensure no default margin from h1 */
-    padding: 5px;
-    /* Ensure no default padding from h1 */
-    text-align: center;
-    /* Aligned left within flex container */
+    padding: 10px;
     color: deepskyblue;
-    /* Keep deepskyblue color */
     white-space: nowrap;
-    /* Prevent wrapping if possible */
+    /* Keep on one line for desktop */
     overflow: hidden;
     text-overflow: ellipsis;
-    /* Add ellipsis if text is too long */
     text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
-    /* Stronger text shadow */
-    flex-shrink: 0;
-    /* Prevent title from shrinking */
-    margin-bottom: 0;
-    /* Reset margin-bottom as it's typically set on the parent link */
-    margin-right: 20px;
-    /* Increased space between h1 and nav/hamburger on desktop */
 }
 
 /*
     ========================================
-    6. Navigation (Main Nav)
+    6. Navigation (Main Nav - REVISED)
     ========================================
 */
 .main-nav {
+    /* Desktop styles: displayed as flex */
     display: flex;
     align-items: center;
-    flex-grow: 1;
-    /* Allows navigation to grow and push elements */
     justify-content: flex-end;
-    /* Push navigation to the right */
-    padding: 0px;
+    flex-grow: 1;
+    /* Allows nav to take available space */
 }
 
 .nav-menu {
     list-style: none;
-    padding: 10px;
+    padding: 0;
+    margin: 0;
     display: flex;
-
-
-    gap: 5rem;
-    /* Increased gap for more spacing */
-    transition: max-height var(--transition-duration) var(--transition-easing),
-        padding var(--transition-duration) var(--transition-easing);
+    /* Always flex for desktop */
+    gap: 2.5rem;
+    /* Standard spacing for desktop links */
 }
 
 .nav-menu li a {
     color: var(--color-nav-link);
-    padding: 0.6rem 2.5rem;
+    padding: 0.6rem 1rem;
+    /* Standard link padding */
     border-radius: var(--border-radius-medium);
     font-weight: 600;
     font-size: 1.05rem;
@@ -369,15 +299,11 @@ header h1 {
 
 .nav-menu li a:hover,
 .nav-menu li a:focus-visible {
-    /* Combine hover and focus-visible for consistency */
     background-color: rgba(255, 255, 255, 0.15);
-    /* Slightly more visible background on hover */
     color: var(--color-nav-link-hover);
-    /* Use explicit nav link hover color */
     transform: translateY(-2px);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
     outline: none;
-    /* Reset default outline, replaced by custom outline below */
 }
 
 /* Explicit focus-visible for accessibility for nav links */
@@ -389,130 +315,72 @@ header h1 {
 
 /*
     ========================================
-    7. Mobile Menu - Hamburger Icon
+    7. Mobile Menu - Hamburger Icon (REVISED)
     ========================================
-    This section styles the hamburger icon, which acts as the toggle for the
-    mobile navigation menu. It includes animations for its open/close states
-    and ensures proper accessibility and performance.
 */
 .hamburger {
-    /* Base styling for the button */
     display: none;
-    /* Hidden by default on larger screens, shown via media query */
+    /* Hidden by default, shown in media query */
     flex-direction: column;
-    /* Stacks the span elements vertically */
     justify-content: space-between;
-    /* Distributes space evenly between bars */
     align-items: center;
-    /* Centers bars horizontally */
     cursor: pointer;
-    /* Indicates interactivity */
     padding: 2px;
-    /* Provides a larger clickable area */
     user-select: none;
-    /* Prevents text selection on the button */
     z-index: 1100;
-    /* Ensures the hamburger is on top of other content */
-    background: var(--color-primary);
-    /* No background color */
-    border: gray;
-    /* No border */
-
-    /* Positioning within the header */
-    position: absolute;
-    /* Corrected: Use 'absolute' for positioning relative to header-content */
-    right: 20px;
-    /* Aligns to the right of the header */
-    top: 50%;
-    /* Vertically centers the button */
-    transform: translateY(-50%);
-    /* Adjusts for precise vertical centering */
-
-    /* Fixed dimensions for consistent appearance */
+    /* Ensure hamburger is above other content */
     width: 32px;
     height: 24px;
-    /* Slightly adjusted height for 3 bars and 7px gaps */
     gap: 7px;
-    /* Defines space between the hamburger bars */
-
-    /* Performance optimization for mobile taps */
     -webkit-tap-highlight-color: transparent;
-    /* Removes the default blue highlight on iOS */
-
-    /* Initial state for animations/transitions */
     transition: transform var(--transition-fast) var(--transition-easing);
-    /* Smooth transition for potential button movement */
+    background: transparent;
+    /* No background color for button itself */
+    border: none;
 }
 
 /* Enhancing focus visibility for keyboard users */
 .hamburger:focus-visible {
     outline: 2px solid var(--color-primary);
-    /* Custom outline for keyboard focus */
     outline-offset: 4px;
-    /* Space between outline and button */
     border-radius: var(--border-radius-small);
-    /* Matches other focus states */
 }
 
 .hamburger span {
-    /* Styling for each individual bar (span) */
     display: block;
-    /* Ensures proper width and height application */
     width: 100%;
-    /* Spans fill the hamburger button's width */
     height: 3px;
-    /* Thickness of each bar */
     background-color: var(--color-nav-link);
     /* Color of the bars */
     border-radius: 2px;
-    /* Slightly rounded ends for the bars */
-
-    /* Transition for smooth animation between states */
     transition: all var(--transition-slow) var(--transition-easing);
-    /* Smoother transition for transformations */
     transform-origin: center;
-    /* Ensures rotation originates from the center of each bar */
     will-change: transform, opacity, background-color;
-    /* Optimize for animation performance */
 }
 
 /* Hamburger active states (when menu is open) for the "X" style */
 .hamburger.active span:nth-child(1) {
-    /* Top bar transforms into one arm of the 'X' */
     transform: translateY(10px) rotate(45deg);
-    /* Moves down and rotates */
     background-color: var(--color-nav-link-active-color);
-    /* Changes color when active */
 }
 
 .hamburger.active span:nth-child(2) {
-    /* Middle bar fades out and slides away */
     opacity: 0;
-    /* Fully transparent */
     transform: translateX(100%);
-    /* Slides out to the right, making it disappear cleanly */
     transition: opacity var(--transition-slow) var(--transition-easing),
         transform var(--transition-slow) var(--transition-easing);
-    /* Specific transition for this bar */
 }
 
 .hamburger.active span:nth-child(3) {
-    /* Bottom bar transforms into the other arm of the 'X' */
     transform: translateY(-10px) rotate(-45deg);
-    /* Moves up and rotates */
     background-color: var(--color-nav-link-active-color);
-    /* Changes color when active */
 }
 
-/*
-    Accessibility Enhancement: Ensure the hamburger icon remains visible
-    even if colors are disabled or high contrast mode is active.
-    This often means providing a clear outline or shape.
-*/
 @media (prefers-reduced-motion: reduce) {
 
     .hamburger,
-    .hamburger span {
+    .hamburger span,
+    .main-nav {
         transition: none !important;
         /* Disable transitions for users who prefer reduced motion */
     }
@@ -525,10 +393,7 @@ header h1 {
 */
 main {
     padding-block: 2.2rem;
-    /* Vertical padding */
     flex: 1 1 auto;
-    /* Allows main content to grow */
-    /* animation: fadeIn 0.7s ease forwards; Removed as it was for initial page load, now integrated per-section */
 }
 
 main h2 {
@@ -539,7 +404,6 @@ main h2 {
     letter-spacing: 0.02em;
     position: relative;
     animation: slideUp 0.6s ease forwards;
-    /* Animation for individual h2 */
     text-align: center;
 }
 
@@ -560,7 +424,6 @@ section {
     border-radius: var(--border-radius-xl);
     box-shadow: 0 4px 16px var(--shadow-section);
     margin-bottom: 1.875rem;
-    /* Consistent spacing between sections */
     transition: transform var(--transition-duration) var(--transition-easing),
         box-shadow var(--transition-duration) var(--transition-easing);
     will-change: transform, box-shadow;
@@ -576,11 +439,9 @@ section {
 
 section:hover,
 section:focus-within {
-    /* Use focus-within for accessibility when a child element is focused */
     transform: scale(1.01);
     box-shadow: 0 8px 24px var(--shadow-section-hover);
     outline: none;
-    /* Remove default outline, if any, when applying custom shadow/transform */
 }
 
 /* Special styling for highlight blockquotes / tips */
@@ -607,31 +468,25 @@ section:focus-within {
 /* Unordered list styling within content sections */
 ul.styled-list {
     list-style: none;
-    /* Remove default bullet points */
     padding-left: 0;
     margin-top: 1rem;
 }
 
 ul.styled-list li {
     position: relative;
-    /* For custom bullet point */
     padding-left: 1.8rem;
-    /* Space for custom bullet */
     margin-bottom: 0.75rem;
 }
 
 ul.styled-list li::before {
     content: '\2022';
-    /* Unicode character for a bold dot */
     color: var(--color-primary);
     font-size: 1.2em;
-    /* Larger dot */
     font-weight: bold;
     position: absolute;
     left: 0;
     top: 0.1em;
 }
-
 
 /*
     ========================================
@@ -674,7 +529,6 @@ ul.styled-list li::before {
     color: var(--color-text-dark);
     margin-bottom: 1rem;
     flex-grow: 1;
-    /* Allows paragraphs to take available space */
 }
 
 .feature-card .btn-link {
@@ -691,10 +545,8 @@ ul.styled-list li::before {
 .feature-card .btn-link:hover {
     background-color: var(--color-blue-dark);
     transform: translateY(-2px);
-    /* Maintain consistency with other hover effects */
     box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
 }
-
 
 /*
     ========================================
@@ -718,12 +570,10 @@ ul.styled-list li::before {
     margin-bottom: 0.5rem;
     color: var(--color-text-dark);
     animation: none;
-    /* Disable specific H2 animation for newsletter section */
 }
 
 .newsletter-section h2::after {
     display: none;
-    /* Hide the underline for newsletter H2 */
 }
 
 .newsletter-section p {
@@ -782,7 +632,6 @@ ul.styled-list li::before {
     background-color: var(--color-primary-hover);
 }
 
-
 /* General Form Inputs (apply to all forms unless overridden) */
 form {
     display: flex;
@@ -820,7 +669,6 @@ textarea:focus {
     border-color: var(--color-primary);
     box-shadow: 0 0 12px var(--shadow-form-focus);
     outline: none;
-    /* Remove default outline */
 }
 
 /* Error message styling for forms */
@@ -829,9 +677,7 @@ textarea:focus {
     font-size: 0.85em;
     margin-top: 0.25em;
     display: block;
-    /* Ensure it takes up space */
     min-height: 1.2em;
-    /* Give it some minimum height to prevent layout shifts */
 }
 
 /* Invalid input state */
@@ -839,7 +685,6 @@ input.invalid,
 select.invalid,
 textarea.invalid {
     border-color: var(--color-red-error) !important;
-    /* Use !important to ensure override */
 }
 
 /* Form help text below inputs */
@@ -859,31 +704,26 @@ textarea.invalid {
     font-weight: 600;
     font-size: 1.1rem;
     border: 1px solid;
-    /* Generic border to be styled by color */
 }
 
 /* Custom classes for form submission messages for better styling */
 .form-message.sending-message-box {
     background-color: rgba(0, 153, 255, 0.1);
-    /* Light blue background for sending */
     border-color: blue;
     color: blue;
 }
 
 .form-message.success-message-box {
     background-color: rgba(39, 174, 96, 0.1);
-    /* Light green background */
     border-color: var(--color-green-dark);
     color: var(--color-green-dark);
 }
 
 .form-message.error-message-box {
     background-color: rgba(231, 76, 60, 0.1);
-    /* Light red background */
     border-color: var(--color-red-error);
     color: var(--color-red-error);
 }
-
 
 /*
     ========================================
@@ -901,7 +741,6 @@ input[type="submit"] {
     border-radius: var(--border-radius-large);
     cursor: pointer;
     align-self: flex-start;
-    /* Aligns button to the start of its flex container */
     transition: background-color var(--transition-duration) var(--transition-easing),
         transform var(--transition-fast) ease,
         box-shadow var(--transition-duration) var(--transition-easing);
@@ -917,17 +756,14 @@ input[type="submit"]:hover,
 input[type="submit"]:focus-visible {
     background-color: var(--color-primary-hover);
     transform: translateY(-3px);
-    /* Lift effect on hover/focus */
     box-shadow: 0 7px 18px var(--shadow-button-hover);
     outline: 2px solid var(--color-primary);
     outline-offset: 4px;
     border-radius: var(--border-radius-large);
-    /* Maintain border radius with outline */
 }
 
 /* Specific button classes for other forms (e.g., calculators) */
 .btn-primary {
-    /* Redundant with general button styles, but kept for explicit intent */
     background-color: var(--color-primary);
     color: var(--color-white);
 }
@@ -938,14 +774,12 @@ input[type="submit"]:focus-visible {
 
 .btn-secondary {
     background-color: #95a5a6;
-    /* Specific grey color for secondary */
     color: var(--color-white);
     box-shadow: 0 3px 10px rgba(149, 165, 166, 0.7);
 }
 
 .btn-secondary:hover {
     background-color: #7f8c8d;
-    /* Darker grey on hover */
     box-shadow: 0 7px 18px rgba(127, 140, 141, 0.85);
 }
 
@@ -953,11 +787,9 @@ input[type="submit"]:focus-visible {
 .form-actions {
     display: flex;
     justify-content: center;
-    /* Center buttons horizontally */
     gap: 1rem;
     margin-top: 1.5rem;
 }
-
 
 /*
     ========================================
@@ -978,7 +810,6 @@ input[type="submit"]:focus-visible {
 
 #result p {
     margin-block: 0.5em;
-    /* Vertical margin for paragraphs within result */
 }
 
 #result p:first-child {
@@ -1004,7 +835,6 @@ input[type="submit"]:focus-visible {
 
 .budget-result.neutral {
     color: #f39c12;
-    /* A warning orange */
     border: 1px solid #f39c12;
     background-color: rgba(243, 156, 18, 0.1);
 }
@@ -1017,9 +847,7 @@ input[type="submit"]:focus-visible {
     font-weight: normal;
     font-size: 0.9em;
     color: var(--color-text-dark);
-    /* Reset to default text color for message */
 }
-
 
 /*
     ========================================
@@ -1032,7 +860,6 @@ input[type="submit"]:focus-visible {
     font-weight: 500;
     color: var(--color-text-dark);
     text-align: center;
-    /* Center align welcome message */
 }
 
 .testimonials-section {
@@ -1040,7 +867,6 @@ input[type="submit"]:focus-visible {
     padding: 2.5rem;
     max-width: 100%;
     margin: 1.5rem auto;
-    /* Center section */
     border-radius: var(--border-radius-xxl);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -1054,12 +880,10 @@ input[type="submit"]:focus-visible {
     font-weight: 700;
     color: var(--color-primary);
     animation: none;
-    /* Disable specific H2 animation for testimonial section */
 }
 
 .testimonials-section h2::after {
     display: none;
-    /* Hide the underline for testimonial H2 */
 }
 
 .testimonial-card {
@@ -1108,7 +932,6 @@ input[type="submit"]:focus-visible {
 
 .social-links li {
     margin-bottom: 0.5rem;
-    /* Maintain spacing between list items */
 }
 
 .social-links a {
@@ -1129,12 +952,10 @@ input[type="submit"]:focus-visible {
     font-size: 1.3em;
     color: var(--color-secondary);
     transition: transform var(--transition-fast) ease;
-    /* Smooth icon hover */
 }
 
 .social-links a:hover i {
     transform: scale(1.1);
-    /* Slightly enlarge icon on hover */
 }
 
 /*
@@ -1193,105 +1014,132 @@ input[type="submit"]:focus-visible {
     outline: 2px solid var(--color-primary);
     outline-offset: 4px;
     border-radius: var(--border-radius-small);
-    /* Use a smaller, defined border-radius */
 }
 
 /*
     ========================================
-    16. Media Queries (Responsiveness)
+    16. Media Queries (REVISED FOR HEADER & NAV)
     ========================================
 */
 @media (max-width: 768px) {
 
-    /* Header adjustments for smaller screens */
-    header .header-content {
-        flex-direction: column;
-        /* Stack title and nav vertically */
-        justify-content: center;
-        padding: 15px 20px;
-        align-items: flex-start;
-        /* Align items to the start when stacked */
+    /* Adjust general container padding for smaller screens */
+    .container {
+        padding-inline: 15px;
+    }
+
+    /* Header for mobile */
+    header {
+        padding: 10px 20px;
+        /* Tighter padding for mobile header */
+    }
+
+    .header-content {
+        justify-content: space-between;
+        /* Keep logo and hamburger spread */
+        align-items: center;
+    }
+
+    .header-logo-link {
+        flex-shrink: 1;
+        /* Allow logo to shrink */
+        min-width: 0;
+        /* Important for flex items to prevent overflow */
     }
 
     header h1 {
-        font-size: clamp(1.8rem, 5vw, 2.5rem);
-        /* Adjust font size for mobile */
-        text-align: center;
-        /* Center title on mobile */
-        width: 100%;
-        /* Take full width */
-        margin-right: 0;
-        /* Remove right margin */
-        margin-bottom: 10px;
-        /* Space between title and nav/hamburger */
-        order: 1;
-        /* Ensure title appears first */
+        font-size: clamp(1.5rem, 6vw, 2.2rem);
+        /* More aggressive font scaling for H1 */
+        white-space: normal;
+        /* Allow H1 to wrap on mobile */
+        word-break: break-word;
+        /* Break long words */
+        text-overflow: clip;
+        /* Remove ellipsis if wrapping */
     }
 
-    .main-nav {
-        order: 3;
-        /* Move navigation below title and hamburger */
-        width: 100%;
-        /* Ensure nav takes full width */
-        justify-content: center;
-        /* Center nav items on mobile */
+
+    /* Show hamburger menu */
+    .hamburger {
+        display: flex;
+        /* Make hamburger visible */
     }
 
+    /* Mobile navigation menu (hidden by default, slides out) */
     .nav-menu {
-        flex-direction: column;
-        /* Stack nav items vertically */
-        max-height: 0;
-        /* Collapse menu by default */
-        overflow: hidden;
-        padding: 0;
-        transition: max-height var(--transition-duration) var(--transition-easing),
-            padding var(--transition-duration) var(--transition-easing);
-        position: absolute;
-        /* Position relative to header-content */
-        top: 100%;
-        /* Below the header-content */
-        left: 0;
-        width: 100%;
+        position: fixed;
+        /* Fixed to viewport */
+        top: 0;
+        right: -100%;
+        /* Start off-screen to the right */
+        width: min(75vw, 300px);
+        /* Responsive width, max 300px */
+        height: 100vh;
+        /* Full viewport height */
         background-color: var(--color-nav-bg);
-        box-shadow: 0 2px 8px var(--shadow-nav-menu);
-        z-index: 999;
+        box-shadow: 0 0 20px var(--shadow-nav-menu);
+        flex-direction: column;
+        justify-content: center;
+        /* Vertically center links */
+        align-items: center;
+        /* Horizontally center links */
+        padding: 30px 20px;
+        /* Padding inside the menu */
+        transition: right var(--transition-slow) var(--transition-easing);
+        z-index: 1000;
+        /* Below hamburger, above content */
     }
 
     .nav-menu.active {
-        max-height: 500px;
-        /* Expand menu */
-        padding: 1rem 0;
+        right: 0;
+        /* Slide in from the right */
     }
 
     .nav-menu li {
         width: 100%;
+        /* Full width for mobile list items */
+        margin-bottom: 15px;
+        /* Spacing between links */
         text-align: center;
+    }
+
+    .nav-menu li:last-child {
+        margin-bottom: 0;
     }
 
     .nav-menu li a {
         display: block;
-        /* Make links full width */
-        padding: 10px 15px;
-        margin: 5px 10px;
+        /* Make links block-level for full touch area */
+        padding: 12px 15px;
+        font-size: 1.15rem;
+        /* Larger font for mobile links */
+        background-color: transparent;
+        /* Ensure transparent background unless active */
+        color: var(--color-nav-link);
+        border-radius: var(--border-radius-medium);
+        transition: background-color var(--transition-duration) var(--transition-easing), color var(--transition-duration) var(--transition-easing);
     }
 
-    .hamburger {
-        display: flex;
-        /* Show hamburger on mobile */
-        position: absolute;
-        /* Position hamburger absolutely */
-        right: 20px;
-        /* Align to the right */
-        top: 50%;
-        transform: translateY(-50%);
-        margin-left: 0;
-        /* Remove margin-left */
-        order: 2;
-        /* Position hamburger after title but before nav */
+    .nav-menu li a:hover,
+    .nav-menu li a:focus-visible {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: var(--color-nav-link-hover);
+        transform: none;
+        /* No scale for mobile links to keep clean */
+        box-shadow: none;
+        /* No shadow on hover for mobile links */
     }
 
-    main h2 {
-        font-size: clamp(1.5rem, 5vw, 2rem);
+    .nav-menu li a[aria-current="page"] {
+        background-color: var(--color-primary);
+        color: var(--color-nav-link-active-color);
+        transform: none;
+        box-shadow: none;
+    }
+
+    /* Feature grid: adjust column count for better stacking on tablets */
+    .feature-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     }
 
     /* Testimonials section responsiveness for smaller screens */
@@ -1312,22 +1160,59 @@ input[type="submit"]:focus-visible {
     /* Form actions responsive adjustments */
     .form-actions {
         flex-direction: column;
-        /* Stack buttons vertically */
         gap: 0.8rem;
     }
 
-    .form-actions button {
+    .form-actions button,
+    .form-actions input[type="submit"] {
         align-self: stretch;
-        /* Make buttons take full width */
     }
 }
 
 @media (max-width: 480px) {
-    .footer-links {
-        gap: 1rem;
-        flex-direction: column;
-        /* Stack footer links vertically */
-        align-items: center;
+    .container {
+        padding-inline: 10px;
+        padding-block: 30px;
+    }
+
+    header {
+        padding: 8px 15px;
+        /* Even tighter header padding */
+    }
+
+    header h1 {
+        font-size: clamp(1.4rem, 7vw, 2rem);
+        /* Smaller H1 on very small devices */
+    }
+
+    .hamburger {
+        width: 30px;
+        height: 22px;
+        gap: 6px;
+    }
+
+    .hamburger span {
+        height: 2.5px;
+    }
+
+    .hamburger.active span:nth-child(1) {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .hamburger.active span:nth-child(3) {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+
+    .nav-menu {
+        width: min(85vw, 320px);
+        /* Slightly wider on very small screens, or fixed max */
+        padding-top: 50px;
+        /* Account for smaller header */
+    }
+
+    .nav-menu li a {
+        font-size: 1.05rem;
+        /* Slightly smaller font for links on very small screens */
     }
 
     /* Further refine main content spacing for very small screens */
@@ -1344,8 +1229,37 @@ input[type="submit"]:focus-visible {
         padding: 1.5rem;
         margin-block: 1.5rem;
     }
-}
 
+    .feature-card h3 {
+        font-size: 1.2rem;
+    }
+
+    .feature-card p {
+        font-size: 0.9rem;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="number"],
+    input[type="tel"],
+    select,
+    textarea {
+        padding: 0.75rem 0.8rem;
+        font-size: 0.95rem;
+    }
+
+    button,
+    input[type="submit"] {
+        padding: 0.75rem 1.2rem;
+        font-size: 0.95rem;
+    }
+
+    .footer-links {
+        gap: 0.8rem;
+        flex-direction: column;
+        align-items: center;
+    }
+}
 
 /*
     ========================================
@@ -1366,7 +1280,6 @@ input[type="submit"]:focus-visible {
     from {
         opacity: 0;
         transform: translateY(20px);
-        /* Start slightly below for subtle slide up */
     }
 
     to {
@@ -1386,5 +1299,3 @@ input[type="submit"]:focus-visible {
         transform: translateY(0);
     }
 }
-
-/* slideInDown removed as per previous request */
