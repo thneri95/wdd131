@@ -1,6 +1,6 @@
 # 💰 T2 Smart Finance: Your Path to Financial Freedom
 
-![T2 Banner](images/og-image.jpg)
+https://thneri95.github.io/wdd131/final/index.html
 
 ---
 
