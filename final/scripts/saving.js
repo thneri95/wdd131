@@ -8,10 +8,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const expanded = hamburgerButton.getAttribute('aria-expanded') === 'true' || false;
             hamburgerButton.setAttribute('aria-expanded', !expanded);
             navMenu.classList.toggle('active');
-            document.body.classList.toggle('no-scroll'); // Optional: prevent scrolling when menu is open
+            document.body.classList.toggle('no-scroll'); // 
         });
 
-        // Close menu when a navigation link is clicked (for single-page feel or smooth navigation)
+        // Close menu when a navigation link is clicked (for single-page feel or smooth navigation):
         navMenu.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', () => {
                 hamburgerButton.setAttribute('aria-expanded', false);
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Footer Information (Current Year and Last Modified Date - consistent across pages) ---
+    // --- Footer Information (Current Year and Last Modified Date etc) ---
     const yearSpan = document.getElementById('year');
     const lastModifiedSpan = document.getElementById('lastModified');
 
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         lastModifiedSpan.textContent = document.lastModified;
     }
 
-    // --- Saving Goal Calculator Functionality ---
+    // --- Saving Goal Calculator Functionality: ---
     const goalForm = document.getElementById('goalForm');
     const goalAmountInput = document.getElementById('goalAmount');
     const monthlyContributionInput = document.getElementById('monthlyContribution');
@@ -142,9 +142,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             while (currentSavings < goalAmount && months < maxMonths) {
                 if (monthlyInterestRate > 0) {
-                    currentSavings *= (1 + monthlyInterestRate); // Apply interest
+                    currentSavings *= (1 + monthlyInterestRate); // <<<< Apply interest
                 }
-                currentSavings += monthlyContribution; // Add monthly contribution
+                currentSavings += monthlyContribution; // <<<< Add monthly contribution
                 months++;
             }
 
@@ -156,18 +156,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 const remainingMonths = months % 12;
                 message = `<p>Based on your goal and saves:</p>
                            <p>You will reach your goal of ${formatCurrency(goalAmount)} in about <strong>${years} years and ${remainingMonths} months</strong>.`;
-                if (months > 0) { // Only show total contributed if there's actual contribution
+                if (months > 0) {
                     message += ` You will have contributed a total of ${formatCurrency(monthlyContribution * months)} to reach this goal.`;
                 }
                 message += ` Keep saving diligently!</p>`;
                 className = 'success';
             } else {
                 message = `<p>It will take more than ${Math.floor(maxMonths / 12)} years to reach your goal with these contributions. Consider increasing your monthly savings or re-evaluating your goal.</p>`;
-                className = 'warning'; // Or an 'error' class if you prefer a strong warning
+                className = 'warning';
             }
 
             resultDiv.innerHTML = message;
-            resultDiv.className = `calculator-result ${className}`; // Set class for styling
+            resultDiv.className = `calculator-result ${className}`;
         });
     }
 });
