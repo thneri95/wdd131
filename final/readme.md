@@ -52,17 +52,4 @@ Built using modern web technologies for speed, maintainability, and performance:
 
 ---
 
-## ⚙️ Getting Started
 
-Clone and run the project locally with just a browser:
-
-### Prerequisites
-
-No installation required – just a web browser like Chrome, Firefox, Edge, or Safari.
-
-### Installation
-
-1. **Clone the repository:**
-
-   ```bash
-   git clone https://github.com/YOUR_GITHUB_USERNAME/T2-Smart-Finance.git
