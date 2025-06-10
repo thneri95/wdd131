@@ -1,280 +1,535 @@
-/* ===== root +  Variaveis ===== */
+/*
+    ----------------------------------------------------------------------
+    CSS Styles for Smart Finance Project
+    Author: Tiago Borges
+    Date: June 10, 2025
+    ----------------------------------------------------------------------
+    This stylesheet defines the visual presentation of the Smart Finance website,
+    including global styles, typography, layout, component styling,
+    and responsive adjustments.
+    ----------------------------------------------------------------------
+*/
+
+/*
+    ========================================
+    1. CSS Custom Properties (Variables)
+    ========================================
+*/
 :root {
+    /* Colors */
     --color-bg: #fefefe;
     --color-text: #000000;
     --color-primary: #0099ff;
-    --color-primary-hover: #0099ff;
-    --color-header-bg-start: #1b2838;
-    --color-header-bg-end: #2c3e50;
+    /* Main accent color */
+    --color-primary-hover: #007acc;
+    /* Slightly darker primary for hover state */
+    --color-secondary: #0066cc;
+    /* A complementary color, used in testimonials (e.g., for authors) */
+
+    /* Header Colors */
+    --color-header-bg-start: #1a2a3a;
+    /* Deeper dark blue */
+    --color-header-bg-end: #34495e;
+    /* Slightly lighter blue-gray */
+    --color-header-text: #ffffff;
+    /* Explicitly define header text color */
+
+    /* Link Colors */
     --color-link: #1a1a1a;
-    --color-link-hover: white;
-    --color-nav-bg: #1b2838;
+    --color-link-hover: var(--color-primary);
+    /* Changed to use primary color on hover */
+
+    /* Navigation Colors (Mobile) */
+    --color-nav-bg: rgba(27, 40, 56, 0.98);
+    /* Slightly less transparent for mobile nav */
     --color-nav-link: #dcdcdc;
-    --color-nav-link-active-bg: #fff;
-    --color-nav-link-active-color: #fff;
+    --color-nav-link-hover: var(--color-primary);
+    /* Explicitly define hover for nav links */
+    --color-nav-link-active-bg: var(--color-primary);
+    /* Active background matches primary */
+    --color-nav-link-active-color: #ffffff;
+    /* Active link text is white */
+
+    /* Footer Colors */
     --color-footer-bg: #1b2838;
     --color-footer-text: #dcdcdc;
     --color-footer-link: #b0b0b0;
     --color-footer-link-hover: var(--color-primary);
+
+    /* Neutral & Utility Colors */
+    --color-bg-light: #f9f9f9;
+    /* Added for testimonials background, form sections etc. */
+    --color-text-dark: #333333;
+    /* Added for testimonials text, specific form text */
+    --color-white: #ffffff;
+    /* Added for testimonial card background, buttons etc. */
+    --color-green-light: #e8f5e9;
+    /* For tip highlights */
+    --color-green-dark: #388e3c;
+    /* For tip highlights text */
+    --color-green-darker: #1b5e20;
+    /* For tip highlights strong text */
+    --color-red-error: #e74c3c;
+    /* For error messages */
+    --color-gray-medium: #777;
+    /* For form help text */
+    --color-gray-light: #ccc;
+    /* For default form borders */
+    --color-gray-mid: #bbb;
+    /* For default form borders */
+    --color-blue-dark: #004d99;
+    /* For darker secondary button hover */
+
+    /* Shadows */
     --shadow-default: rgba(0, 0, 0, 0.18);
     --shadow-hover: rgba(0, 0, 0, 0.12);
+    /* This shadow is for general section hover */
     --shadow-button: rgba(0, 86, 179, 0.7);
-    --transition-duration: 0.5s;
-    --transition-easing: cubic-bezier(0.4, 0, 0.2, 1);
+    --shadow-button-hover: rgba(0, 64, 145, 0.85);
+    /* Stronger shadow for button hover */
+    --shadow-header: rgba(0, 0, 0, 0.2);
+    --shadow-nav-menu: rgba(0, 0, 0, 0.15);
+    --shadow-section: rgba(0, 0, 0, 0.08);
+    --shadow-section-hover: rgba(0, 0, 0, 0.15);
+    --shadow-feature-card: rgba(0, 0, 0, 0.05);
+    --shadow-feature-card-hover: rgba(0, 0, 0, 0.1);
+    --shadow-newsletter: rgba(0, 0, 0, 0.1);
+    --shadow-form-focus: rgba(0, 153, 255, 0.5);
+    --shadow-result: rgba(0, 0, 0, 0.05);
+    --shadow-testimonial: rgba(0, 0, 0, 0.08);
+    --shadow-testimonial-hover: rgba(0, 0, 0, 0.15);
+    --shadow-footer: rgba(0, 0, 0, 0.25);
+    --shadow-active-link: rgba(0, 153, 255, 0.4);
+    /* Shadow for active navigation link */
+
+    /* Transitions & Easing */
+    --transition-duration: 0.3s;
+    /* Reduced for snappier transitions */
+    --transition-easing: ease-in-out;
+    /* More common easing for general use */
+    --transition-fast: 0.2s;
+    /* For quicker transform effects */
+    --transition-slow: 0.35s;
+    /* For hamburger and menu transitions */
+
+    /* Spacing & Borders */
+    --border-radius-small: 0.25rem;
+    --border-radius-medium: 0.3rem;
+    --border-radius-large: 0.5rem;
+    --border-radius-xl: 0.75rem;
+    --border-radius-xxl: 12px;
+    /* Used for newsletter, testimonials */
 }
 
-/* ===== base ===== */
+/*
+    ========================================
+    2. Base Styles
+    ========================================
+*/
 *,
 *::before,
 *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    /* Modern box model for all elements */
 }
-
-.welcome-message {
-    margin-top: 1rem;
-    font-size: 1.2rem;
-    font-weight: 500;
-    color: #333;
-}
-
-
-.testimonials-section {
-    background-color: var(--color-bg-light);
-    padding: 20px;
-    max-width: 100%;
-    margin: 1px;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: var(--color-text-dark);
-}
-
-.testimonials-section h2 {
-    text-align: center;
-    font-size: 2.2rem;
-    margin-bottom: 2rem;
-    font-weight: 700;
-    color: var(--color-primary);
-}
-
-.testimonial-card {
-    background-color: var(--color-white);
-    padding: 1.8rem 2rem;
-    margin-bottom: 1.8rem;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    font-style: italic;
-    font-size: 1.1rem;
-    line-height: 1.5;
-    position: relative;
-    transition: transform 0.3s ease;
-}
-
-.testimonial-card:hover,
-.testimonial-card:focus-within {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-}
-
-.testimonial-author {
-    margin-top: 1rem;
-    font-weight: 600;
-    font-style: normal;
-    color: var(--color-secondary);
-    text-align: right;
-    font-size: 1rem;
-}
-
-/* Responsividade */
-@media (max-width: 600px) {
-    .testimonials-section {
-        padding: 2rem 1rem;
-    }
-
-    .testimonial-card {
-        padding: 1.4rem 1.5rem;
-        font-size: 1rem;
-    }
-
-    .testimonials-section h2 {
-        font-size: 1.8rem;
-        margin-bottom: 1.5rem;
-    }
-}
-
-
-
-
-
 
 html {
     scroll-behavior: smooth;
+    /* Smooth scrolling for anchor links */
     font-size: 16px;
+    /* Base font size */
     -webkit-font-smoothing: antialiased;
+    /* Smoother font rendering for Webkit browsers */
     -moz-osx-font-smoothing: grayscale;
+    /* Smoother font rendering for Firefox */
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Verdana, sans-serif;
+    /* Prioritize Inter if loaded */
     background-color: var(--color-bg);
     color: var(--color-text);
     line-height: 1.7;
+    /* Optimal line height for readability */
     font-size: 1rem;
+    /* Base font size for body */
     min-height: 100vh;
+    /* Ensure body takes at least full viewport height */
     display: flex;
     flex-direction: column;
-    padding-bottom: 0;
+    /* For sticky footer layout */
     -webkit-font-feature-settings: "liga" 1;
+    /* Enable ligatures for better typography */
 }
 
-/* ===== Links ===== */
+/*
+    ========================================
+    3. Global Link Styles
+    ========================================
+*/
 a {
     color: var(--color-link);
     text-decoration: none;
-    transition: color var(--transition-duration) var(--transition-easing), transform 0.2s ease;
+    transition: color var(--transition-duration) var(--transition-easing),
+        transform var(--transition-fast) var(--transition-easing);
+    /* Explicit transform transition */
     outline-offset: 2px;
+    /* Space between outline and element border for accessibility */
     will-change: transform, color;
+    /* Optimize for smooth transitions */
 }
 
-a:hover,
+a:hover {
+    color: var(--color-link-hover);
+    transform: scale(1.03);
+    /* Subtle scale effect on hover */
+}
+
+/* Focus-visible for accessibility, shows outline only when navigating with keyboard */
 a:focus-visible {
-    color: var(--color--link-active-bg);
-    transform: scale(1.07);
+    color: var(--color-link-hover);
+    /* Keep hover color on focus */
+    transform: scale(1.03);
+    /* Keep scale effect on focus */
     outline: 2px solid var(--color-primary);
     outline-offset: 4px;
+    /* Increased offset for better visibility */
+    border-radius: var(--border-radius-medium);
+    /* Add border-radius for aesthetic focus */
 }
 
-/* ===== Container ===== */
+/*
+    ========================================
+    4. Container & Layout
+    ========================================
+*/
 .container {
     width: 90%;
+    /* Responsive width */
     max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 40px 0;
+    /* Maximum content width */
+    margin-inline: auto;
+    /* Center container horizontally */
+    padding-block: 40px;
+    /* Vertical padding */
     flex: 1 1 auto;
+    /* Allows main content to grow and push footer down */
 }
 
-/* ===== Header >  ===== */
+/*
+    ========================================
+    5. Header
+    ========================================
+*/
 header {
     background: linear-gradient(90deg, var(--color-header-bg-start) 0%, var(--color-header-bg-end) 100%);
-    color: var(--color-bg);
-    padding: 30px 0;
-    box-shadow: 0 6px 10px var(--shadow-default);
-    text-align: center;
+    color: var(--color-header-text);
+    box-shadow: 0 8px 15px var(--shadow-header);
+    /* Consistent header shadow */
     position: sticky;
+    /* Corrected: Use 'sticky' for fixed-on-scroll behavior */
     top: 0;
+    /* Makes header sticky at the top */
     z-index: 20;
+    /* Ensures header is above other content */
     user-select: none;
-    will-change: transform, background-color;
-    transition: background-color var(--transition-duration) var(--transition-easing);
-}
-
-header h1 {
-    font-size: clamp(1.75rem, 2vw + 1rem, 2.4rem);
-    letter-spacing: 1px;
-    font-weight: 700;
-    line-height: 2;
-}
-
-/* ===== Para o Nav ===== */
-nav {
-    background-color: var(--color-nav-bg);
-    padding: 1rem 1.25rem;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    user-select: none;
-}
-
-nav ul {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    list-style: none;
-    gap: 2.5rem;
-    transition: max-height 0.35s ease, padding 0.35s ease;
-}
-
-nav ul li a {
-    color: var(--color-nav-link);
-    padding: 0.75rem 1.25rem;
-    border-radius: 0.375rem;
-    font-weight: 700;
-    font-size: 1rem;
-    transition:
-        background-color var(--transition-duration) var(--transition-easing),
-        transform 0.2s ease,
-        box-shadow var(--transition-duration) var(--transition-easing);
-    display: inline-block;
-    outline-offset: 3px;
+    /* Prevent text selection in header */
     will-change: transform, background-color, box-shadow;
+    /* Optimize for smooth transitions */
+    transition: background-color var(--transition-duration) var(--transition-easing),
+        box-shadow var(--transition-duration) var(--transition-easing);
+    padding-block: 0rem;
+    /* Reduced vertical padding for a leaner header */
+    backdrop-filter: blur(8px);
+    /* Subtle blur effect */
+    -webkit-backdrop-filter: blur(8px);
+    /* For Safari */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    /* Slightly more visible border */
+    /* Removed animation: slideInDown for no top-to-bottom slide */
 }
 
-nav a.active {
-    background-color: var(--color-nav-link-active-bg);
-    color: var(--color-nav-link-active-color);
-    padding: 0.5rem 1rem;
-    border-radius: 0.5rem;
+.header-content {
+    display: flex;
+    /* Corrected: Changed from 'grid' to 'flex' for flexible alignment */
+    justify-content: space-between;
+    /* Space between logo/title and nav/hamburger */
+    align-items: center;
+    /* Vertically center items */
+    padding: 20px 5%;
+    /* Responsive padding */
+    max-width: 1200px;
+    margin-inline: auto;
+    box-sizing: var(--border-radius-large);
+    position: relative;
+    /* Needed for absolute positioning of nav for mobile */
 }
 
-nav ul li a:hover,
-nav ul li a:focus-visible,
-nav ul li a.active {
-    background-color: var(--color-primary);
-    transform: translateY(-3px);
-    box-shadow: 0 4px 12px var(--shadow-button);
+.header-logo-link {
+    display: flex;
+    /* Allows H1 to be styled within the link */
+    align-items: center;
+    color: deepskyblue;
+    /* Ensure link color doesn't override h1 color */
+    /* Remove default link hover/focus-visible transform for logo to avoid distortion */
+    transform: none;
+    outline-offset: 0;
     outline: none;
 }
 
-/* Melhorar foco para navegação */
-nav ul li a:focus-visible {
+.header-logo-link:hover,
+.header-logo-link:focus-visible {
+    transform: none;
+    outline: none;
+    color: deepskyblue;
+}
+
+
+header h1 {
+    font-size: clamp(1.8rem, 3.5vw + 0.5rem, 3rem);
+    /* Larger title, responsive font size */
+    letter-spacing: 2px;
+    /* More letter spacing for emphasis */
+    font-weight: 1000;
+    line-height: 1;
+    margin: 0;
+    /* Ensure no default margin from h1 */
+    padding: 0;
+    /* Ensure no default padding from h1 */
+    text-align: center;
+    /* Aligned left within flex container */
+    color: deepskyblue;
+    /* Keep deepskyblue color */
+    white-space: nowrap;
+    /* Prevent wrapping if possible */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* Add ellipsis if text is too long */
+    text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+    /* Stronger text shadow */
+    flex-shrink: 0;
+    /* Prevent title from shrinking */
+    margin-bottom: 0;
+    /* Reset margin-bottom as it's typically set on the parent link */
+    margin-right: 20px;
+    /* Increased space between h1 and nav/hamburger on desktop */
+}
+
+/*
+    ========================================
+    6. Navigation (Main Nav)
+    ========================================
+*/
+.main-nav {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    /* Allows navigation to grow and push elements */
+    justify-content: flex-end;
+    /* Push navigation to the right */
+    padding: 0px;
+}
+
+.nav-menu {
+    list-style: none;
+    padding: 10px;
+    display: flex;
+
+
+    gap: 5rem;
+    /* Increased gap for more spacing */
+    transition: max-height var(--transition-duration) var(--transition-easing),
+        padding var(--transition-duration) var(--transition-easing);
+}
+
+.nav-menu li a {
+    color: var(--color-nav-link);
+    padding: 0.6rem 2.5rem;
+    border-radius: var(--border-radius-medium);
+    font-weight: 600;
+    font-size: 1.05rem;
+    transition: background-color var(--transition-duration) var(--transition-easing),
+        color var(--transition-duration) var(--transition-easing),
+        transform var(--transition-fast) var(--transition-easing),
+        box-shadow var(--transition-duration) var(--transition-easing);
+    display: inline-block;
+    outline-offset: px;
+    will-change: transform, background-color, box-shadow;
+    background-color: transparent;
+}
+
+/* Active navigation link style */
+.nav-menu li a[aria-current="page"] {
+    background-color: var(--color-primary);
+    color: var(--color-nav-link-active-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px var(--shadow-active-link);
+}
+
+.nav-menu li a:hover,
+.nav-menu li a:focus-visible {
+    /* Combine hover and focus-visible for consistency */
+    background-color: rgba(255, 255, 255, 0.15);
+    /* Slightly more visible background on hover */
+    color: var(--color-nav-link-hover);
+    /* Use explicit nav link hover color */
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    outline: none;
+    /* Reset default outline, replaced by custom outline below */
+}
+
+/* Explicit focus-visible for accessibility for nav links */
+.nav-menu li a:focus-visible {
     outline: 2px solid var(--color-primary);
     outline-offset: 4px;
+    border-radius: var(--border-radius-medium);
 }
 
-/* ===== Menu Mobile - Hamburguer ===== */
+/*
+    ========================================
+    7. Mobile Menu - Hamburger Icon
+    ========================================
+    This section styles the hamburger icon, which acts as the toggle for the
+    mobile navigation menu. It includes animations for its open/close states
+    and ensures proper accessibility and performance.
+*/
 .hamburger {
+    /* Base styling for the button */
     display: none;
+    /* Hidden by default on larger screens, shown via media query */
     flex-direction: column;
+    /* Stacks the span elements vertically */
+    justify-content: space-between;
+    /* Distributes space evenly between bars */
+    align-items: center;
+    /* Centers bars horizontally */
     cursor: pointer;
-    gap: 5px;
-    padding: 10px;
-    margin-left: 1.25rem;
+    /* Indicates interactivity */
+    padding: 2px;
+    /* Provides a larger clickable area */
     user-select: none;
+    /* Prevents text selection on the button */
     z-index: 1100;
+    /* Ensures the hamburger is on top of other content */
+    background: var(--color-primary);
+    /* No background color */
+    border: gray;
+    /* No border */
+
+    /* Positioning within the header */
+    position: absolute;
+    /* Corrected: Use 'absolute' for positioning relative to header-content */
+    right: 20px;
+    /* Aligns to the right of the header */
+    top: 50%;
+    /* Vertically centers the button */
+    transform: translateY(-50%);
+    /* Adjusts for precise vertical centering */
+
+    /* Fixed dimensions for consistent appearance */
+    width: 32px;
+    height: 24px;
+    /* Slightly adjusted height for 3 bars and 7px gaps */
+    gap: 7px;
+    /* Defines space between the hamburger bars */
+
+    /* Performance optimization for mobile taps */
+    -webkit-tap-highlight-color: transparent;
+    /* Removes the default blue highlight on iOS */
+
+    /* Initial state for animations/transitions */
+    transition: transform var(--transition-fast) var(--transition-easing);
+    /* Smooth transition for potential button movement */
 }
 
-.hamburger div {
-    width: 28px;
+/* Enhancing focus visibility for keyboard users */
+.hamburger:focus-visible {
+    outline: 2px solid var(--color-primary);
+    /* Custom outline for keyboard focus */
+    outline-offset: 4px;
+    /* Space between outline and button */
+    border-radius: var(--border-radius-medium);
+    /* Matches other focus states */
+}
+
+.hamburger span {
+    /* Styling for each individual bar (span) */
+    display: block;
+    /* Ensures proper width and height application */
+    width: 100%;
+    /* Spans fill the hamburger button's width */
     height: 3px;
+    /* Thickness of each bar */
     background-color: var(--color-nav-link);
+    /* Color of the bars */
     border-radius: 2px;
-    transition: all 0.3s ease;
+    /* Slightly rounded ends for the bars */
+
+    /* Transition for smooth animation between states */
+    transition: all var(--transition-slow) var(--transition-easing);
+    /* Smoother transition for transformations */
+    transform-origin: center;
+    /* Ensures rotation originates from the center of each bar */
+    will-change: transform, opacity, background-color;
+    /* Optimize for animation performance */
 }
 
-.hamburger.active div:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
+/* Hamburger active states (when menu is open) for the "X" style */
+.hamburger.active span:nth-child(1) {
+    /* Top bar transforms into one arm of the 'X' */
+    transform: translateY(10px) rotate(45deg);
+    /* Moves down and rotates */
+    background-color: var(--color-nav-link-active-color);
+    /* Changes color when active */
 }
 
-.hamburger.active div:nth-child(2) {
+.hamburger.active span:nth-child(2) {
+    /* Middle bar fades out and slides away */
     opacity: 0;
+    /* Fully transparent */
+    transform: translateX(100%);
+    /* Slides out to the right, making it disappear cleanly */
+    transition: opacity var(--transition-slow) var(--transition-easing),
+        transform var(--transition-slow) var(--transition-easing);
+    /* Specific transition for this bar */
 }
 
-.hamburger.active div:nth-child(3) {
-    transform: rotate(-45deg) translate(6px, -6px);
+.hamburger.active span:nth-child(3) {
+    /* Bottom bar transforms into the other arm of the 'X' */
+    transform: translateY(-10px) rotate(-45deg);
+    /* Moves up and rotates */
+    background-color: var(--color-nav-link-active-color);
+    /* Changes color when active */
 }
 
-/* ===== Parte - Main ===== */
+/*
+    Accessibility Enhancement: Ensure the hamburger icon remains visible
+    even if colors are disabled or high contrast mode is active.
+    This often means providing a clear outline or shape.
+*/
+@media (prefers-reduced-motion: reduce) {
+
+    .hamburger,
+    .hamburger span {
+        transition: none !important;
+        /* Disable transitions for users who prefer reduced motion */
+    }
+}
+
+/*
+    ========================================
+    8. Main Content Area & Section Styling
+    ========================================
+*/
 main {
-    padding: 2.2rem 0;
+    padding-block: 2.2rem;
+    /* Vertical padding */
     flex: 1 1 auto;
-    animation: fadeIn 0.7s ease forwards;
+    /* Allows main content to grow */
+    /* animation: fadeIn 0.7s ease forwards; Removed as it was for initial page load, now integrated per-section */
 }
 
 main h2 {
@@ -285,6 +540,8 @@ main h2 {
     letter-spacing: 0.02em;
     position: relative;
     animation: slideUp 0.6s ease forwards;
+    /* Animation for individual h2 */
+    text-align: center;
 }
 
 main h2::after {
@@ -293,37 +550,241 @@ main h2::after {
     width: 70px;
     height: 5px;
     background-color: var(--color-primary);
-    margin-top: 0.5rem;
+    margin: 0.5rem auto 0;
     border-radius: 3px;
 }
 
-/* ===== Section  ===== */
+/* General Section Styling */
 section {
-    background-color: #fff;
+    background-color: var(--color-white);
     padding: 2rem;
-    border-radius: 0.75rem;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+    border-radius: var(--border-radius-xl);
+    box-shadow: 0 4px 16px var(--shadow-section);
     margin-bottom: 1.875rem;
-    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    /* Consistent spacing between sections */
+    transition: transform var(--transition-duration) var(--transition-easing),
+        box-shadow var(--transition-duration) var(--transition-easing);
     will-change: transform, box-shadow;
-    cursor: default;
     opacity: 0;
+    /* Start hidden for animation */
     transform: translateY(20px);
+    /* Start slightly below for animation */
     animation: fadeSlideIn 0.5s ease forwards;
+    /* Individual section animation */
     animation-delay: 0.2s;
+    /* Staggered animation */
 }
 
 section:hover,
 section:focus-within {
-    transform: scale(1.03);
-    box-shadow: 0 8px 24px var(--shadow-hover);
+    /* Use focus-within for accessibility when a child element is focused */
+    transform: scale(1.01);
+    box-shadow: 0 8px 24px var(--shadow-section-hover);
     outline: none;
+    /* Remove default outline, if any, when applying custom shadow/transform */
+}
+
+/* Special styling for highlight blockquotes / tips */
+.tip-highlight {
+    background-color: var(--color-green-light);
+    border-left: 5px solid var(--color-primary);
+    padding: 1.2rem 1.5rem;
+    margin: 1.5rem 0;
+    border-radius: var(--border-radius-large);
+    font-style: italic;
+    color: var(--color-green-dark);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.tip-highlight p {
+    margin: 0;
+    line-height: 1.6;
+}
+
+.tip-highlight strong {
+    color: var(--color-green-darker);
+}
+
+/* Unordered list styling within content sections */
+ul.styled-list {
+    list-style: none;
+    /* Remove default bullet points */
+    padding-left: 0;
+    margin-top: 1rem;
+}
+
+ul.styled-list li {
+    position: relative;
+    /* For custom bullet point */
+    padding-left: 1.8rem;
+    /* Space for custom bullet */
+    margin-bottom: 0.75rem;
+}
+
+ul.styled-list li::before {
+    content: '\2022';
+    /* Unicode character for a bold dot */
+    color: var(--color-primary);
+    font-size: 1.2em;
+    /* Larger dot */
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    top: 0.1em;
 }
 
 
+/*
+    ========================================
+    9. Feature Cards (specific to index.html)
+    ========================================
+*/
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.feature-card {
+    background-color: var(--color-white);
+    padding: 1.5rem;
+    border-radius: var(--border-radius-xl);
+    box-shadow: 0 2px 10px var(--shadow-feature-card);
+    transition: transform var(--transition-duration) var(--transition-easing),
+        box-shadow var(--transition-duration) var(--transition-easing);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px var(--shadow-feature-card-hover);
+}
+
+.feature-card h3 {
+    color: var(--color-primary);
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+}
+
+.feature-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--color-text-dark);
+    margin-bottom: 1rem;
+    flex-grow: 1;
+    /* Allows paragraphs to take available space */
+}
+
+.feature-card .btn-link {
+    display: inline-block;
+    background-color: var(--color-secondary);
+    color: var(--color-white);
+    padding: 0.5rem 1rem;
+    border-radius: var(--border-radius-medium);
+    text-align: center;
+    transition: background-color var(--transition-duration) var(--transition-easing);
+    margin-top: 1rem;
+}
+
+.feature-card .btn-link:hover {
+    background-color: var(--color-blue-dark);
+    transform: translateY(-2px);
+    /* Maintain consistency with other hover effects */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
 
 
-/* ===== Form ===== */
+/*
+    ========================================
+    10. Forms (General Styles)
+    ========================================
+*/
+
+/* Newsletter Section Specific Overrides */
+.newsletter-section {
+    background-color: var(--color-bg-light);
+    padding: 2rem;
+    border-radius: var(--border-radius-xxl);
+    max-width: 600px;
+    margin: 2rem auto;
+    text-align: center;
+    box-shadow: 0 4px 12px var(--shadow-newsletter);
+}
+
+.newsletter-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-text-dark);
+    animation: none;
+    /* Disable specific H2 animation for newsletter section */
+}
+
+.newsletter-section h2::after {
+    display: none;
+    /* Hide the underline for newsletter H2 */
+}
+
+.newsletter-section p {
+    font-size: 1rem;
+    color: var(--color-text-dark);
+    margin-bottom: 1.5rem;
+}
+
+.newsletter-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.newsletter-section .form-group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.newsletter-section label {
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+    color: var(--color-text-dark);
+}
+
+/* Specific inputs for newsletter (if they need different styling than general inputs) */
+.newsletter-section input[type="text"],
+.newsletter-section input[type="email"] {
+    padding: 0.8rem;
+    font-size: 1rem;
+    border: 1px solid var(--color-gray-light);
+    border-radius: 8px;
+    transition: border-color var(--transition-duration);
+}
+
+.newsletter-section input[type="text"]:focus,
+.newsletter-section input[type="email"]:focus {
+    border-color: var(--color-primary);
+    outline: none;
+}
+
+/* Newsletter submit button */
+.newsletter-section .btn-submit {
+    background-color: var(--color-primary);
+    color: #fff;
+    border: none;
+    padding: 0.9rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color var(--transition-duration);
+}
+
+.newsletter-section .btn-submit:hover {
+    background-color: var(--color-primary-hover);
+}
+
+
+/* General Form Inputs (apply to all forms unless overridden) */
 form {
     display: flex;
     flex-direction: column;
@@ -332,7 +793,7 @@ form {
 
 label {
     font-weight: 700;
-    color: #2c3e50;
+    color: var(--color-text);
     font-size: 1.05rem;
     user-select: none;
 }
@@ -344,35 +805,107 @@ input[type="tel"],
 select,
 textarea {
     padding: 0.875rem 1rem;
-    border: 2px solid #bbb;
-    border-radius: 0.5rem;
+    border: 2px solid var(--color-gray-mid);
+    border-radius: var(--border-radius-large);
     font-size: 1rem;
     width: 100%;
     font-family: inherit;
-    transition: border-color var(--transition-duration) var(--transition-easing), box-shadow var(--transition-duration) var(--transition-easing);
+    transition: border-color var(--transition-duration) var(--transition-easing),
+        box-shadow var(--transition-duration) var(--transition-easing);
 }
 
+/* Focus styles for all general inputs */
 input:focus,
 select:focus,
 textarea:focus {
     border-color: var(--color-primary);
-    box-shadow: 0 0 12px rgba(34, 139, 230, 0.5);
+    box-shadow: 0 0 12px var(--shadow-form-focus);
     outline: none;
+    /* Remove default outline */
 }
 
-/* ===== buttons ===== */
+/* Error message styling for forms */
+.error-message {
+    color: var(--color-red-error);
+    font-size: 0.85em;
+    margin-top: 0.25em;
+    display: block;
+    /* Ensure it takes up space */
+    min-height: 1.2em;
+    /* Give it some minimum height to prevent layout shifts */
+}
+
+/* Invalid input state */
+input.invalid,
+select.invalid,
+textarea.invalid {
+    border-color: var(--color-red-error) !important;
+    /* Use !important to ensure override */
+}
+
+/* Form help text below inputs */
+.form-help-text {
+    font-size: 0.85em;
+    color: var(--color-gray-medium);
+    margin-top: 0.25em;
+    display: block;
+}
+
+/* Message shown after form submission (success/error) */
+.form-message {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border-radius: var(--border-radius-large);
+    text-align: center;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border: 1px solid;
+    /* Generic border to be styled by color */
+}
+
+/* Custom classes for form submission messages for better styling */
+.form-message.sending-message-box {
+    background-color: rgba(0, 153, 255, 0.1);
+    /* Light blue background for sending */
+    border-color: blue;
+    color: blue;
+}
+
+.form-message.success-message-box {
+    background-color: rgba(39, 174, 96, 0.1);
+    /* Light green background */
+    border-color: var(--color-green-dark);
+    color: var(--color-green-dark);
+}
+
+.form-message.error-message-box {
+    background-color: rgba(231, 76, 60, 0.1);
+    /* Light red background */
+    border-color: var(--color-red-error);
+    color: var(--color-red-error);
+}
+
+
+/*
+    ========================================
+    11. Buttons (General Styles)
+    ========================================
+*/
 button,
 input[type="submit"] {
     background-color: var(--color-primary);
-    color: #fff;
+    color: var(--color-white);
     padding: 0.875rem 1.5rem;
     font-weight: 700;
     font-size: 1.05rem;
     border: none;
-    border-radius: 0.5rem;
+    border-radius: var(--border-radius-large);
     cursor: pointer;
     align-self: flex-start;
-    transition: background-color var(--transition-duration) var(--transition-easing), transform 0.25s ease, box-shadow var(--transition-duration) var(--transition-easing);
+    /* Aligns button to the start of its flex container */
+    transition: background-color var(--transition-duration) var(--transition-easing),
+        transform var(--transition-fast) ease,
+        box-shadow var(--transition-duration) var(--transition-easing);
     box-shadow: 0 3px 10px var(--shadow-button);
     user-select: none;
     -webkit-tap-highlight-color: transparent;
@@ -385,27 +918,238 @@ input[type="submit"]:hover,
 input[type="submit"]:focus-visible {
     background-color: var(--color-primary-hover);
     transform: translateY(-3px);
-    box-shadow: 0 7px 18px rgba(0, 64, 145, 0.85);
-    outline: 2px solid var(--color-primary-hover);
+    /* Lift effect on hover/focus */
+    box-shadow: 0 7px 18px var(--shadow-button-hover);
+    outline: 2px solid var(--color-primary);
     outline-offset: 4px;
+    border-radius: var(--border-radius-large);
+    /* Maintain border radius with outline */
 }
 
-/* ===== Result  ===== */
+/* Specific button classes for other forms (e.g., calculators) */
+.btn-primary {
+    /* Redundant with general button styles, but kept for explicit intent */
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+.btn-primary:hover {
+    background-color: var(--color-primary-hover);
+}
+
+.btn-secondary {
+    background-color: #95a5a6;
+    /* Specific grey color for secondary */
+    color: var(--color-white);
+    box-shadow: 0 3px 10px rgba(149, 165, 166, 0.7);
+}
+
+.btn-secondary:hover {
+    background-color: #7f8c8d;
+    /* Darker grey on hover */
+    box-shadow: 0 7px 18px rgba(127, 140, 141, 0.85);
+}
+
+/* Form Actions container (for buttons) */
+.form-actions {
+    display: flex;
+    justify-content: center;
+    /* Center buttons horizontally */
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+
+/*
+    ========================================
+    12. Result Display for Calculators
+    ========================================
+*/
 #result {
+    margin-top: 1.5em;
+    font-weight: bold;
+    font-size: 1.1em;
+    color: var(--color-text-dark);
+    padding: 1rem;
+    border-radius: var(--border-radius-large);
+    text-align: center;
+    background-color: var(--color-bg-light);
+    box-shadow: 0 2px 8px var(--shadow-result);
+}
+
+#result p {
+    margin-block: 0.5em;
+    /* Vertical margin for paragraphs within result */
+}
+
+#result p:first-child {
+    margin-top: 0;
+}
+
+#result p:last-child {
+    margin-bottom: 0;
+}
+
+/* Result classes for positive, negative, neutral balance in Budget Calculator */
+.budget-result.positive {
+    color: var(--color-green-dark);
+    border: 1px solid var(--color-green-dark);
+    background-color: var(--color-green-light);
+}
+
+.budget-result.negative {
+    color: var(--color-red-error);
+    border: 1px solid var(--color-red-error);
+    background-color: rgba(231, 76, 60, 0.1);
+}
+
+.budget-result.neutral {
+    color: #f39c12;
+    /* A warning orange */
+    border: 1px solid #f39c12;
+    background-color: rgba(243, 156, 18, 0.1);
+}
+
+.budget-result strong {
+    font-weight: bold;
+}
+
+.budget-result .message {
+    font-weight: normal;
+    font-size: 0.9em;
+    color: var(--color-text-dark);
+    /* Reset to default text color for message */
+}
+
+
+/*
+    ========================================
+    13. Testimonials Section (index.html)
+    ========================================
+*/
+.welcome-message {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--color-text-dark);
+    text-align: center;
+    /* Center align welcome message */
+}
+
+.testimonials-section {
+    background-color: var(--color-bg-light);
+    padding: 2.5rem;
+    max-width: 100%;
+    margin: 1.5rem auto;
+    /* Center section */
+    border-radius: var(--border-radius-xxl);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--color-text-dark);
+}
+
+.testimonials-section h2 {
+    text-align: center;
+    font-size: 2.2rem;
+    margin-bottom: 2rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    animation: none;
+    /* Disable specific H2 animation for testimonial section */
+}
+
+.testimonials-section h2::after {
+    display: none;
+    /* Hide the underline for testimonial H2 */
+}
+
+.testimonial-card {
+    background-color: var(--color-white);
+    padding: 1.8rem 2rem;
+    margin-bottom: 1.8rem;
+    border-radius: var(--border-radius-xxl);
+    box-shadow: 0 2px 8px var(--shadow-testimonial);
+    font-style: italic;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    position: relative;
+    transition: transform var(--transition-duration) var(--transition-easing),
+        box-shadow var(--transition-duration) var(--transition-easing);
+}
+
+.testimonial-card:hover,
+.testimonial-card:focus-within {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px var(--shadow-testimonial-hover);
+}
+
+.testimonial-author {
     margin-top: 1rem;
     font-weight: 600;
-    font-size: 1.15rem;
-    color: var(--color-primary);
-    animation: fadeIn 0.5s ease forwards;
+    font-style: normal;
+    color: var(--color-secondary);
+    text-align: right;
+    font-size: 1rem;
 }
 
+/*
+    ========================================
+    14. Social Media Links (contact.html)
+    ========================================
+*/
+.social-links {
+    list-style: none;
+    padding: 0;
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+
+.social-links li {
+    margin-bottom: 0.5rem;
+    /* Maintain spacing between list items */
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    font-size: 1.1em;
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color var(--transition-duration) var(--transition-easing), transform var(--transition-fast) ease;
+}
+
+.social-links a:hover {
+    color: var(--color-primary-hover);
+}
+
+.social-links i {
+    font-size: 1.3em;
+    color: var(--color-secondary);
+    transition: transform var(--transition-fast) ease;
+    /* Smooth icon hover */
+}
+
+.social-links a:hover i {
+    transform: scale(1.1);
+    /* Slightly enlarge icon on hover */
+}
+
+/*
+    ========================================
+    15. Footer
+    ========================================
+*/
 .site-footer {
     background-color: var(--color-footer-bg);
     color: var(--color-footer-text);
     text-align: center;
     padding: 2rem 1rem;
     font-size: 1rem;
-    box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 -3px 10px var(--shadow-footer);
     user-select: none;
     display: flex;
     flex-direction: column;
@@ -421,7 +1165,7 @@ input[type="submit"]:focus-visible {
 
 #lastModified {
     font-size: 0.9rem;
-    color: white;
+    color: var(--color-footer-text);
     font-style: italic;
     letter-spacing: 0.03em;
 }
@@ -435,10 +1179,11 @@ input[type="submit"]:focus-visible {
 }
 
 .footer-links a {
-    color: white;
+    color: var(--color-footer-link);
     font-size: 1.1rem;
     text-decoration: none;
-    transition: color 0.3s ease, transform 0.2s ease;
+    transition: color var(--transition-duration) var(--transition-easing),
+        transform var(--transition-fast) ease;
     outline-offset: 3px;
 }
 
@@ -448,40 +1193,166 @@ input[type="submit"]:focus-visible {
     transform: scale(1.05);
     outline: 2px solid var(--color-primary);
     outline-offset: 4px;
-    border-radius: 0.25rem;
+    border-radius: var(--border-radius-small);
+    /* Use a smaller, defined border-radius */
 }
 
-/* Responsividade */
-@media (max-width: 480px) {
-    .footer-links {
-        gap: 1rem;
-        flex-direction: column;
-        align-items: center;
-    }
-}
-
-
-/* ===== MEDIA QUERIES ===== */
+/*
+    ========================================
+    16. Media Queries (Responsiveness)
+    ========================================
+*/
 @media (max-width: 768px) {
-    nav ul {
+
+    /* Header adjustments for smaller screens */
+    header .header-content {
         flex-direction: column;
+        /* Stack title and nav vertically */
+        justify-content: center;
+        padding: 15px 20px;
+        align-items: flex-start;
+        /* Align items to the start when stacked */
+    }
+
+    header h1 {
+        font-size: clamp(1.8rem, 5vw, 2.5rem);
+        /* Adjust font size for mobile */
+        text-align: center;
+        /* Center title on mobile */
+        width: 100%;
+        /* Take full width */
+        margin-right: 0;
+        /* Remove right margin */
+        margin-bottom: 10px;
+        /* Space between title and nav/hamburger */
+        order: 1;
+        /* Ensure title appears first */
+    }
+
+    .main-nav {
+        order: 3;
+        /* Move navigation below title and hamburger */
+        width: 100%;
+        /* Ensure nav takes full width */
+        justify-content: center;
+        /* Center nav items on mobile */
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        /* Stack nav items vertically */
         max-height: 0;
+        /* Collapse menu by default */
         overflow: hidden;
         padding: 0;
-        transition: max-height 0.3s ease, padding 0.3s ease;
+        transition: max-height var(--transition-duration) var(--transition-easing),
+            padding var(--transition-duration) var(--transition-easing);
+        position: absolute;
+        /* Position relative to header-content */
+        top: 100%;
+        /* Below the header-content */
+        left: 0;
+        width: 100%;
+        background-color: var(--color-nav-bg);
+        box-shadow: 0 2px 8px var(--shadow-nav-menu);
+        z-index: 999;
     }
 
-    nav ul.open {
+    .nav-menu.active {
         max-height: 500px;
+        /* Expand menu */
         padding: 1rem 0;
+    }
+
+    .nav-menu li {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-menu li a {
+        display: block;
+        /* Make links full width */
+        padding: 10px 15px;
+        margin: 5px 10px;
     }
 
     .hamburger {
         display: flex;
+        /* Show hamburger on mobile */
+        position: absolute;
+        /* Position hamburger absolutely */
+        right: 20px;
+        /* Align to the right */
+        top: 50%;
+        transform: translateY(-50%);
+        margin-left: 0;
+        /* Remove margin-left */
+        order: 2;
+        /* Position hamburger after title but before nav */
+    }
+
+    main h2 {
+        font-size: clamp(1.5rem, 5vw, 2rem);
+    }
+
+    /* Testimonials section responsiveness for smaller screens */
+    .testimonials-section {
+        padding: 2rem 1rem;
+    }
+
+    .testimonial-card {
+        padding: 1.4rem 1.5rem;
+        font-size: 1rem;
+    }
+
+    .testimonials-section h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Form actions responsive adjustments */
+    .form-actions {
+        flex-direction: column;
+        /* Stack buttons vertically */
+        gap: 0.8rem;
+    }
+
+    .form-actions button {
+        align-self: stretch;
+        /* Make buttons take full width */
     }
 }
 
-/* ===== Efeitos ===== */
+@media (max-width: 480px) {
+    .footer-links {
+        gap: 1rem;
+        flex-direction: column;
+        /* Stack footer links vertically */
+        align-items: center;
+    }
+
+    /* Further refine main content spacing for very small screens */
+    main {
+        padding-block: 1.5rem;
+    }
+
+    section {
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .newsletter-section {
+        padding: 1.5rem;
+        margin-block: 1.5rem;
+    }
+}
+
+
+/*
+    ========================================
+    17. Keyframe Animations
+    ========================================
+*/
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -495,7 +1366,8 @@ input[type="submit"]:focus-visible {
 @keyframes slideUp {
     from {
         opacity: 0;
-        transform: translateY(15px);
+        transform: translateY(20px);
+        /* Start slightly below for subtle slide up */
     }
 
     to {
@@ -515,3 +1387,5 @@ input[type="submit"]:focus-visible {
         transform: translateY(0);
     }
 }
+
+/* slideInDown removed as per previous request */

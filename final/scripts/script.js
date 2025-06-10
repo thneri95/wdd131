@@ -1,8 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
+
     const formatDateTime = (date) => {
         const optionsDate = { year: 'numeric', month: 'long', day: 'numeric' };
-        const optionsTime = { hour: '2-digit', minute: '2-digit', second: '2-digit' };
-        return `${date.toLocaleDateString(undefined, optionsDate)} at ${date.toLocaleTimeString(undefined, optionsTime)}`;
+        const optionsTime = { hour: '2-digit', minute: '2-digit', hour12: true };
+        return `${date.toLocaleDateString('en-US', optionsDate)} at ${date.toLocaleTimeString('en-US', optionsTime)}`;
     };
 
     const setTextContent = (id, text) => {
@@ -10,242 +11,450 @@ document.addEventListener('DOMContentLoaded', () => {
         if (el) el.textContent = text;
     };
 
-    setTextContent('year', new Date().getFullYear());
-    setTextContent('lastModified', formatDateTime(new Date(document.lastModified)));
+    const normalizeNumber = (value) => value.replace(',', '.');
+
+    const formatUSD = (value) => {
+        return value.toLocaleString('en-US', { style: 'currency', currency: 'USD', minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    };
+
+    const showError = (errorElement, inputElement, message) => {
+        errorElement.textContent = message;
+        errorElement.style.display = 'block';
+        inputElement.classList.add('invalid');
+        inputElement.setAttribute('aria-invalid', 'true');
+    };
+
+    const hideError = (errorElement, inputElement) => {
+        errorElement.textContent = '';
+        errorElement.style.display = 'none';
+        inputElement.classList.remove('invalid');
+        inputElement.removeAttribute('aria-invalid');
+    };
+
+    const validateAndParseNumericInput = (inputElement, errorElement, allowZero = false) => {
+        const rawValue = inputElement.value.trim();
+        if (!rawValue) {
+            showError(errorElement, inputElement, 'This field cannot be empty.');
+            return null;
+        }
+
+        const isValidFormat = /^\d+(?:[.,]\d{1,2})?$/.test(rawValue);
+        if (!isValidFormat) {
+            showError(errorElement, inputElement, 'Please enter a valid number (e.g., 1234.56).');
+            return null;
+        }
+
+        const numberValue = parseFloat(normalizeNumber(rawValue));
+
+        if (isNaN(numberValue) || (!allowZero && numberValue <= 0) || (allowZero && numberValue < 0)) {
+            showError(errorElement, inputElement, 'Please enter a valid positive number.');
+            return null;
+        }
+
+        hideError(errorElement, inputElement);
+        return numberValue;
+    };
+
+    (() => {
+        setTextContent('year', new Date().getFullYear());
+        const lastModifiedDate = new Date(document.lastModified);
+        setTextContent('lastModified', formatDateTime(lastModifiedDate));
+        const lastModifiedElement = document.getElementById('lastModified');
+        if (lastModifiedElement) {
+            lastModifiedElement.setAttribute('datetime', lastModifiedDate.toISOString());
+        }
+    })();
 
     function greetUser() {
-        const hour = new Date().getHours();
-        let name = localStorage.getItem("userName");
-
-        if (!name) {
-            const nameInput = document.getElementById("name");
-            if (nameInput && nameInput.value.trim() !== "") {
-                name = nameInput.value.trim();
-                localStorage.setItem("userName", name);
-            } else {
-                name = "Guest";
-            }
-        }
-
-        let greeting = "Hello";
-        if (hour < 12) greeting = "Good morning";
-        else if (hour < 18) greeting = "Good afternoon";
-        else greeting = "Good evening";
-
         const welcomeEl = document.getElementById("welcomeMessage");
-        if (welcomeEl) {
-            welcomeEl.textContent = `${greeting}, ${name}! Welcome  to T2 Smart Finance!`;
+        if (!welcomeEl) return;
+
+        const hour = new Date().getHours();
+        let greeting;
+
+        if (hour < 12) {
+            greeting = "Good morning";
+        } else if (hour < 18) {
+            greeting = "Good afternoon";
+        } else {
+            greeting = "Good evening";
         }
+
+        let userName = localStorage.getItem("userName");
+        const nameInput = document.getElementById("name");
+
+        if (!userName && nameInput && nameInput.value.trim() !== "") {
+            userName = nameInput.value.trim();
+            localStorage.setItem("userName", userName);
+        } else if (!userName) {
+            userName = "Guest";
+        }
+
+        welcomeEl.textContent = `${greeting}, ${userName}! Welcome to T2 Smart Finance!`;
     }
     greetUser();
 
-    // Menu hamburger
-    const hamburger = document.querySelector('.hamburger');
-    const nav = document.querySelector('nav[aria-label="Primary navigation"]');
-    const navMenu = nav?.querySelector('ul');
+    (() => {
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
 
-    if (hamburger && nav && navMenu) {
-        const toggleMenu = () => {
-            navMenu.classList.toggle('open');
-            hamburger.classList.toggle('active');
-            const isOpen = navMenu.classList.contains('open');
-            hamburger.setAttribute('aria-expanded', isOpen.toString());
-            nav.setAttribute('data-open', isOpen.toString());
-        };
+        if (hamburger && navMenu) {
+            const toggleMenu = () => {
+                const isOpen = navMenu.classList.toggle('active');
+                hamburger.classList.toggle('active');
+                hamburger.setAttribute('aria-expanded', isOpen.toString());
+            };
 
-        hamburger.addEventListener('click', toggleMenu);
-        hamburger.addEventListener('keydown', e => {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                toggleMenu();
+            hamburger.addEventListener('click', toggleMenu);
+            hamburger.addEventListener('keydown', e => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    toggleMenu();
+                }
+            });
+
+            navMenu.querySelectorAll('a').forEach(link =>
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    hamburger.classList.remove('active');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                })
+            );
+        }
+    })();
+
+    (() => {
+        const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            const linkPath = link.getAttribute('href').split('/').pop();
+            if (linkPath === currentPath) {
+                link.setAttribute('aria-current', 'page');
+            } else {
+                link.removeAttribute('aria-current');
             }
         });
+    })();
 
-        navMenu.querySelectorAll('a').forEach(link =>
-            link.addEventListener('click', () => {
-                navMenu.classList.remove('open');
-                hamburger.classList.remove('active');
-                hamburger.setAttribute('aria-expanded', 'false');
-                nav.setAttribute('data-open', 'false');
-            })
-        );
-    }
+    (() => {
+        const budgetForm = document.getElementById('budgetForm');
+        if (!budgetForm) return;
 
-    // Página ativa no menu
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('nav a').forEach(link => {
-        const href = link.getAttribute('href');
-        if (href === currentPage || (href.includes('index') && currentPage === 'index.html')) {
-            link.classList.add('active');
-        }
-    });
+        const incomeInput = document.getElementById('income');
+        const expensesInput = document.getElementById('expenses');
+        const incomeError = document.getElementById('incomeError');
+        const expensesError = document.getElementById('expensesError');
+        const budgetResultDiv = document.getElementById('result');
 
-    // Formulário de orçamento
-    const budgetForm = document.getElementById('budgetForm');
-    const budgetResultDiv = document.getElementById('result');
-
-    const showBudgetResult = (msg, color) => {
-        if (!budgetResultDiv) return;
-        budgetResultDiv.textContent = msg;
-        budgetResultDiv.style.color = color;
-        budgetResultDiv.setAttribute('aria-live', 'polite');
-    };
-
-    const loadBudget = () => {
-        const saved = JSON.parse(localStorage.getItem('budgetData'));
-        if (saved) {
-            budgetForm.income.value = saved.income || '';
-            budgetForm.expenses.value = saved.expenses || '';
-        }
-    };
-
-    const saveBudget = () => {
-        const data = {
-            income: budgetForm.income.value,
-            expenses: budgetForm.expenses.value
+        const loadBudget = () => {
+            const saved = JSON.parse(localStorage.getItem('budgetData'));
+            if (saved) {
+                incomeInput.value = saved.income || '';
+                expensesInput.value = saved.expenses || '';
+            }
         };
-        localStorage.setItem('budgetData', JSON.stringify(data));
-    };
 
-    if (budgetForm && budgetResultDiv) {
+        const saveBudget = () => {
+            const data = {
+                income: incomeInput.value,
+                expenses: expensesInput.value
+            };
+            localStorage.setItem('budgetData', JSON.stringify(data));
+        };
+
         loadBudget();
 
-        budgetForm.addEventListener('input', saveBudget);
+        incomeInput.addEventListener('input', saveBudget);
+        expensesInput.addEventListener('input', saveBudget);
 
         budgetForm.addEventListener('submit', e => {
             e.preventDefault();
-            const income = parseFloat(budgetForm.income.value.trim().replace(',', '.'));
-            const expenses = parseFloat(budgetForm.expenses.value.trim().replace(',', '.'));
 
-            if (isNaN(income) || isNaN(expenses)) {
-                showBudgetResult('Please enter valid numbers.', '#d93025');
+            const income = validateAndParseNumericInput(incomeInput, incomeError, true);
+            const expenses = validateAndParseNumericInput(expensesInput, expensesError, true);
+
+            if (income === null || expenses === null) {
+                budgetResultDiv.innerHTML = '<p class="error-message">Please fix the errors in the form before calculating.</p>';
+                budgetResultDiv.className = 'budget-result';
                 return;
             }
 
             const balance = income - expenses;
-            const percentSpent = (expenses / income) * 100;
-            let message = '';
+            const percentSpent = (income > 0) ? (expenses / income) * 100 : 0;
+
+            let messageHtml = '';
+            let resultClass = '';
+            let recommendation = '';
 
             if (balance > 0) {
-                message = `Great! You have a surplus of $${balance.toFixed(2)} 🎉`;
+                messageHtml = `Your monthly financial balance is: <strong>${formatUSD(balance)}</strong>. 🎉`;
+                recommendation = `Excellent! You have a surplus this month. Consider directing the excess towards your savings goals or investments.`;
+                resultClass = 'positive';
             } else if (balance < 0) {
-                message = `You're over budget by $${Math.abs(balance).toFixed(2)} ⚠️`;
+                messageHtml = `Your monthly financial balance is: <strong>${formatUSD(balance)}</strong>. ⚠️`;
+                recommendation = `Heads up! You're currently spending more than you earn. It's crucial to review your expenses and look for ways to cut back.`;
+                resultClass = 'negative';
             } else {
-                message = 'You broke even this month 💡';
+                messageHtml = `Your monthly financial balance is: <strong>${formatUSD(balance)}</strong>. 💡`;
+                recommendation = `You're breaking even this month. While not losing money, there's no surplus for savings. Explore opportunities to increase income or reduce expenses.`;
+                resultClass = 'neutral';
             }
 
-            message += ` Spending ${percentSpent.toFixed(2)}% of your income!`;
+            messageHtml += `<p class="message">You are spending <strong>${percentSpent.toFixed(2)}%</strong> of your income.</p>`;
 
-            if (percentSpent > 40) {
-                message += ` Try to keep expenses under 40% ⚠️`;
+            if (percentSpent > 80 && balance < 0) {
+                recommendation += ` This is a high spending percentage. Focus on critical cuts.`;
+            } else if (percentSpent > 50 && balance < 0) {
+                recommendation += ` Reviewing non-essential expenses will be beneficial.`;
+            } else if (percentSpent <= 50 && balance >= 0) {
+                recommendation += ` Great spending control! Aim to keep it below 50% for optimal financial health.`;
+            } else if (percentSpent > 50 && balance >= 0) {
+                recommendation += ` You're doing well, but optimizing spending further could boost savings.`;
             }
 
-            const color = percentSpent > 40 ? '#d93025' : (balance >= 0 ? '#188038' : '#f29900');
-            showBudgetResult(message, color);
+            budgetResultDiv.innerHTML = `<p>${messageHtml}</p><p class="message">${recommendation}</p>`;
+            budgetResultDiv.className = `budget-result ${resultClass}`;
         });
-    }
 
-    // Formulário de meta de poupança
-    const goalForm = document.getElementById('goalForm');
-    const goalResult = document.getElementById('result');
+        budgetForm.addEventListener('reset', () => {
+            hideError(incomeError, incomeInput);
+            hideError(expensesError, expensesInput);
+            budgetResultDiv.innerHTML = '';
+            budgetResultDiv.className = 'budget-result';
+            localStorage.removeItem('budgetData');
+        });
 
-    const loadGoalData = () => {
-        const data = JSON.parse(localStorage.getItem('goalData'));
-        if (data) {
-            document.getElementById('goalAmount').value = data.goal || '';
-            document.getElementById('monthlyContribution').value = data.monthly || '';
-            document.getElementById('interestRate').value = data.rate || '';
-        }
-    };
+        incomeInput.addEventListener('input', () => validateAndParseNumericInput(incomeInput, incomeError, true));
+        expensesInput.addEventListener('input', () => validateAndParseNumericInput(expensesInput, expensesError, true));
+    })();
 
-    const saveGoalData = () => {
-        const data = {
-            goal: document.getElementById('goalAmount').value,
-            monthly: document.getElementById('monthlyContribution').value,
-            rate: document.getElementById('interestRate').value
+    (() => {
+        const goalForm = document.getElementById('goalForm');
+        if (!goalForm) return;
+
+        const goalAmountInput = document.getElementById('goalAmount');
+        const monthlyContributionInput = document.getElementById('monthlyContribution');
+        const interestRateInput = document.getElementById('interestRate');
+        const resultDiv = document.getElementById('result');
+
+        const goalAmountError = document.getElementById('goalAmount-error');
+        const monthlyContributionError = document.getElementById('monthlyContribution-error');
+        const interestRateError = document.getElementById('interestRate-error');
+
+        goalForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const goalAmount = validateAndParseNumericInput(goalAmountInput, goalAmountError, false);
+            const monthlyContribution = validateAndParseNumericInput(monthlyContributionInput, monthlyContributionError, false);
+            const monthlyInterestRatePercent = validateAndParseNumericInput(interestRateInput, interestRateError, true);
+            const monthlyInterestRate = monthlyInterestRatePercent !== null ? monthlyInterestRatePercent / 100 : null;
+
+            if (goalAmount === null || monthlyContribution === null || monthlyInterestRate === null) {
+                resultDiv.innerHTML = '<p class="error-message">Please fix the errors in the form before calculating.</p>';
+                resultDiv.className = '';
+                return;
+            }
+
+            let months = 0;
+            let currentSavings = 0;
+
+            if (monthlyInterestRate === 0) {
+                if (monthlyContribution >= goalAmount) {
+                    months = 1;
+                } else {
+                    months = Math.ceil(goalAmount / monthlyContribution);
+                }
+                resultDiv.innerHTML = `<p>You will reach your goal of <strong>${formatUSD(goalAmount)}</strong> in approximately <strong>${months} months</strong>.</p>`;
+            } else {
+                const maxMonths = 1200;
+                while (currentSavings < goalAmount && months < maxMonths) {
+                    currentSavings = (currentSavings + monthlyContribution) * (1 + monthlyInterestRate);
+                    months++;
+                }
+
+                if (currentSavings < goalAmount) {
+                    resultDiv.innerHTML = `<p class="error-message">It might take a very long time to reach your goal with these contributions and interest rate (over ${maxMonths} months). Consider increasing your contributions or finding higher returns.</p>`;
+                } else {
+                    resultDiv.innerHTML = `<p>You will reach your goal of <strong>${formatUSD(goalAmount)}</strong> in approximately <strong>${months} months</strong>.</p>`;
+                }
+            }
+            resultDiv.className = 'budget-result';
+        });
+
+        goalForm.addEventListener('reset', () => {
+            hideError(goalAmountError, goalAmountInput);
+            hideError(monthlyContributionError, monthlyContributionInput);
+            hideError(interestRateError, interestRateInput);
+            resultDiv.innerHTML = '';
+            resultDiv.className = '';
+        });
+
+        goalAmountInput.addEventListener('input', () => validateAndParseNumericInput(goalAmountInput, goalAmountError, false));
+        monthlyContributionInput.addEventListener('input', () => validateAndParseNumericInput(monthlyContributionInput, monthlyContributionError, false));
+        interestRateInput.addEventListener('input', () => validateAndParseNumericInput(interestRateInput, interestRateError, true));
+    })();
+
+    (() => {
+        const contactForm = document.getElementById('contactForm');
+        if (!contactForm) return;
+
+        const fullnameInput = document.getElementById('fullname');
+        const emailInput = document.getElementById('email');
+        const phoneInput = document.getElementById('phone');
+        const subjectSelect = document.getElementById('subject');
+        const messageTextarea = document.getElementById('message');
+
+        const fullnameError = document.getElementById('fullname-error');
+        const emailError = document.getElementById('email-error');
+        const phoneError = document.getElementById('phone-error');
+        const subjectError = document.getElementById('subject-error');
+        const messageError = document.getElementById('message-error');
+        const formMessage = document.getElementById('formMessage');
+
+        const validateTextField = (inputElement, errorElement, validationFn) => {
+            if (!validationFn(inputElement.value.trim())) {
+                showError(errorElement, inputElement, validationFn.message);
+                return false;
+            } else {
+                hideError(errorElement, inputElement);
+                return true;
+            }
         };
-        localStorage.setItem('goalData', JSON.stringify(data));
-    };
 
-    if (goalForm && goalResult) {
-        loadGoalData();
+        const validateFullname = (value) => {
+            const isValid = value.length >= 3 && /^[a-zA-Z\s.'-]+$/.test(value);
+            validateFullname.message = isValid ? '' : 'Please enter a full name (at least 3 characters, letters, spaces, apostrophes, hyphens, periods only).';
+            return isValid;
+        };
 
-        goalForm.addEventListener('input', saveGoalData);
+        const validateEmail = (value) => {
+            const isValid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+            validateEmail.message = isValid ? '' : 'Please enter a valid email address.';
+            return isValid;
+        };
 
-        goalForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const goal = parseFloat(document.getElementById('goalAmount').value);
-            const monthly = parseFloat(document.getElementById('monthlyContribution').value);
-            const rate = parseFloat(document.getElementById('interestRate').value) / 100;
+        const validatePhone = (value) => {
+            if (!value) return true;
+            const isValid = /^\+?[0-9\s\-().]{7,20}$/.test(value);
+            validatePhone.message = isValid ? '' : 'Please enter a valid phone number (7-20 digits, optional country code and special characters).';
+            return isValid;
+        };
 
-            if (isNaN(goal) || isNaN(monthly) || isNaN(rate)) {
-                goalResult.textContent = 'Please enter valid numbers!';
-                goalResult.style.color = '#d93025';
+        const validateSubject = (value) => {
+            const isValid = !!value;
+            validateSubject.message = isValid ? '' : 'Please select a subject.';
+            return isValid;
+        };
+
+        const validateMessage = (value) => {
+            const isValid = value.length >= 10;
+            validateMessage.message = isValid ? '' : 'Message must be at least 10 characters long.';
+            return isValid;
+        };
+
+        fullnameInput.addEventListener('input', () => validateTextField(fullnameInput, fullnameError, validateFullname));
+        emailInput.addEventListener('input', () => validateTextField(emailInput, emailError, validateEmail));
+        phoneInput.addEventListener('input', () => validateTextField(phoneInput, phoneError, validatePhone));
+        subjectSelect.addEventListener('change', () => validateTextField(subjectSelect, subjectError, validateSubject));
+        messageTextarea.addEventListener('input', () => validateTextField(messageTextarea, messageError, validateMessage));
+
+        contactForm.addEventListener('submit', async event => {
+            event.preventDefault();
+
+            const isFullnameValid = validateTextField(fullnameInput, fullnameError, validateFullname);
+            const isEmailValid = validateTextField(emailInput, emailError, validateEmail);
+            const isPhoneValid = validateTextField(phoneInput, phoneError, validatePhone);
+            const isSubjectValid = validateTextField(subjectSelect, subjectError, validateSubject);
+            const isMessageValid = validateTextField(messageTextarea, messageError, validateMessage);
+
+            const isFormValid = isFullnameValid && isEmailValid && isPhoneValid && isSubjectValid && isMessageValid;
+
+            if (!isFormValid) {
+                formMessage.textContent = 'Please correct the errors in the form before submitting.';
+                formMessage.style.color = 'red';
+                formMessage.classList.add('error-message-box');
+                formMessage.classList.remove('success-message-box', 'sending-message-box');
                 return;
             }
 
-            let months = 0, total = 0;
-            while (total < goal && months < 1000) {
-                total = (total + monthly) * (1 + rate);
-                months++;
-            }
+            formMessage.textContent = 'Sending your message...';
+            formMessage.style.color = 'blue';
+            formMessage.classList.add('sending-message-box');
+            formMessage.classList.remove('error-message-box', 'success-message-box');
 
-            if (total >= goal) {
-                const years = Math.floor(months / 12);
-                const remainingMonths = months % 12;
-                const formatter = new Intl.NumberFormat('en-US', {
-                    style: 'currency', currency: 'USD', minimumFractionDigits: 2,
-                });
+            const submitButton = contactForm.querySelector('button[type="submit"]');
+            const resetButton = contactForm.querySelector('button[type="reset"]');
+            submitButton.disabled = true;
+            resetButton.disabled = true;
 
-                goalResult.textContent = `Goal of ${formatter.format(goal)} reached in ${years} year(s) and ${remainingMonths} month(s).`;
-                goalResult.style.color = '#188038';
-            } else {
-                goalResult.textContent = 'Goal not reachable, adjust your inputs.';
-                goalResult.style.color = '#d93025';
+            try {
+                // const response = await fetch('YOUR_BACKEND_API_ENDPOINT', {
+                //   method: 'POST',
+                //   headers: {
+                //     'Content-Type': 'application/json',
+                //     'Accept': 'application/json'
+                //   },
+                //   body: JSON.stringify({
+                //     fullname: fullnameInput.value,
+                //     email: emailInput.value,
+                //     phone: phoneInput.value,
+                //     subject: subjectSelect.value,
+                //     message: messageTextarea.value,
+                //   }),
+                // });
+
+                // if (!response.ok) {
+                //   const errorData = await response.json().catch(() => ({ message: 'Server error occurred.' }));
+                //   throw new Error(`HTTP error! Status: ${response.status}. Message: ${errorData.message || 'Unknown error.'}`);
+                // }
+
+                // const resultData = await response.json();
+
+                await new Promise(resolve => setTimeout(resolve, 2000));
+
+                formMessage.textContent = 'Message sent successfully! We will get back to you shortly.';
+                formMessage.style.color = 'green';
+                formMessage.classList.add('success-message-box');
+                formMessage.classList.remove('sending-message-box', 'error-message-box');
+
+                contactForm.reset();
+
+                setTimeout(() => {
+                    formMessage.textContent = '';
+                    formMessage.classList.remove('success-message-box');
+                    formMessage.style.color = '';
+                }, 5000);
+
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                formMessage.textContent = 'Failed to send message. Please try again later.';
+                formMessage.style.color = 'red';
+                formMessage.classList.add('error-message-box');
+                formMessage.classList.remove('sending-message-box', 'success-message-box');
+            } finally {
+                submitButton.disabled = false;
+                resetButton.disabled = false;
             }
         });
-    }
 
-    // Formulário de contato
-    const contactForm = document.getElementById('contactForm');
-    const formMessage = document.getElementById('formMessage');
+        contactForm.addEventListener('reset', () => {
+            hideError(fullnameError, fullnameInput);
+            hideError(emailError, emailInput);
+            hideError(phoneError, phoneInput);
+            hideError(subjectError, subjectSelect);
+            hideError(messageError, messageTextarea);
 
-    if (contactForm && formMessage) {
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
+            formMessage.textContent = '';
+            formMessage.style.color = '';
+            formMessage.classList.remove('error-message-box', 'success-message-box', 'sending-message-box');
 
-            const name = contactForm.querySelector('input[name="fullname"]').value.trim();
-            const email = contactForm.querySelector('input[name="email"]').value.trim();
-            const message = contactForm.querySelector('textarea[name="message"]').value.trim();
+            fullnameInput.removeAttribute('aria-invalid');
+            emailInput.removeAttribute('aria-invalid');
+            phoneInput.removeAttribute('aria-invalid');
+            subjectSelect.removeAttribute('aria-invalid');
+            messageTextarea.removeAttribute('aria-invalid');
 
-            if (!name) {
-                formMessage.textContent = 'Please enter your name';
-                formMessage.style.color = '#d93025';
-                return;
-            }
-
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!email || !emailRegex.test(email)) {
-                formMessage.textContent = 'Please enter a valid email address';
-                formMessage.style.color = '#d93025';
-                return;
-            }
-
-            if (!message) {
-                formMessage.textContent = 'Please enter your message';
-                formMessage.style.color = '#d93025';
-                return;
-            }
-
-            localStorage.setItem("userName", name);
-
-            const messages = JSON.parse(localStorage.getItem('contactMessages')) || [];
-            messages.push({ name, email, message, date: new Date().toISOString() });
-            localStorage.setItem('contactMessages', JSON.stringify(messages));
-
-            formMessage.textContent = 'Your message has been sent!';
-            formMessage.style.color = '#188038';
-            contactForm.reset();
+            contactForm.querySelector('button[type="submit"]').disabled = false;
+            contactForm.querySelector('button[type="reset"]').disabled = false;
         });
-    }
+    })();
 });
