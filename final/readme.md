@@ -28,9 +28,9 @@ T2 Smart Finance is designed to deliver **accessible financial education** and *
 Real-time, user-friendly tools to support informed financial choices:
 
 * ✅ **Budget Calculator** – Assess your financial health instantly by analyzing income vs. expenses.
-  [Launch Calculator →](./budgeting-planning.html)
+  [Launch Calculator →](./https://thneri95.github.io/wdd131/final/budgeting-planning.html)
 * ✅ **Savings Goal Calculator** – Set a goal and calculate how much to save monthly to achieve it.
-  [Launch Calculator →](./saving.html)
+  [Launch Calculator →](./https://thneri95.github.io/wdd131/final/saving.html)
 * 🔧 *More calculators coming soon: loan payoff, investment growth, and retirement planning tools!*
 
 ### 📈 Saving & Investing Strategies
