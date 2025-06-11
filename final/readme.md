@@ -8,9 +8,9 @@
 
 Welcome to **T2 Smart Finance** – my capstone project developed for the **WDD 131: Dynamic Web Fundamentals** course at **BYU-Idaho**.
 
-Rather than building a theoretical prototype, I developed a **fully functional and useful** website that I will actively utilize in **T2**, my financial consulting company. This platform empowers users with **clear, actionable insights into personal finance**.
+Rather than building a theoretical prototype, I developed a **fully functional and useful** website that I will actively utilize in **T2**, my financial consulting company. This platform empowers users with **clear, actionable insights into personal finance**
 
-T2 Smart Finance is designed to deliver **accessible financial education** and **interactive tools** to individuals across the **United States**. It's a robust, real-world tool for better decisions about budgeting, saving, investing, and long-term planning.
+T2 Smart Finance is designed to deliver **accessible financial education** and **interactive tools** to individuals across the **United States**. It's a robust, real-world tool for better decisions about budgeting, saving, investing, and long-term planning
 
 🔍 **Our Core Focus:** Budgeting | Saving | Investing | Financial Planning
 
@@ -27,9 +27,9 @@ T2 Smart Finance is designed to deliver **accessible financial education** and *
 
 Real-time, user-friendly tools to support informed financial choices:
 
-* ✅ **Budget Calculator** – Assess your financial health instantly by analyzing income vs. expenses.
+* ✅ **Budget Calculator** – Assess your financial health instantly by analyzing income vs. expenses
   [Launch Calculator →](./https://thneri95.github.io/wdd131/final/budgeting-planning.html)
-* ✅ **Savings Goal Calculator** – Set a goal and calculate how much to save monthly to achieve it.
+* ✅ **Savings Goal Calculator** – Set a goal and calculate how much to save monthly to achieve it
   [Launch Calculator →](./https://thneri95.github.io/wdd131/final/saving.html)
 * 🔧 *More calculators coming soon: loan payoff, investment growth, and retirement planning tools!*
 
@@ -101,20 +101,20 @@ T2-Smart-Finance/
 
 T2 Smart Finance is built for maximum visibility, speed, and accessibility:
 
-* ✅ **Semantic HTML5:** Proper use of `<header>`, `<main>`, `<section>`, `<footer>`, etc.
-* ✅ **Meta Tags:** SEO keywords, Open Graph, and Twitter Card metadata.
+* ✅ **Semantic HTML5:** Proper use of `<header>`, `<main>`, `<section>`, `<footer>`, etc
+* ✅ **Meta Tags:** SEO keywords, Open Graph, and Twitter Card metadata
 * ✅ **Responsive Design:** Fluid layouts with media queries and a mobile-first approach.
-* ✅ **Lazy Loading:** For images, improving load times.
-* ✅ **Preload Assets:** Fonts and critical CSS load quickly.
-* ✅ **Accessibility First:** ARIA roles, screen reader labels, and keyboard-friendly navigation.
-* ✅ **Canonical URLs:** Avoids duplicate content and improves SEO indexing.
-* ✅ **Optimized Images & CSS Variables:** Reduces file size and simplifies styling consistency.
+* ✅ **Lazy Loading:** For images, improving load times
+* ✅ **Preload Assets:** Fonts and critical CSS load quickly
+* ✅ **Accessibility First:** ARIA roles, screen reader labels, and keyboard-friendly navigation
+* ✅ **Canonical URLs:** Avoids duplicate content and improves SEO indexing
+* ✅ **Optimized Images & CSS Variables:** Reduces file size and simplifies styling consistency
 
 ---
 
 ## 🤝 Contributing
 
-This project is a personal initiative created for my company, **T2 Financial Consulting**. While external code contributions are not open, I appreciate **feedback**, **ideas**, or **bug reports**. Open an issue or connect with me directly.
+This project is a personal initiative created for my company, **T2 Financial Consulting**. While external code contributions are not open, I appreciate **feedback**, **ideas**, or **bug reports**. Open an issue or connect with me directly
 
 ---
 
