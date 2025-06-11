@@ -1,96 +1,133 @@
 # 💰 T2 Smart Finance: Your Path to Financial Freedom
 
-https://thneri95.github.io/wdd131/final/index.html
+**Live Site:** [https://thneri95.github.io/wdd131/final/index.html](https://thneri95.github.io/wdd131/final/index.html)
 
 ---
 
 ## ✨ Project Overview
 
-Welcome to **T2 Smart Finance** – the final project developed by **Tiago Neri** for the **WDD 131: Dynamic Web Fundamentals** course at **BYU-Idaho**.
+Welcome to **T2 Smart Finance** – my capstone project developed for the **WDD 131: Dynamic Web Fundamentals** course at **BYU-Idaho**.
 
-Rather than creating a generic prototype, I chose to build something real and meaningful — a fully functional website that I will actively use in my own **financial consulting company, T2**. This platform was designed to guide users through personal finance with clarity and real utility — including **interactive calculators**, educational content, and actionable strategies.
+Rather than building a theoretical prototype, I developed a **fully functional and useful** website that I will actively utilize in **T2**, my financial consulting company. This platform empowers users with **clear, actionable insights into personal finance**.
 
-T2 is focused on delivering powerful, accessible financial education to individuals across the **United States**, helping people make smarter decisions about budgeting, saving, investing, and planning for their future.
+T2 Smart Finance is designed to deliver **accessible financial education** and **interactive tools** to individuals across the **United States**. It's a robust, real-world tool for better decisions about budgeting, saving, investing, and long-term planning.
 
-🔍 Our focus: **Budgeting | Saving | Investing | Financial Planning**
+🔍 **Our Core Focus:** Budgeting | Saving | Investing | Financial Planning
 
 ---
 
-## 🚀 Key Features
+## 🚀 Key Features & Functionality
 
-Empowering users with smart tools and essential financial knowledge:
+### 📊 Financial Planning & Budgeting
 
-* 📊 **Financial Planning & Budgeting**
+* **Income Allocation:** Master the 40/30/30 rule to structure your income effectively.
+* **Expense Tracking:** Visualize and manage your income and spending for clarity and control.
 
-  * Apply the **40/30/30 rule** to structure income allocation efficiently.
-  * Track income and expenses to build a solid budget foundation.
+### 💸 Interactive Financial Calculators
 
-* 💸 **Interactive Financial Calculators**
+Real-time, user-friendly tools to support informed financial choices:
 
-  * ✅ **Budget Calculator** – Analyze income vs. expenses in real time to assess your financial health.
-    [Use it →](./budgeting-planning.html)
-  * ✅ **Savings Goal Calculator** – Define a savings target and calculate how much you need to set aside each month to reach it.
-    [Try it →](./saving.html)
-  * 🔧 *More calculators coming soon!*
+* ✅ **Budget Calculator** – Assess your financial health instantly by analyzing income vs. expenses.
+  [Launch Calculator →](./budgeting-planning.html)
+* ✅ **Savings Goal Calculator** – Set a goal and calculate how much to save monthly to achieve it.
+  [Launch Calculator →](./saving.html)
+* 🔧 *More calculators coming soon: loan payoff, investment growth, and retirement planning tools!*
 
-* 📈 **Saving & Investing Tips**
+### 📈 Saving & Investing Strategies
 
-  * Build an **emergency fund**, automate savings, and learn how to invest using **diversified portfolios** (stocks, bonds, ETFs).
+* **Emergency Fund Development** – Learn how to build a financial safety net.
+* **Automated Savings Systems** – Establish routines for consistent saving.
+* **Diversified Portfolios** – Understand key asset classes: stocks, bonds, ETFs.
 
-* 📱 **Responsive UI**
+### 📱 User Experience & Performance
 
-  * Designed for a smooth experience on mobile, tablet, and desktop.
-
-* ⚡ **Optimized Performance**
-
-  * Fast loading, smooth interactions, and semantic HTML for strong SEO.
+* **Responsive Design:** Seamless interface on mobile, tablet, and desktop.
+* **Fast Loading:** Optimized performance and SEO-driven structure.
 
 ---
 
 ## 💻 Tech Stack
 
-Built using modern web technologies for speed, maintainability, and performance:
+T2 Smart Finance uses modern web standards for speed, accessibility, and maintainability:
 
-* **HTML5** – Semantic, accessible structure for SEO and screen readers.
-* **CSS3** – Responsive design with CSS Grid/Flexbox and custom variables.
-* **JavaScript (ES6+)** – Core logic for dynamic calculators and interactions:
+* **HTML5** – Semantic, accessible layout.
+* **CSS3** – Responsive design with Grid, Flexbox, and CSS Variables.
+* **JavaScript (ES6+)** – Core logic for all dynamic content:
 
-  * Conditional logic (`if/else`, `switch`, ternary operators)
-  * Arrays & array methods (`map`, `filter`, `reduce`)
-  * Template literals for clean, dynamic content
-  * Real-time calculator functions to provide accurate outputs
+  * Conditional structures: `if/else`, `switch`, ternary operators
+  * Arrays & methods: `map`, `filter`, `reduce`
+  * Template literals: clean, dynamic content
+  * Real-time calculator functions
 
 ---
 
-## 📁 File Structure
+## 🚀 Getting Started
+
+### ✅ Prerequisites
+
+No server or installation needed — just a modern browser:
+
+* Google Chrome
+* Mozilla Firefox
+* Safari
+* Microsoft Edge
+
+* Just click at the link! 
+
+## 📁 Project Structure
 
 ```
 T2-Smart-Finance/
 ├── index.html                  # Home page
-├── budgeting-planning.html    # Budget calculator
-├── saving.html                # Savings calculator
-├── contact.html               # Contact form
+├── budgeting-planning.html     # Budget calculator page
+├── saving.html                 # Savings calculator page
+├── contact.html                # Contact form page
 ├── styles/
-│   └── styles.css             # Main stylesheet
+│   └── styles.css              # Main stylesheet
 ├── scripts/
-│   ├── home.js                # Logic for homepage
-│   ├── budgeting.js           # Budget calculator logic
-│   ├── saving.js              # Savings calculator logic
+│   ├── home.js                 # Homepage logic
+│   ├── budgeting.js            # Budget calculator logic
+│   └── saving.js               # Savings calculator logic
 ├── images/
-│   ├── t2.png                 # Company logo
-│   ├── og-image.jpg           # OG preview image
-│   ├── twitter-image.jpg      # Twitter card image
-└── README.md                  # This README file
+│   ├── t2.png                  # Logo
+│   ├── og-image.jpg            # OG preview image
+│   └── twitter-image.jpg       # Twitter Card image
+└── README.md                   # This file
 ```
 
 ---
 
-## 📈 SEO & Performance Optimization
+## ⚙️ SEO & Performance Optimization
 
-T2 Smart Finance is crafted with visibility and speed in mind:
+T2 Smart Finance is built for maximum visibility, speed, and accessibility:
 
-✅ Semantic HTML5 – `<header>`, `<section>`, `<footer>`, etc
-✅ Meta Tags – Includes description, keywords, author, and full Open Graph + Twitter card support
-✅ Responsive Design – Media queries + mobile-first layout
-✅ Lazy Loading & Preload – Optimized fonts and images
-✅ Accessibility First – ARIA roles, keyboard navigation, and screen-reader support
+* ✅ **Semantic HTML5:** Proper use of `<header>`, `<main>`, `<section>`, `<footer>`, etc.
+* ✅ **Meta Tags:** SEO keywords, Open Graph, and Twitter Card metadata.
+* ✅ **Responsive Design:** Fluid layouts with media queries and a mobile-first approach.
+* ✅ **Lazy Loading:** For images, improving load times.
+* ✅ **Preload Assets:** Fonts and critical CSS load quickly.
+* ✅ **Accessibility First:** ARIA roles, screen reader labels, and keyboard-friendly navigation.
+* ✅ **Canonical URLs:** Avoids duplicate content and improves SEO indexing.
+* ✅ **Optimized Images & CSS Variables:** Reduces file size and simplifies styling consistency.
+
+---
+
+## 🤝 Contributing
+
+This project is a personal initiative created for my company, **T2 Financial Consulting**. While external code contributions are not open, I appreciate **feedback**, **ideas**, or **bug reports**. Open an issue or connect with me directly.
+
+---
+
+## 🧑‍💻 Author
+
+**Tiago Neri** – Developer & Founder of T2 Financial Consulting
+
+* [LinkedIn](https://www.linkedin.com/in/tiagoneri)
+
+
+---
+
+## 📜 License
+
+© 2025 Tiago Neri | T2 Smart Finance. All Rights Reserved.
+Developed as part of the WDD 131: Dynamic Web Fundamentals course at BYU-Idaho
