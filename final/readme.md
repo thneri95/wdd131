@@ -90,10 +90,9 @@ T2-Smart-Finance/
 │   ├── budgeting.js            # Budget calculator logic
 │   └── saving.js               # Savings calculator logic
 ├── images/
-│   ├── t2.png                  # Logo
-│   ├── og-image.jpg            # OG preview image
-│   └── twitter-image.jpg       # Twitter Card image
-└── README.md                   # This file
+│   ├── t2.png                 
+│
+└── README.md                    
 ```
 
 ---
