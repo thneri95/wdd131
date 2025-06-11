@@ -6,13 +6,14 @@
 
 ## ✨ Project Overview
 
+
 Welcome to **T2 Smart Finance** – my capstone project developed for the **WDD 131: Dynamic Web Fundamentals** course at **BYU-Idaho**.
 
 Rather than building a theoretical prototype, I developed a **fully functional and useful** website that I will actively utilize in **T2**, my financial consulting company. This platform empowers users with **clear, actionable insights into personal finance**
 
 T2 Smart Finance is designed to deliver **accessible financial education** and **interactive tools** to individuals across the **United States**. It's a robust, real-world tool for better decisions about budgeting, saving, investing, and long-term planning
 
-🔍 **Our Core Focus:** Budgeting | Saving | Investing | Financial Planning
+🔍 **Our Core Focus:** Budgeting | Saving | Investing | Financial Planning   
 
 ---
 
@@ -57,7 +58,7 @@ T2 Smart Finance uses modern web standards for speed, accessibility, and maintai
   * Conditional structures: `if/else`, `switch`, ternary operators
   * Arrays & methods: `map`, `filter`, `reduce`
   * Template literals: clean, dynamic content
-  * Real-time calculator functions
+  * Real-time calculator functions + localStorage
 
 ---
 
