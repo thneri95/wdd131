@@ -1,75 +1,95 @@
-WDD131: Dynamic Web Fundamentals
+# 🚀 WDD131: Dynamic Web Fundamentals
 
+Welcome to my **WDD131 Repository**, where **learning meets action**!  
+This isn’t just coursework—it's a showcase of **real-world applications**, culminating in a **fully functional finance portal** I built for my own business. 💼🌐
 
-This repository contains the projects and assignments completed for the WDD131 Dynamic Web Fundamentals course, focusing on more advanced front-end web development concepts
-It features my personal home page as a central hub and includes various projects that demonstrate skills in HTML, CSS, and JavaScript
+> 💡 *“Code is not just written—it’s crafted.”*  
+> Join me as I level up from static pages to fully interactive user experiences.
 
+---
 
-📚 Course Overview (WDD131)
-The WDD131 course builds upon foundational web development knowledge, delving deeper into responsive design, interactive elements, and more complex CSS layouts.
-Key areas often covered include:
+## 🎓 About the Course
 
-Advanced CSS Layouts: Flexbox and Grid for robust and responsive designs
+The **WDD131 - Dynamic Web Fundamentals** course at BYU-Idaho taught me how to go from structure to strategy in web design. This repo is my playground of:
 
-Responsive Web Design: Media queries, fluid images, and mobile-first approaches
+- ✅ Semantic HTML5
+- 🎨 Advanced CSS (Flexbox, Grid, Media Queries)
+- 🔧 JavaScript (DOM, Events, localStorage)
+- 🚀 Performance & UX Optimization
+- 🧠 Real Version Control using Git + GitHub
 
-Introduction to JavaScript: DOM manipulation, event handling, and dynamic content
+---
 
-Web Forms: Validation and user input handling
+## 💼 Real Project: T2 Smart Finance Portal
 
-Performance Optimization: Basic considerations for loading speed and efficiency
+🧩 **Not just theory — this is real.**  
+My final project is a **real business portal** that integrates everything I’ve learned.
 
-Version Control: Using Git and GitHub for project management
+🔗 [💼 Visit T2 Smart Finance Portal](https://thneri95.github.io/wdd131/final/index.html)
 
-💻 Technologies Used
-HTML5: For semantic structuring of web content
+> 💬 **Note:** The use of contrast is **intentional**—it's a proven UX technique to emphasize calls to action and guide the user visually.
 
-CSS3: For advanced styling, including Flexbox, Grid, and responsive techniques
+---
 
-JavaScript (ES6+): For adding interactivity and dynamic behavior to web pages
+## 🛠️ Tech Stack
 
-✨ Features of My Home Page
-Responsive Layout: Adapts seamlessly to various screen sizes (desktop, tablet, mobile)
+| 🚀 Tech         | ⚙️ Purpose                                              |
+|----------------|--------------------------------------------------------|
+| **HTML5**       | Semantic, accessible structure                        |
+| **CSS3**        | Layout, design, animations, and responsiveness        |
+| **JavaScript**  | Dynamic behavior, DOM manipulation, data persistence |
+| **GitHub Pages**| Deployment and version control                        |
 
-Navigation: Clear and intuitive navigation to different sections or external projects
+---
 
-Project Showcase: Links to key projects completed throughout the WDD131 course
+## 🧭 Highlights of My Home Page
 
-Clean Design: Focus on user experience and readability
+✨ **Live Demo**: [Click here to explore](https://thneri95.github.io/wdd131/)  
+📱 Fully Responsive | 🔗 Project Links | 💡 Clean UI | 💬 Interactive Navigation  
 
+🧠 What I focused on:
 
+- ✅ Mobile-first approach  
+- ✅ Accessibility & semantic structure  
+- ✅ Dynamic content using JS  
+- ✅ Realistic design decisions
 
-🔗 Projects from this Course
-Here are the links to the various projects completed during the WDD131 course:
+---
 
-Week 01
-Basic Layout for Home Page: https://thneri95.github.io/wdd131/week01/basic-layout.html
+## 📂 Project Gallery
 
-My Home Page (Ready): https://thneri95.github.io/wdd131/
+Each project listed below reflects a new concept or challenge explored week-by-week. Tap into them 👇
 
-Week 02
-Book of Mormon Project: https://thneri95.github.io/wdd131/week02/bom
+| ✅ Week | 📌 Project Title | 🔗 Live Link |
+|--------|------------------|--------------|
+| 01 | Basic Home Page Layout | [View Project](https://thneri95.github.io/wdd131/week01/basic-layout.html) |
+| - | Main Home Page | [Visit Site](https://thneri95.github.io/wdd131/) |
+| 02 | Book of Mormon Tracker (JS Intro) | [Open App](https://thneri95.github.io/wdd131/week02/bom) |
+| 02 | Responsive Design Test | [Check It](https://thneri95.github.io/wdd131/week02/media-query.html) |
+| 03 | Temple Gallery Project | [Explore Album](https://thneri95.github.io/wdd131/temples.html) |
+| - | Sunny Island (JS-Based UI) | [View Site](https://thneri95.github.io/wdd131/place.html) |
+| 04 | Filtered Temple Album (JS DOM) | [Try Filter](https://thneri95.github.io/wdd131/filtered-temples.html) |
+| 05 | Website Planning Page | [See Plan](https://thneri95.github.io/wdd131/week05/siteplan.html) |
+| 05 | BOM Update (JS + localStorage) | [See Update](https://thneri95.github.io/wdd131/week05/bom.html) |
+| 05 | Product Review Page | [Try Review Form](https://thneri95.github.io/wdd131/form.html) |
+| 06 | ⭐ Final Project – Smart Finance Portal | [🚀 Launch Now](https://thneri95.github.io/wdd131/final/index.html) |
 
-Media Query Test: https://thneri95.github.io/wdd131/week02/media-query.html
+---
 
-Week 03
-Temple Album Project: https://thneri95.github.io/wdd131/temples.html
+## 🧠 What I Learned
 
-Sunny Island - Used JS: https://thneri95.github.io/wdd131/place.html
+- 📏 Responsive design isn’t just resizing—it’s **rethinking layouts**
+- 📚 JavaScript turns passive pages into **interactive experiences**
+- 🗂️ Clean structure (HTML) + smart styling (CSS) + powerful logic (JS) = 🔥 Web Apps
+- 🧩 Real projects > fake portfolios — **this repo is proof**
 
-Week 04
-Temple Album Update - Improved by JavaScript: https://thneri95.github.io/wdd131/filtered-temples.html
+---
 
-Week 05 
-A simple page about my Website Plan - Final Project: https://thneri95.github.io/wdd131/week05/siteplan.html
+## 🙋‍♂️ Let’s Connect!
 
-Update using JavaScript (localStorage) at my previous Page of Book of Mormom- https://thneri95.github.io/wdd131/week05/bom.html
+If you’ve got feedback, questions, or just want to geek out about web dev—reach out!  
+I’d love to network and keep building great things.
 
-A Page for product Review, I used Html+ CSS + JS: https://thneri95.github.io/wdd131/form.html
+---
 
-Week 06
-My project at Front-end (Html/CSS/JS) - T2 Smart Finance Portal: https://thneri95.github.io/wdd131/final/index.html
-
-
-📧 Contact
-If you have any questions or feedback about my projects or this repository, feel free to reach out
+> 🌟 *“Every tag, every class, every line—was a step toward mastering dynamic web design.”*
