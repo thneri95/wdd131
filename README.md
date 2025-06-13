@@ -67,6 +67,9 @@ Update using JavaScript (localStorage) at my previous Page of Book of Mormom- ht
 
 A Page for product Review, I used Html+ CSS + JS: https://thneri95.github.io/wdd131/form.html
 
+Week 06
+My project at Front-end (Html/CSS/JS) - T2 Smart Finance Portal: https://thneri95.github.io/wdd131/final/index.html
+
 
 📧 Contact
 If you have any questions or feedback about my projects or this repository, feel free to reach out
