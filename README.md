@@ -81,7 +81,7 @@ Each project listed below reflects a new concept or challenge explored week-by-w
 - 📏 Responsive design isn’t just resizing—it’s **rethinking layouts**
 - 📚 JavaScript turns passive pages into **interactive experiences**
 - 🗂️ Clean structure (HTML) + smart styling (CSS) + powerful logic (JS) = 🔥 Web Apps
-- 🧩 Real projects > fake portfolios — **this repo is proof**
+- 🧩 Real projects > I used what I learned in my final project — **this repo is proof**
 
 ---
 
