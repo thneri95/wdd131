@@ -2,7 +2,6 @@
 
 **Author**: Tiago Neri  
 
-
 Welcome to my **WDD131 Repository**, where **learning meets action**!  
 This isn’t just coursework—it's a showcase of **real-world applications**, culminating in a **fully functional finance portal** I built for my own business. 💼🌐
 
